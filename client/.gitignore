@@ -1,0 +1,13 @@
+# Client Dependencies
+node_modules/
+dist/
+dist-ssr/
+
+# Secrets
+.env
+.env.*
+*.env
+!.env.example
+
+# Logs
+*.log

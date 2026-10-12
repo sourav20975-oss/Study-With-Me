@@ -1,0 +1,934 @@
+{
+  "users": [
+    {
+      "id": "usr-admin-1",
+      "name": "Sourav Kumar",
+      "email": "tutor@studysathi.com",
+      "passwordHash": "$2a$10$iK8WwcCiDIJrCDaR1AVAJeke81px14DntYcFcVxkX4uypjRzkn8pO",
+      "role": "admin",
+      "grade": "Senior Faculty & Narayana ICSE Coordinator",
+      "isActive": true,
+      "createdAt": "2025-01-10T10:00:00.000Z",
+      "lastLoginAt": "2026-10-12T09:22:38.225Z",
+      "updatedAt": "2026-10-12T09:22:38.227Z"
+    },
+    {
+      "id": "usr-student-1",
+      "name": "Aarav Sharma",
+      "email": "student@studysathi.com",
+      "passwordHash": "$2a$10$ne6Fh0jy7Z7Cwu8Xiu0pf.FwI3tUUZdYB19Q28OycPzi6uUpk9L4.",
+      "role": "student",
+      "grade": "Class 8 (Narayana ICSE Techno Curriculum)",
+      "isActive": true,
+      "createdAt": "2025-01-10T10:30:00.000Z",
+      "lastLoginAt": "2026-10-12T09:23:12.977Z",
+      "updatedAt": "2026-10-12T09:23:12.977Z"
+    }
+  ],
+  "subjects": [
+    {
+      "id": "sub-maths",
+      "name": "Mathematics",
+      "slug": "mathematics",
+      "grade": "Class 8 ICSE Narayana",
+      "icon": "calculator",
+      "sortOrder": 1,
+      "isActive": true,
+      "description": "Narayana ICSE Foundation: Rational numbers, algebraic identities, exponents, linear equations, and commercial arithmetic."
+    },
+    {
+      "id": "sub-science",
+      "name": "Science",
+      "slug": "science",
+      "grade": "Class 8 ICSE Narayana",
+      "icon": "flask-conical",
+      "sortOrder": 2,
+      "isActive": true,
+      "description": "Narayana Techno Physics, Chemistry & Biology: Fluid pressure, kinetic theory, atomic structure, chemical reactions, and plant transport."
+    },
+    {
+      "id": "sub-english",
+      "name": "English",
+      "slug": "english",
+      "grade": "Class 8 ICSE Narayana",
+      "icon": "book-open",
+      "sortOrder": 3,
+      "isActive": true,
+      "description": "ICSE Class 8 English: Comprehensive prose analysis, poetry appreciation, and functional grammar essentials."
+    },
+    {
+      "id": "sub-social",
+      "name": "Social Science",
+      "slug": "social-science",
+      "grade": "Class 8 ICSE Narayana",
+      "icon": "globe",
+      "sortOrder": 4,
+      "isActive": true,
+      "description": "ICSE History, Civics & Geography: The Indian Constitution, Parliamentary system, resources, and modern Indian history."
+    }
+  ],
+  "chapters": [
+    {
+      "id": "ch-math-1",
+      "subjectId": "sub-maths",
+      "title": "Rational Numbers & Number Systems",
+      "description": "Closure, commutative, associative and distributive properties, operations, and number line representation.",
+      "sortOrder": 1,
+      "isPublished": true
+    },
+    {
+      "id": "ch-math-2",
+      "subjectId": "sub-maths",
+      "title": "Exponents & Powers (Laws of Indices)",
+      "description": "Laws of integral exponents, negative exponents, exponential simplification, and scientific notation.",
+      "sortOrder": 2,
+      "isPublished": true
+    },
+    {
+      "id": "ch-math-3",
+      "subjectId": "sub-maths",
+      "title": "Algebraic Expressions & Special Identities",
+      "description": "Polynomial operations, multiplication of binomials, (a+b)², (a-b)², a²-b², and algebraic factorization.",
+      "sortOrder": 3,
+      "isPublished": true
+    },
+    {
+      "id": "ch-math-4",
+      "subjectId": "sub-maths",
+      "title": "Linear Equations in One Variable",
+      "description": "Standard form equations, cross-multiplication, and word problems on ages, digits, and speed-time.",
+      "sortOrder": 4,
+      "isPublished": true
+    },
+    {
+      "id": "ch-math-5",
+      "subjectId": "sub-maths",
+      "title": "Commercial Arithmetic: Profit, Loss & Compound Interest",
+      "description": "Cost price, selling price, marked price, successive discounts, and annual compound interest calculations.",
+      "sortOrder": 5,
+      "isPublished": true
+    },
+    {
+      "id": "ch-math-6",
+      "subjectId": "sub-maths",
+      "title": "Mensuration: Surface Area & Solid Volumes",
+      "description": "Area of trapezium, polygon division, surface area and volume of cubes, cuboids, and cylinders.",
+      "sortOrder": 6,
+      "isPublished": true
+    },
+    {
+      "id": "ch-sci-1",
+      "subjectId": "sub-science",
+      "title": "Physics: Thrust, Pressure & Fluid Mechanics",
+      "description": "Thrust and pressure relationship, laws of liquid pressure, atmospheric pressure, and Torricellian barometer.",
+      "sortOrder": 1,
+      "isPublished": true
+    },
+    {
+      "id": "ch-sci-2",
+      "subjectId": "sub-science",
+      "title": "Physics: Work, Energy & Conservation of Power",
+      "description": "Mechanical work (W = F × s), kinetic energy (½mv²), potential energy (mgh), and power calculations.",
+      "sortOrder": 2,
+      "isPublished": true
+    },
+    {
+      "id": "ch-sci-3",
+      "subjectId": "sub-science",
+      "title": "Chemistry: Elements, Radicals & Language of Chemistry",
+      "description": "Chemical symbols, mono/polyatomic radicals, valency criss-cross formula writing, and balancing equations.",
+      "sortOrder": 3,
+      "isPublished": true
+    },
+    {
+      "id": "ch-sci-4",
+      "subjectId": "sub-science",
+      "title": "Chemistry: Atomic Structure & Subatomic Particles",
+      "description": "Dalton atomic theory, Thomson, Rutherford alpha scattering, Bohr model, atomic number (Z) and mass number (A).",
+      "sortOrder": 4,
+      "isPublished": true
+    },
+    {
+      "id": "ch-sci-5",
+      "subjectId": "sub-science",
+      "title": "Biology: Transport of Food and Minerals in Plants",
+      "description": "Diffusion, osmosis, active transport, root hair absorption, xylem-phloem conduction, and transpiration pull.",
+      "sortOrder": 5,
+      "isPublished": true
+    },
+    {
+      "id": "ch-sci-6",
+      "subjectId": "sub-science",
+      "title": "Biology: The Human Circulatory & Nervous Systems",
+      "description": "Heart anatomy, cardiac cycle, double circulation, blood groups, neuron structure, and reflex action arc.",
+      "sortOrder": 6,
+      "isPublished": true
+    },
+    {
+      "id": "ch-eng-1",
+      "subjectId": "sub-english",
+      "title": "ICSE Prose: The Model Millionaire (Oscar Wilde)",
+      "description": "Character analysis of Hughie Erskine and Baron Hausberg, themes of generosity and social perceptions.",
+      "sortOrder": 1,
+      "isPublished": true
+    },
+    {
+      "id": "ch-eng-2",
+      "subjectId": "sub-english",
+      "title": "Functional Grammar: Active & Passive Voice, Reported Speech",
+      "description": "Rules for voice transformations, tense changes in direct-indirect speech, modals, and conditional clauses.",
+      "sortOrder": 2,
+      "isPublished": true
+    },
+    {
+      "id": "ch-soc-1",
+      "subjectId": "sub-social",
+      "title": "Civics: The Indian Constitution & Fundamental Rights",
+      "description": "Constituent assembly, Preamble core values, Federal structure, and the Six Fundamental Rights of Indian citizens.",
+      "sortOrder": 1,
+      "isPublished": true
+    },
+    {
+      "id": "ch-soc-2",
+      "subjectId": "sub-social",
+      "title": "Geography: Natural Resources — Land, Soil & Water Conservation",
+      "description": "Land use patterns, soil horizons, soil conservation methods, hydrological cycle, and rainwater harvesting.",
+      "sortOrder": 2,
+      "isPublished": true
+    }
+  ],
+  "notes": [
+    {
+      "id": "note-math-1",
+      "subjectId": "sub-maths",
+      "chapterId": "ch-math-1",
+      "createdBy": "usr-admin-1",
+      "title": "Rational Numbers — Complete Core Notes & Algebraic Properties",
+      "summary": "In-depth Narayana notes on closure, commutative, associative properties, and representation on a number line.",
+      "tags": [
+        "Class 8 Maths",
+        "Narayana ICSE",
+        "Rational Numbers",
+        "Properties"
+      ],
+      "readTimeMinutes": 7,
+      "status": "published",
+      "publishedAt": "2026-10-10T09:00:00.000Z",
+      "createdAt": "2026-10-10T08:30:00.000Z",
+      "contentHtml": "\n<h3>1. What is a Rational Number?</h3>\n<p>A number that can be expressed in the form <strong>\\( \\frac{p}{q} \\)</strong>, where \\( p \\) and \\( q \\) are integers and \\( q \\neq 0 \\), is called a rational number.</p>\n<p><strong>Examples:</strong> \\( \\frac{2}{3}, -\\frac{5}{7}, 0 = \\frac{0}{1}, 4 = \\frac{4}{1} \\).</p>\n\n<hr/>\n\n<h3>2. Key Properties of Rational Numbers</h3>\n<table>\n  <thead>\n    <tr>\n      <th>Property</th>\n      <th>Addition</th>\n      <th>Subtraction</th>\n      <th>Multiplication</th>\n      <th>Division</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><strong>Closure</strong></td>\n      <td>Yes: \\( a + b \\in \\mathbb{Q} \\)</td>\n      <td>Yes: \\( a - b \\in \\mathbb{Q} \\)</td>\n      <td>Yes: \\( a \\times b \\in \\mathbb{Q} \\)</td>\n      <td>No (division by zero is undefined)</td>\n    </tr>\n    <tr>\n      <td><strong>Commutative</strong></td>\n      <td>Yes: \\( a + b = b + a \\)</td>\n      <td>No: \\( a - b \\neq b - a \\)</td>\n      <td>Yes: \\( a \\times b = b \\times a \\)</td>\n      <td>No: \\( a \\div b \\neq b \\div a \\)</td>\n    </tr>\n    <tr>\n      <td><strong>Associative</strong></td>\n      <td>Yes: \\( (a+b)+c = a+(b+c) \\)</td>\n      <td>No</td>\n      <td>Yes: \\( (ab)c = a(bc) \\)</td>\n      <td>No</td>\n    </tr>\n    <tr>\n      <td><strong>Distributive</strong></td>\n      <td colspan=\"4\">\\( a \\times (b + c) = (a \\times b) + (a \\times c) \\)</td>\n    </tr>\n  </tbody>\n</table>\n\n<hr/>\n\n<h3>3. Additive and Multiplicative Inverses</h3>\n<ul>\n  <li><strong>Additive Identity:</strong> \\( 0 \\) is the additive identity because \\( a + 0 = 0 + a = a \\).</li>\n  <li><strong>Additive Inverse:</strong> The additive inverse of \\( \\frac{a}{b} \\) is \\( -\\frac{a}{b} \\).</li>\n  <li><strong>Multiplicative Identity:</strong> \\( 1 \\) is the multiplicative identity because \\( a \\times 1 = a \\).</li>\n  <li><strong>Multiplicative Inverse (Reciprocal):</strong> The reciprocal of \\( \\frac{a}{b} \\) is \\( \\frac{b}{a} \\) (provided \\( a \\neq 0 \\)). <em>Note: 0 has no reciprocal.</em></li>\n</ul>\n"
+    },
+    {
+      "id": "note-math-2",
+      "subjectId": "sub-maths",
+      "chapterId": "ch-math-3",
+      "createdBy": "usr-admin-1",
+      "title": "Algebraic Expressions & Special Identities — Narayana Core Notes",
+      "summary": "Master standard binomial expansions: (a+b)², (a-b)², a²-b² and factorization methods with worked examples.",
+      "tags": [
+        "Class 8 Maths",
+        "Narayana ICSE",
+        "Algebra",
+        "Identities"
+      ],
+      "readTimeMinutes": 8,
+      "status": "published",
+      "publishedAt": "2026-10-10T10:00:00.000Z",
+      "createdAt": "2026-10-10T09:30:00.000Z",
+      "contentHtml": "\n<h3>1. Core Algebraic Identities (Standard ICSE Narayana Syllabus)</h3>\n<p>An identity is an equality which is true for all values of the variables.</p>\n\n<ol>\n  <li><strong>Identity I:</strong> \\( (a + b)^2 = a^2 + 2ab + b^2 \\)</li>\n  <li><strong>Identity II:</strong> \\( (a - b)^2 = a^2 - 2ab + b^2 \\)</li>\n  <li><strong>Identity III:</strong> \\( (a + b)(a - b) = a^2 - b^2 \\)</li>\n  <li><strong>Identity IV:</strong> \\( (x + a)(x + b) = x^2 + (a + b)x + ab \\)</li>\n</ol>\n\n<hr/>\n\n<h3>2. Worked Example 1: Expansion</h3>\n<p><strong>Problem:</strong> Expand \\( (3x + 4y)^2 \\).</p>\n<p><strong>Solution:</strong> Using Identity I with \\( a = 3x \\) and \\( b = 4y \\):</p>\n<p>\\[ (3x + 4y)^2 = (3x)^2 + 2(3x)(4y) + (4y)^2 = 9x^2 + 24xy + 16y^2 \\]</p>\n\n<hr/>\n\n<h3>3. Worked Example 2: Difference of Two Squares</h3>\n<p><strong>Problem:</strong> Evaluate \\( 103 \\times 97 \\) using algebraic identities.</p>\n<p><strong>Solution:</strong> Rewrite as \\( (100 + 3)(100 - 3) \\). Using \\( (a+b)(a-b) = a^2 - b^2 \\):</p>\n<p>\\[ (100 + 3)(100 - 3) = 100^2 - 3^2 = 10000 - 9 = 9991 \\]</p>\n"
+    },
+    {
+      "id": "note-sci-1",
+      "subjectId": "sub-science",
+      "chapterId": "ch-sci-1",
+      "createdBy": "usr-admin-1",
+      "title": "Physics: Thrust, Pressure & Fluid Mechanics — Narayana Techno",
+      "summary": "Complete derivations of pressure P = F/A, hydrostatic pressure P = hρg, and atmospheric barometer principles.",
+      "tags": [
+        "Class 8 Physics",
+        "Narayana ICSE",
+        "Force & Pressure",
+        "Hydrostatics"
+      ],
+      "readTimeMinutes": 9,
+      "status": "published",
+      "publishedAt": "2026-10-10T11:00:00.000Z",
+      "createdAt": "2026-10-10T10:30:00.000Z",
+      "contentHtml": "\n<h3>1. Thrust vs Pressure</h3>\n<ul>\n  <li><strong>Thrust:</strong> The total force acting normally (perpendicularly) on a surface is called thrust. Unit: <strong>Newton (N)</strong>.</li>\n  <li><strong>Pressure:</strong> The thrust acting per unit area of a surface is called pressure.</li>\n</ul>\n\n<p><strong>Formula:</strong></p>\n<p>\\[ \\text{Pressure } P = \\frac{\\text{Thrust } (F)}{\\text{Area } (A)} \\]</p>\n<p><strong>SI Unit:</strong> \\( \\text{N/m}^2 \\) or <strong>Pascal (Pa)</strong>. \\( 1 \\text{ Pa} = 1 \\text{ N/m}^2 \\).</p>\n\n<hr/>\n\n<h3>2. Pressure in Fluids (Liquids & Gases)</h3>\n<p>Liquids exert pressure on the bottom as well as the walls of their container.</p>\n<p><strong>Hydrostatic Pressure Formula:</strong></p>\n<p>\\[ P = h \\times \\rho \\times g \\]</p>\n<p>Where \\( h \\) = depth of liquid column, \\( \\rho \\) = density of the liquid, and \\( g \\) = acceleration due to gravity.</p>\n\n<hr/>\n\n<h3>3. Atmospheric Pressure & Barometer</h3>\n<p>The envelope of air surrounding the earth is called atmosphere, and the pressure exerted by it is called atmospheric pressure.</p>\n<p>At sea level, normal atmospheric pressure is equal to <strong>76 cm (or 760 mm) of mercury (Hg)</strong> column \\( \\approx 1.013 \\times 10^5 \\text{ Pa} \\).</p>\n"
+    },
+    {
+      "id": "note-sci-2",
+      "subjectId": "sub-science",
+      "chapterId": "ch-sci-3",
+      "createdBy": "usr-admin-1",
+      "title": "Chemistry: Elements, Radicals & Language of Chemistry — Narayana Notes",
+      "summary": "Valency charts of positive and negative radicals, chemical formula derivation via criss-cross method, and balancing reactions.",
+      "tags": [
+        "Class 8 Chemistry",
+        "Narayana ICSE",
+        "Language of Chemistry",
+        "Valency"
+      ],
+      "readTimeMinutes": 8,
+      "status": "published",
+      "publishedAt": "2026-10-10T12:00:00.000Z",
+      "createdAt": "2026-10-10T11:30:00.000Z",
+      "contentHtml": "\n<h3>1. Radicals and Valency (Narayana ICSE Reference Table)</h3>\n<p>A radical is an atom or a group of atoms behaving as a single unit with a definite electric charge.</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Valency</th>\n      <th>Electropositive Radicals (Cations)</th>\n      <th>Electronegative Radicals (Anions)</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><strong>Monovalent (1)</strong></td>\n      <td>\\( \\text{Na}^+, \\text{K}^+, \\text{NH}_4^+, \\text{H}^+ \\)</td>\n      <td>\\( \\text{Cl}^-, \\text{OH}^-, \\text{NO}_3^-, \\text{HCO}_3^- \\)</td>\n    </tr>\n    <tr>\n      <td><strong>Divalent (2)</strong></td>\n      <td>\\( \\text{Ca}^{2+}, \\text{Mg}^{2+}, \\text{Zn}^{2+}, \\text{Fe}^{2+} \\)</td>\n      <td>\\( \\text{O}^{2-}, \\text{SO}_4^{2-}, \\text{CO}_3^{2-}, \\text{S}^{2-} \\)</td>\n    </tr>\n    <tr>\n      <td><strong>Trivalent (3)</strong></td>\n      <td>\\( \\text{Al}^{3+}, \\text{Fe}^{3+} \\)</td>\n      <td>\\( \\text{N}^{3-}, \\text{PO}_4^{3-} \\)</td>\n    </tr>\n  </tbody>\n</table>\n\n<hr/>\n\n<h3>2. Writing Chemical Formulas (Criss-Cross Method)</h3>\n<p><strong>Example: Calcium Hydroxide</strong></p>\n<ol>\n  <li>Write symbols with valencies: \\( \\text{Ca}^{2+} \\) and \\( \\text{OH}^{1-} \\)</li>\n  <li>Criss-cross valencies: 2 goes to OH, 1 goes to Ca</li>\n  <li>Formula: <strong>\\( \\text{Ca(OH)}_2 \\)</strong></li>\n</ol>\n"
+    },
+    {
+      "id": "note-sci-3",
+      "subjectId": "sub-science",
+      "chapterId": "ch-sci-5",
+      "createdBy": "usr-admin-1",
+      "title": "Biology: Transport of Food & Minerals in Plants — Narayana Notes",
+      "summary": "Osmosis vs diffusion, xylem conduction of sap, phloem translocation, root hair adaptations, and transpiration pull.",
+      "tags": [
+        "Class 8 Biology",
+        "Narayana ICSE",
+        "Plant Physiology",
+        "Transport"
+      ],
+      "readTimeMinutes": 7,
+      "status": "published",
+      "publishedAt": "2026-10-10T13:00:00.000Z",
+      "createdAt": "2026-10-10T12:30:00.000Z",
+      "contentHtml": "\n<h3>1. Absorption Mechanisms in Plant Roots</h3>\n<ul>\n  <li><strong>Diffusion:</strong> Free movement of molecules from a region of higher concentration to a region of lower concentration.</li>\n  <li><strong>Osmosis:</strong> Movement of water molecules from a dilute solution to a concentrated solution through a <em>semi-permeable membrane</em>.</li>\n  <li><strong>Active Transport:</strong> Movement of mineral ions from lower concentration to higher concentration using metabolic energy (ATP).</li>\n</ul>\n\n<hr/>\n\n<h3>2. Vascular Tissues: Xylem vs Phloem</h3>\n<table>\n  <thead>\n    <tr>\n      <th>Feature</th>\n      <th>Xylem</th>\n      <th>Phloem</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><strong>Function</strong></td>\n      <td>Transports water and dissolved minerals (Sap)</td>\n      <td>Transports synthesized food (Sucrose/Glucose)</td>\n    </tr>\n    <tr>\n      <td><strong>Direction</strong></td>\n      <td>Unidirectional (Upward only: Roots to Leaves)</td>\n      <td>Bidirectional (Upward and downward)</td>\n    </tr>\n    <tr>\n      <td><strong>Driving Force</strong></td>\n      <td>Transpiration pull and root pressure</td>\n      <td>Active transport and osmotic pressure</td>\n    </tr>\n  </tbody>\n</table>\n"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q-math-1",
+      "subjectId": "sub-maths",
+      "chapterId": "ch-math-1",
+      "prompt": "If $a = -\\frac{2}{3}$ and $b = \\frac{5}{7}$, verify the commutative property of addition $a + b = b + a$. What is the sum?",
+      "options": [
+        "$\\frac{1}{21}$",
+        "$-\\frac{1}{21}$",
+        "$\\frac{4}{21}$",
+        "$-\\frac{29}{21}$"
+      ],
+      "correctAnswer": 0,
+      "marks": 1,
+      "explanation": "$$a + b = -\\frac{2}{3} + \\frac{5}{7} = \\frac{-14 + 15}{21} = \\frac{1}{21}$$\n$$b + a = \\frac{5}{7} + \\left(-\\frac{2}{3}\\right) = \\frac{15 - 14}{21} = \\frac{1}{21}$$\nSince both expressions equal $\\frac{1}{21}$, the commutative property holds.",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q-math-2",
+      "subjectId": "sub-maths",
+      "chapterId": "ch-math-1",
+      "prompt": "Which of the following rational numbers has NO reciprocal (multiplicative inverse)?",
+      "options": [
+        "1",
+        "-1",
+        "0",
+        "Any fraction"
+      ],
+      "correctAnswer": 2,
+      "marks": 1,
+      "explanation": "The number 0 has no reciprocal because division by zero ($\\frac{1}{0}$) is undefined in mathematics.",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q-math-3",
+      "subjectId": "sub-maths",
+      "chapterId": "ch-math-3",
+      "prompt": "Using the identity $(a+b)(a-b) = a^2 - b^2$, evaluate $105 \\times 95$.",
+      "options": [
+        "9975",
+        "9985",
+        "9925",
+        "10025"
+      ],
+      "correctAnswer": 0,
+      "marks": 1,
+      "explanation": "$$105 \\times 95 = (100 + 5)(100 - 5) = 100^2 - 5^2 = 10000 - 25 = 9975$$",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q-math-4",
+      "subjectId": "sub-maths",
+      "chapterId": "ch-math-4",
+      "prompt": "Solve the linear equation: $3(t - 3) = 5(2t + 1)$. What is the value of $t$?",
+      "options": [
+        "$t = -2$",
+        "$t = 2$",
+        "$t = -14$",
+        "$t = -3$"
+      ],
+      "correctAnswer": 0,
+      "marks": 1,
+      "explanation": "Step 1: Open the brackets:\n$$3t - 9 = 10t + 5$$\nStep 2: Transpose terms with variable to one side:\n$$3t - 10t = 5 + 9$$\n$$-7t = 14$$\n$$t = \\frac{14}{-7} = -2$$",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q-math-5",
+      "subjectId": "sub-maths",
+      "chapterId": "ch-math-2",
+      "prompt": "Simplify using laws of exponents: $\\frac{2^5 \\times 3^4 \\times 2^{-2}}{3^2 \\times 2^3}$.",
+      "options": [
+        "9",
+        "18",
+        "27",
+        "3"
+      ],
+      "correctAnswer": 0,
+      "marks": 1,
+      "explanation": "Combine base 2 and base 3 using exponent laws:\n$$2^{5 + (-2) - 3} \\times 3^{4 - 2} = 2^{0} \\times 3^{2} = 1 \\times 9 = 9$$",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q-sci-1",
+      "subjectId": "sub-science",
+      "chapterId": "ch-sci-1",
+      "prompt": "A perpendicular force of $60\\text{ N}$ acts on a surface area of $0.5\\text{ m}^2$. What is the pressure produced on the surface?",
+      "options": [
+        "120 Pa",
+        "30 Pa",
+        "60 Pa",
+        "12 Pa"
+      ],
+      "correctAnswer": 0,
+      "marks": 1,
+      "explanation": "$$\\text{Pressure } P = \\frac{\\text{Thrust } (F)}{\\text{Area } (A)} = \\frac{60\\text{ N}}{0.5\\text{ m}^2} = 120\\text{ N/m}^2 = 120\\text{ Pa}$$",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q-sci-2",
+      "subjectId": "sub-science",
+      "chapterId": "ch-sci-1",
+      "prompt": "What happens to atmospheric pressure as altitude (height above sea level) increases?",
+      "options": [
+        "It decreases",
+        "It increases",
+        "It remains constant",
+        "It doubles"
+      ],
+      "correctAnswer": 0,
+      "marks": 1,
+      "explanation": "Atmospheric pressure decreases with altitude because the column of air above becomes shorter and less dense as you go higher.",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q-sci-3",
+      "subjectId": "sub-science",
+      "chapterId": "ch-sci-2",
+      "prompt": "A body of mass $4\\text{ kg}$ is moving with a velocity of $5\\text{ m/s}$. Calculate its kinetic energy.",
+      "options": [
+        "50 J",
+        "100 J",
+        "20 J",
+        "10 J"
+      ],
+      "correctAnswer": 0,
+      "marks": 1,
+      "explanation": "$$\\text{Kinetic Energy } KE = \\frac{1}{2} m v^2 = \\frac{1}{2} \\times 4\\text{ kg} \\times (5\\text{ m/s})^2 = 2 \\times 25 = 50\\text{ Joules}$$",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q-sci-4",
+      "subjectId": "sub-science",
+      "chapterId": "ch-sci-3",
+      "prompt": "What is the correct chemical formula for Aluminum Sulfate using valency rules ($Al^{3+}$ and $SO_4^{2-}$)?",
+      "options": [
+        "$Al_2(SO_4)_3$",
+        "$AlSO_4$",
+        "$Al_3(SO_4)_2$",
+        "$Al_2SO_4$"
+      ],
+      "correctAnswer": 0,
+      "marks": 1,
+      "explanation": "Using the criss-cross method: $Al$ has valency 3, and the radical $SO_4$ has valency 2. Crossing valencies gives $Al_2(SO_4)_3$.",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q-sci-5",
+      "subjectId": "sub-science",
+      "chapterId": "ch-sci-4",
+      "prompt": "In an atom with atomic number $Z = 11$ and mass number $A = 23$ (Sodium), how many neutrons are present in the nucleus?",
+      "options": [
+        "12",
+        "11",
+        "23",
+        "34"
+      ],
+      "correctAnswer": 0,
+      "marks": 1,
+      "explanation": "$$\\text{Number of Neutrons } (n) = \\text{Mass Number } (A) - \\text{Atomic Number } (Z) = 23 - 11 = 12$$",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q-sci-6",
+      "subjectId": "sub-science",
+      "chapterId": "ch-sci-5",
+      "prompt": "Which vascular tissue in plants is responsible for the UNIDIRECTIONAL upward transport of water and dissolved minerals?",
+      "options": [
+        "Xylem",
+        "Phloem",
+        "Cortex",
+        "Pith"
+      ],
+      "correctAnswer": 0,
+      "marks": 1,
+      "explanation": "Xylem transports water and dissolved mineral salts upward from roots to the leaves in a unidirectional flow driven by transpiration pull.",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q-sci-7",
+      "subjectId": "sub-science",
+      "chapterId": "ch-sci-6",
+      "prompt": "Which chamber of the human heart receives oxygenated blood directly from the lungs through the pulmonary veins?",
+      "options": [
+        "Left Atrium",
+        "Right Atrium",
+        "Left Ventricle",
+        "Right Ventricle"
+      ],
+      "correctAnswer": 0,
+      "marks": 1,
+      "explanation": "The Left Atrium receives oxygen-rich blood from the lungs via pulmonary veins and then pumps it to the left ventricle for systemic circulation.",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q-eng-1",
+      "subjectId": "sub-english",
+      "chapterId": "ch-eng-1",
+      "prompt": "In Oscar Wilde's \"The Model Millionaire\", what profession was Hughie Erskine trying to establish?",
+      "options": [
+        "None successfully, relying on an allowance",
+        "A stockbroker on Wall Street",
+        "A commissioned portrait painter",
+        "A bank manager"
+      ],
+      "correctAnswer": 0,
+      "marks": 1,
+      "explanation": "Hughie Erskine was charming but had no permanent trade or profession, living on an allowance of two hundred a year from an old aunt.",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q-eng-2",
+      "subjectId": "sub-english",
+      "chapterId": "ch-eng-2",
+      "prompt": "Change into Passive Voice: \"The teacher evaluated the ICSE mathematics papers.\"",
+      "options": [
+        "The ICSE mathematics papers were evaluated by the teacher.",
+        "The ICSE mathematics papers are evaluated by the teacher.",
+        "The ICSE mathematics papers had been evaluated by the teacher.",
+        "The teacher was evaluating the papers."
+      ],
+      "correctAnswer": 0,
+      "marks": 1,
+      "explanation": "In the past simple active (\"evaluated\"), passive voice becomes \"was/were + past participle\" -> \"were evaluated by the teacher\".",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q-soc-1",
+      "subjectId": "sub-social",
+      "chapterId": "ch-soc-1",
+      "prompt": "Which of the following is known as the \"Soul and Heart of the Indian Constitution\" according to Dr. B.R. Ambedkar?",
+      "options": [
+        "Right to Constitutional Remedies (Article 32)",
+        "Right to Equality (Article 14)",
+        "Right to Freedom (Article 19)",
+        "Right to Education (Article 21A)"
+      ],
+      "correctAnswer": 0,
+      "marks": 1,
+      "explanation": "Dr. B.R. Ambedkar called Article 32 (Right to Constitutional Remedies) the heart and soul of the Constitution because it empowers citizens to approach courts directly for enforcement of Fundamental Rights.",
+      "reviewStatus": "approved"
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "quiz-math-1",
+      "subjectId": "sub-maths",
+      "chapterId": "ch-math-1",
+      "title": "ICSE Narayana Mathematics: Rational Numbers & Algebraic Identities",
+      "description": "Comprehensive practice assessment covering closure laws, reciprocal properties, $(a+b)(a-b)$ evaluation, and linear transpositions.",
+      "durationSeconds": 900,
+      "attemptLimit": 3,
+      "attemptsUsed": 1,
+      "latestAttemptScore": 4,
+      "latestAttemptMax": 4,
+      "status": "published",
+      "publishedAt": "2026-10-10T10:00:00.000Z",
+      "createdAt": "2026-10-10T09:00:00.000Z",
+      "questionRefs": [
+        {
+          "questionId": "q-math-1",
+          "marks": 1
+        },
+        {
+          "questionId": "q-math-2",
+          "marks": 1
+        },
+        {
+          "questionId": "q-math-3",
+          "marks": 1
+        },
+        {
+          "questionId": "q-math-4",
+          "marks": 1
+        }
+      ]
+    },
+    {
+      "id": "quiz-sci-1",
+      "subjectId": "sub-science",
+      "chapterId": "ch-sci-1",
+      "title": "ICSE Narayana Physics: Force, Liquid Pressure & Energy Evaluation",
+      "description": "Challenging numerical and conceptual evaluation on thrust, fluid pressure $P = F/A$, altitude effects, and kinetic energy formulas.",
+      "durationSeconds": 900,
+      "attemptLimit": 3,
+      "attemptsUsed": 1,
+      "latestAttemptScore": 2,
+      "latestAttemptMax": 3,
+      "status": "published",
+      "publishedAt": "2026-10-10T11:00:00.000Z",
+      "createdAt": "2026-10-10T10:00:00.000Z",
+      "questionRefs": [
+        {
+          "questionId": "q-sci-1",
+          "marks": 1
+        },
+        {
+          "questionId": "q-sci-2",
+          "marks": 1
+        },
+        {
+          "questionId": "q-sci-3",
+          "marks": 1
+        }
+      ]
+    },
+    {
+      "id": "quiz-sci-2",
+      "subjectId": "sub-science",
+      "chapterId": "ch-sci-3",
+      "title": "ICSE Narayana Chemistry & Biology: Chemical Formulas & Transport in Plants",
+      "description": "Practice test evaluating valency criss-cross formulas, atomic structure subatomic particles, xylem/phloem function, and heart chambers.",
+      "durationSeconds": 900,
+      "attemptLimit": 3,
+      "attemptsUsed": 0,
+      "latestAttemptScore": null,
+      "latestAttemptMax": 4,
+      "status": "published",
+      "publishedAt": "2026-10-11T09:00:00.000Z",
+      "createdAt": "2026-10-11T08:00:00.000Z",
+      "questionRefs": [
+        {
+          "questionId": "q-sci-4",
+          "marks": 1
+        },
+        {
+          "questionId": "q-sci-5",
+          "marks": 1
+        },
+        {
+          "questionId": "q-sci-6",
+          "marks": 1
+        },
+        {
+          "questionId": "q-sci-7",
+          "marks": 1
+        }
+      ]
+    },
+    {
+      "id": "quiz-eng-1",
+      "subjectId": "sub-english",
+      "chapterId": "ch-eng-1",
+      "title": "ICSE English: Prose Comprehension & Active-Passive Voice",
+      "description": "Evaluation on Oscar Wilde's The Model Millionaire literary comprehension and active-passive voice grammar transformation.",
+      "durationSeconds": 900,
+      "attemptLimit": 3,
+      "attemptsUsed": 0,
+      "latestAttemptScore": null,
+      "latestAttemptMax": 2,
+      "status": "published",
+      "publishedAt": "2026-10-11T12:00:00.000Z",
+      "createdAt": "2026-10-11T11:00:00.000Z",
+      "questionRefs": [
+        {
+          "questionId": "q-eng-1",
+          "marks": 1
+        },
+        {
+          "questionId": "q-eng-2",
+          "marks": 1
+        }
+      ]
+    }
+  ],
+  "assignments": [
+    {
+      "id": "asg-math-1",
+      "subjectId": "sub-maths",
+      "subjectName": "Mathematics",
+      "title": "Narayana ICSE Mathematics Worksheet: Numerical Applications on Pressure & Algebraic Identities",
+      "instructions": "1) Expand (5x + 3y)² and (7a - 2b)². 2) Solve linear equation 4(x - 2) = 3(x + 5). 3) Submit clear notebook photos.",
+      "dueAt": "This Week (Friday, 5:00 PM)",
+      "maxMarks": 20,
+      "status": "published",
+      "publishedAt": "2026-10-10T10:00:00.000Z",
+      "createdAt": "2026-10-10T09:00:00.000Z"
+    },
+    {
+      "id": "asg-sci-1",
+      "subjectId": "sub-science",
+      "subjectName": "Science",
+      "title": "Narayana Techno Science Assignment: Balancing Chemical Equations & Plant Osmosis Diagram",
+      "instructions": "Balance equations: 1) H₂ + O₂ → H₂O, 2) CaCO₃ → CaO + CO₂, 3) Draw a labeled diagram of root hair cell absorbing water.",
+      "dueAt": "Next Monday",
+      "maxMarks": 15,
+      "status": "published",
+      "publishedAt": "2026-10-11T10:00:00.000Z",
+      "createdAt": "2026-10-11T09:00:00.000Z"
+    }
+  ],
+  "submissions": [
+    {
+      "id": "subm-1",
+      "assignmentId": "asg-math-1",
+      "studentId": "usr-student-1",
+      "status": "reviewed",
+      "score": 18,
+      "feedback": "Excellent work on algebraic expansions Aarav! Step 2 in question 3 had a slight sign error, keep up the neat presentation.",
+      "submittedAt": "2026-10-11T14:30:00.000Z"
+    }
+  ],
+  "doubts": [
+    {
+      "id": "dbt-1",
+      "studentId": "usr-student-1",
+      "subjectId": "sub-maths",
+      "subjectName": "Mathematics",
+      "chapterId": "ch-math-4",
+      "chapterTitle": "Linear Equations in One Variable",
+      "questionText": "Sir, I am confused when there are brackets on both sides like $3(t - 3) = 5(2t + 1)$. Should I open brackets first or transpose the numbers first?",
+      "status": "answered",
+      "answeredBy": "Sourav Kumar",
+      "answeredAt": "2026-10-12T10:00:00.000Z",
+      "createdAt": "2026-10-12T08:30:00.000Z",
+      "answerText": "Hello Aarav! Very good question. This is a common hurdle in ICSE Class 8 algebra.\n\n**Golden Rule:** Always **open the brackets (expand)** first before attempting to transpose terms across the equals sign!\n\nLet's solve $3(t - 3) = 5(2t + 1)$ together step-by-step:\n\n- **Step 1: Open the brackets**\n  $$3t - 9 = 10t + 5$$\n\n- **Step 2: Transpose variable terms to the left and constant numbers to the right**\n  $$3t - 10t = 5 + 9$$\n  $$-7t = 14$$\n\n- **Step 3: Divide by coefficient of $t$**\n  $$t = \\frac{14}{-7} = -2$$\n\nAlways verify by substituting $t = -2$ back into the original equation:\nLHS: $3(-2 - 3) = 3(-5) = -15$.\nRHS: $5(2(-2) + 1) = 5(-4 + 1) = 5(-3) = -15$. Both sides match!"
+    },
+    {
+      "id": "dbt-2",
+      "studentId": "usr-student-1",
+      "subjectId": "sub-science",
+      "subjectName": "Science",
+      "chapterId": "ch-sci-1",
+      "chapterTitle": "Physics: Thrust, Pressure & Fluid Mechanics",
+      "questionText": "Why do sharp knives cut better than blunt knives even when applying the exact same force?",
+      "status": "answered",
+      "answeredBy": "Sourav Kumar",
+      "answeredAt": "2026-10-12T11:30:00.000Z",
+      "createdAt": "2026-10-12T10:15:00.000Z",
+      "answerText": "Great conceptual inquiry from Narayana Physics syllabus!\n\nRecall the fundamental definition:\n$$P = \\frac{F}{A}$$\n\n- A **sharp knife** has a very thin edge with a microscopic surface area ($A$). Because area $A$ is in the denominator, a smaller area produces an **enormously large pressure** for the same applied force $F$.\n- A **blunt knife** has a worn-out, broader edge with larger area ($A$), resulting in much lower pressure.\n\nHence, the sharp knife easily penetrates and slices objects with minimal effort!"
+    }
+  ],
+  "studyTasks": [
+    {
+      "id": "task-1",
+      "studentId": "usr-student-1",
+      "title": "Practice Narayana ICSE Mathematics Worksheet: Rational Numbers & Identities",
+      "description": "Solve the 4 practice questions on number line operations and (a+b)(a-b) expansion.",
+      "subjectId": "sub-maths",
+      "chapterId": "ch-math-1",
+      "priority": "high",
+      "dueAt": "Today",
+      "completed": true,
+      "completedAt": "2026-10-12T09:30:00.000Z",
+      "sortOrder": 1
+    },
+    {
+      "id": "task-2",
+      "studentId": "usr-student-1",
+      "title": "Complete Weekly Narayana Physics Quiz (15 mins)",
+      "description": "Practice fluid pressure numericals P = F/A and hydrostatic pressure questions.",
+      "subjectId": "sub-science",
+      "chapterId": "ch-sci-1",
+      "priority": "medium",
+      "dueAt": "Today",
+      "completed": true,
+      "completedAt": "2026-10-12T10:15:00.000Z",
+      "sortOrder": 2
+    },
+    {
+      "id": "task-3",
+      "studentId": "usr-student-1",
+      "title": "Review Chemical Valency Criss-Cross Table & Radicals",
+      "description": "Memorize common monovalent and divalent radicals (SO4²⁻, CO3²⁻, NH4⁺, OH⁻).",
+      "subjectId": "sub-science",
+      "chapterId": "ch-sci-3",
+      "priority": "high",
+      "dueAt": "Tomorrow",
+      "completed": false,
+      "sortOrder": 3
+    }
+  ],
+  "quizAttempts": [
+    {
+      "id": "att-1",
+      "studentId": "usr-student-1",
+      "quizId": "quiz-math-1",
+      "status": "submitted",
+      "score": 4,
+      "maxScore": 4,
+      "accuracy": 100,
+      "timeSpentSeconds": 420,
+      "submittedAt": "2026-10-12T09:45:00.000Z",
+      "answers": [
+        {
+          "questionId": "q-math-1",
+          "answer": 0,
+          "isCorrect": true
+        },
+        {
+          "questionId": "q-math-2",
+          "answer": 2,
+          "isCorrect": true
+        },
+        {
+          "questionId": "q-math-3",
+          "answer": 0,
+          "isCorrect": true
+        },
+        {
+          "questionId": "q-math-4",
+          "answer": 0,
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": "att-2",
+      "studentId": "usr-student-1",
+      "quizId": "quiz-sci-1",
+      "status": "submitted",
+      "score": 2,
+      "maxScore": 3,
+      "accuracy": 67,
+      "timeSpentSeconds": 510,
+      "submittedAt": "2026-10-11T11:20:00.000Z",
+      "answers": [
+        {
+          "questionId": "q-sci-1",
+          "answer": 0,
+          "isCorrect": true
+        },
+        {
+          "questionId": "q-sci-2",
+          "answer": 0,
+          "isCorrect": true
+        },
+        {
+          "questionId": "q-sci-3",
+          "answer": 1,
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "bookmarks": [
+    {
+      "id": "bm-1",
+      "studentId": "usr-student-1",
+      "targetType": "note",
+      "targetId": "note-math-1",
+      "createdAt": "2026-10-10T12:00:00.000Z"
+    },
+    {
+      "id": "bm-2",
+      "studentId": "usr-student-1",
+      "targetType": "note",
+      "targetId": "note-sci-1",
+      "createdAt": "2026-10-11T14:00:00.000Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "notif-1",
+      "userId": "usr-student-1",
+      "type": "doubt_answered",
+      "title": "Tutor Sourav Kumar answered your doubt!",
+      "message": "Step-by-step solution for Linear Equations in One Variable has been posted.",
+      "link": "/app/doubts",
+      "isRead": false,
+      "createdAt": "2026-10-12T10:00:00.000Z"
+    },
+    {
+      "id": "notif-2",
+      "userId": "usr-student-1",
+      "type": "homework_reviewed",
+      "title": "Mathematics Homework Reviewed",
+      "message": "Your Narayana worksheet was scored 18/20 by Sourav Kumar.",
+      "link": "/app/homework",
+      "isRead": false,
+      "createdAt": "2026-10-11T15:00:00.000Z"
+    }
+  ],
+  "news": [
+    {
+      "id": "art-1",
+      "title": "ISRO Aditya-L1 Solar Observatory Captures Explosive Coronal Mass Ejections",
+      "description": "India's solar mission records intense magnetic solar flares from the Sun-Earth L1 Lagrange point with high-energy particle detectors.",
+      "content": "India's landmark solar observatory Aditya-L1 has successfully observed major coronal mass ejections (CMEs) reaching interplanetary space. The mission helps students understand solar wind dynamics, fluid magnetism, and space weather forecasting.",
+      "category": "Space & Astronomy",
+      "author": "Sourav Kumar",
+      "status": "published",
+      "publishedAt": "2026-10-12T07:30:00.000Z",
+      "createdAt": "2026-10-12T07:00:00.000Z"
+    },
+    {
+      "id": "art-2",
+      "title": "James Webb Space Telescope Confirms Oldest Carbon Rich Galaxies in Deep Universe",
+      "description": "Spectroscopic NIRCam analysis reveals surprising early carbon synthesis just 350 million years after the Big Bang.",
+      "content": "Astronomers using the James Webb Space Telescope have detected abundant carbon signatures in primordial galaxies, revising existing stellar lifecycle models and offering ICSE students real-world insights into atomic synthesis.",
+      "category": "Cosmology & Physics",
+      "author": "Sourav Kumar",
+      "status": "published",
+      "publishedAt": "2026-10-11T08:00:00.000Z",
+      "createdAt": "2026-10-11T07:30:00.000Z"
+    }
+  ],
+  "articles": [
+    {
+      "id": "art-space-1",
+      "title": "ISRO Chandrayaan & Space Science Explorations",
+      "category": "Space & Astronomy",
+      "description": "How Indian scientists explore lunar craters, solar winds with Aditya-L1, and future deep-space missions.",
+      "content": "### Exploring the Cosmos with ISRO\nIndia's space program has made historic breakthroughs that directly connect to our Class 8 physics and celestial studies.\n\n#### 1. Why Study the Moon's South Pole?\nThe South Pole contains permanently shadowed craters where temperatures drop below $-200^\\circ\\text{C}$. In these cold traps, water ice remains preserved from billions of years ago.\n\n#### 2. Key Science Takeaways for Class 8:\n* **Gravity on Moon:** The Moon's gravitational acceleration is roughly $\\frac{1}{6}$th of Earth's gravity ($g_{\\text{moon}} \\approx 1.62\\text{ m/s}^2$).\n* **Absence of Atmosphere:** Sound waves cannot propagate on the Moon because sound requires a material medium to travel.\n* **Solar Power in Space:** Rovers use solar panels because there is no cloud cover to block solar radiation during lunar daytime.",
+      "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop",
+      "source": "Tutor Science Special",
+      "readTimeMinutes": 3,
+      "status": "published",
+      "likesCount": 14,
+      "createdAt": "2025-01-15T08:00:00.000Z"
+    },
+    {
+      "id": "art-bio-1",
+      "title": "Modern Drip Irrigation & Micro-Sensors in Agriculture",
+      "category": "Environment & Agriculture",
+      "description": "Agricultural scientists invent automated moisture sensors to save up to 60% irrigation water in Indian farms.",
+      "content": "### Smart Irrigation in ICSE Class 8\nIn Chapter 1 (Crop Production and Management), we study traditional vs modern methods of irrigation.\n\n#### Drip Irrigation (Trickle Method):\nWater falls drop by drop directly near the roots of the plants through narrow pipes and emitters.\n\n#### Why is it the most water-efficient method?\n1. **Zero Evaporation Loss:** Water goes directly to the root zone instead of standing in open fields.\n2. **Weed Prevention:** Unwanted weeds between rows don't get water to grow.\n3. **Ideal for Water-Deficit Regions:** Highly recommended for regions with fruit gardens, orchards, and limited groundwater.",
+      "image": "https://images.unsplash.com/photo-1586771107445-d3ca888129ff?q=80&w=800&auto=format&fit=crop",
+      "source": "ICSE Ecology Desk",
+      "readTimeMinutes": 4,
+      "status": "published",
+      "likesCount": 9,
+      "createdAt": "2025-01-16T10:30:00.000Z"
+    },
+    {
+      "id": "art-phys-1",
+      "title": "The Science of Friction: Why Roller Bearings Prevent Energy Loss",
+      "category": "Physics & Machines",
+      "description": "Investigating how rolling friction is significantly less than sliding friction in machines, bicycles, and skateboards.",
+      "content": "### Friction: A Necessary Evil\nIn our physics syllabus, we learn that while friction causes wear and tear in machine parts, it is also essential for walking and holding objects.\n\n#### Rolling vs Sliding Friction:\nWhen an object rolls across a surface, the area of contact is minimal at any instant. Therefore:\n$$\\text{Rolling Friction} < \\text{Sliding Friction} < \\text{Static Friction}$$\n\n#### Practical Application:\nIn ceiling fans and bicycle hubs, ball bearings replace sliding motion with rolling motion, dramatically reducing heat and mechanical friction!",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800&auto=format&fit=crop",
+      "source": "Class 8 Physics Lab",
+      "readTimeMinutes": 3,
+      "status": "published",
+      "likesCount": 18,
+      "createdAt": "2025-01-17T12:00:00.000Z"
+    }
+  ]
+}

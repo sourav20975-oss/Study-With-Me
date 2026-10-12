@@ -1,0 +1,16 @@
+# Server Dependencies
+node_modules/
+
+# Secrets & Environment Variables
+.env
+.env.*
+*.env
+!.env.example
+
+# Uploads & Data
+data/uploads/
+*.tmp
+
+# Logs
+*.log
+logs/
