@@ -20,7 +20,7 @@
 
 | Role | Email | Password | Details |
 | :--- | :--- | :--- | :--- |
-| **Tutor (Admin)** | 	utor@studysathi.com | dmin123 | **Sourav Kumar** (Senior ICSE Faculty) |
+| **Tutor (Admin)** | tutor@studysathi.com | admin123 | **Sourav Kumar** (Senior ICSE Faculty) |
 | **Student** | student@studysathi.com | student123 | **Aarav Sharma** (Class 8 Narayana Student) |
 
 ---
@@ -89,3 +89,4 @@ Render will automatically install dependencies, build the Vite React frontend, a
 - **Frontend**: React 19, Vite 8, Tailwind CSS, Lucide Icons, KaTeX Math
 - **Backend**: Node.js, Express, File-based JSON Database with Atomic Writes
 - **Deployment**: Render Web Service, Git, GitHub
+
