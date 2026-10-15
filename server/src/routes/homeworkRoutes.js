@@ -261,4 +261,52 @@ router.delete('/admin/submissions/:id', authenticate, requireRole('admin'), (req
   res.json({ success: true, message: 'Submission deleted.' });
 });
 
+// Admin: Generate Demo Student Submission for quick evaluation testing
+router.post('/admin/submissions/demo', authenticate, requireRole('admin'), (req, res) => {
+  const { assignmentId } = req.body;
+  const assignments = store.get('assignments') || [];
+  const targetAsg = assignmentId ? assignments.find((a) => a.id === assignmentId) : assignments[0];
+  if (!targetAsg) {
+    return res.status(400).json({ error: 'Please create at least one assignment first.' });
+  }
+
+  const demoAnswers = [
+    {
+      text: "Step 1: Given algebraic identity applied: (5x + 3y)² = 25x² + 30xy + 9y².\nStep 2: Linear equation: 4(x - 2) = 3(x + 5) => 4x - 8 = 3x + 15 => x = 23.\nStep 3: Verified in tuition notebook. Workings neat and step-by-step.",
+      att: "https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      text: "1) Balanced equation: 2H₂ + O₂ → 2H₂O. 4 hydrogen and 2 oxygen atoms.\n2) CaCO₃ → CaO + CO₂ is already balanced.\n3) Osmosis diagram with semi-permeable membrane and vacuole labeled.",
+      att: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=800&auto=format&fit=crop"
+    }
+  ];
+
+  const pick = demoAnswers[Math.floor(Math.random() * demoAnswers.length)];
+
+  const submission = store.create('submissions', {
+    assignmentId: targetAsg.id,
+    studentId: 'usr-student-1',
+    textAnswer: pick.text,
+    attachments: [pick.att],
+    status: 'submitted',
+    score: null,
+    feedback: '',
+    submittedAt: new Date().toISOString()
+  });
+
+  const subject = store.getById('subjects', targetAsg.subjectId);
+  const student = store.getById('users', 'usr-student-1') || { name: 'Aarav Sharma', email: 'student@studysathi.com' };
+
+  res.status(201).json({
+    submission: {
+      ...submission,
+      assignmentTitle: targetAsg.title,
+      totalMarks: targetAsg.totalMarks || targetAsg.maxMarks || 10,
+      subjectName: subject?.name || 'General Curriculum',
+      studentName: student.name,
+      studentEmail: student.email
+    }
+  });
+});
+
 export default router;

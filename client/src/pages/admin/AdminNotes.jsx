@@ -4,6 +4,11 @@ import { api } from '../../api/client.js';
 import { MathRenderer } from '../../components/common/MathRenderer.jsx';
 import { StatusBadge } from '../../components/common/StatusBadge.jsx';
 import {
+  convertHtmlTableToMarkdown,
+  convertTsvToMarkdown,
+  isTabSeparatedTable
+} from '../../utils/noteParser.js';
+import {
   FileText,
   Plus,
   Eye,
@@ -188,6 +193,105 @@ export function AdminNotes() {
     } else {
       const newContent = current ? current + '\n\n' + snippet : snippet;
       setEditingNote({ ...editingNote, contentHtml: newContent });
+    }
+  };
+
+  // Wrap selected text (e.g. bold **text**, italic *text*, math $formula$) without inserting newlines
+  const handleWrapSelection = (prefix, suffix = prefix, placeholder = 'bold text') => {
+    if (!editingNote) return;
+    const textarea = textareaRef.current;
+    const current = editingNote.contentHtml || '';
+
+    if (textarea && typeof textarea.selectionStart === 'number') {
+      const start = textarea.selectionStart;
+      const end = textarea.selectionEnd;
+      const selected = current.substring(start, end);
+
+      if (selected) {
+        const replacement = prefix + selected + suffix;
+        const newContent = current.substring(0, start) + replacement + current.substring(end);
+        setEditingNote({ ...editingNote, contentHtml: newContent });
+        setTimeout(() => {
+          textarea.focus();
+          textarea.setSelectionRange(start, start + replacement.length);
+        }, 30);
+      } else {
+        const replacement = prefix + placeholder + suffix;
+        const newContent = current.substring(0, start) + replacement + current.substring(end);
+        setEditingNote({ ...editingNote, contentHtml: newContent });
+        setTimeout(() => {
+          textarea.focus();
+          textarea.setSelectionRange(start + prefix.length, start + prefix.length + placeholder.length);
+        }, 30);
+      }
+    } else {
+      const newContent = current ? current + ' ' + prefix + placeholder + suffix : prefix + placeholder + suffix;
+      setEditingNote({ ...editingNote, contentHtml: newContent });
+    }
+  };
+
+  // Insert block or text at cursor position
+  const insertTextAtCursor = (textToInsert) => {
+    const textarea = textareaRef.current;
+    const current = editingNote?.contentHtml || '';
+    if (textarea && typeof textarea.selectionStart === 'number') {
+      const start = textarea.selectionStart;
+      const end = textarea.selectionEnd;
+      const before = current.substring(0, start);
+      const after = current.substring(end);
+      const prefix = before.length > 0 && !before.endsWith('\n') ? '\n\n' : '';
+      const suffix = after.length > 0 && !after.startsWith('\n') ? '\n\n' : '';
+      const newContent = before + prefix + textToInsert + suffix + after;
+      setEditingNote((prev) => (prev ? { ...prev, contentHtml: newContent } : null));
+      setTimeout(() => {
+        textarea.focus();
+        const pos = start + prefix.length + textToInsert.length;
+        textarea.setSelectionRange(pos, pos);
+      }, 50);
+    } else {
+      const newContent = current ? current + '\n\n' + textToInsert : textToInsert;
+      setEditingNote((prev) => (prev ? { ...prev, contentHtml: newContent } : null));
+    }
+  };
+
+  // Smart paste: detects HTML tables or Tab-Separated Values (TSV) from articles/Wikipedia and auto-formats as Markdown table
+  const handleTextareaPaste = (e) => {
+    const clipboardData = e.clipboardData;
+    if (!clipboardData) return;
+
+    const html = clipboardData.getData('text/html');
+    const plain = clipboardData.getData('text/plain');
+
+    // 1. If clipboard contains an HTML table
+    if (html && /<table[\s\S]*?<\/table>/i.test(html)) {
+      const mdTable = convertHtmlTableToMarkdown(html);
+      if (mdTable) {
+        e.preventDefault();
+        insertTextAtCursor(mdTable);
+        return;
+      }
+    }
+
+    // 2. If clipboard contains tab-separated table rows (TSV from articles, Wikipedia, Excel)
+    if (plain && isTabSeparatedTable(plain)) {
+      const mdTable = convertTsvToMarkdown(plain);
+      if (mdTable) {
+        e.preventDefault();
+        insertTextAtCursor(mdTable);
+        return;
+      }
+    }
+  };
+
+  // Keyboard shortcuts: Ctrl+B for bold, Ctrl+I for italic
+  const handleKeyDown = (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'b') {
+      e.preventDefault();
+      handleWrapSelection('**', '**', 'bold text');
+    }
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'i') {
+      e.preventDefault();
+      handleWrapSelection('*', '*', 'italic text');
     }
   };
 
@@ -727,6 +831,20 @@ export function AdminNotes() {
                     <span>+ Table</span>
                   </button>
 
+                  {/* Class 8 ICSE Science Atomic Elements Table Template */}
+                  <button
+                    type="button"
+                    onClick={() =>
+                      handleInsertSnippet(
+                        '| Atomic No (Z) | Element | Symbol | Atomic Mass (u) | Valency |\n| :---: | :--- | :---: | :---: | :---: |\n| 1 | Hydrogen | **H** | 1.008 | 1 |\n| 2 | Helium | **He** | 4.0026 | 0 |\n| 3 | Lithium | **Li** | 6.94 | 1 |\n| 6 | Carbon | **C** | 12.011 | 4 |\n| 7 | Nitrogen | **N** | 14.007 | 3 |\n| 8 | Oxygen | **O** | 15.999 | 2 |'
+                      )
+                    }
+                    className="px-2.5 py-1 rounded-lg bg-teal-50 hover:bg-teal-100 border border-teal-200 text-teal-800 text-xs font-bold transition-colors flex items-center gap-1"
+                    title="Insert ICSE Class 8 Science Atomic Elements Table"
+                  >
+                    <span>⚛️ + Atomic Table</span>
+                  </button>
+
                   <button
                     type="button"
                     onClick={() => handleInsertSnippet('# Topic Title')}
@@ -757,6 +875,14 @@ export function AdminNotes() {
                   </button>
                   <button
                     type="button"
+                    onClick={() => handleWrapSelection('$', '$', 'x = 5')}
+                    className="px-2.5 py-1 rounded-lg bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-900 text-xs font-bold transition-colors font-mono"
+                    title="Inline math formula ($...$)"
+                  >
+                    $inline$
+                  </button>
+                  <button
+                    type="button"
                     onClick={() =>
                       handleInsertSnippet(
                         '> 💡 Exam Tip: Remember to write the unit of measurement in your final answer.'
@@ -777,17 +903,28 @@ export function AdminNotes() {
                   >
                     + Solved Example
                   </button>
+                  {/* Inline bold formatting with selection wrap & shortcut */}
                   <button
                     type="button"
-                    onClick={() => handleInsertSnippet('**bold word**')}
-                    className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition-colors font-mono"
+                    onClick={() => handleWrapSelection('**', '**', 'bold text')}
+                    className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-900 text-white text-xs font-extrabold transition-colors font-sans shadow-xs"
+                    title="Make selected text bold (Ctrl+B)"
                   >
-                    **bold**
+                    <span className="font-extrabold">B</span> Bold
+                  </button>
+                  {/* Inline italic formatting */}
+                  <button
+                    type="button"
+                    onClick={() => handleWrapSelection('*', '*', 'italic text')}
+                    className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition-colors italic font-serif"
+                    title="Make selected text italic (Ctrl+I)"
+                  >
+                    <span>I</span> Italic
                   </button>
                 </div>
               </div>
 
-              {/* Textarea */}
+              {/* Textarea with smart paste and keyboard shortcuts */}
               <div>
                 <textarea
                   ref={textareaRef}
@@ -796,7 +933,9 @@ export function AdminNotes() {
                   onChange={(e) =>
                     setEditingNote({ ...editingNote, contentHtml: e.target.value })
                   }
-                  placeholder={`Write your note naturally here...\n\n# 1. First Section\nWrite normal paragraphs simply by pressing Enter twice.\n\n- Use hyphens for bullet points\n- Use **word** for bold text\n- Use $$ x = 5 $$ for mathematical formulas\n- Start a line with > for an exam tip callout`}
+                  onPaste={handleTextareaPaste}
+                  onKeyDown={handleKeyDown}
+                  placeholder={`Write your note naturally here, or paste from math/science articles...\n\n# 1. First Section\nWrite normal paragraphs simply by pressing Enter twice.\n\n- Use hyphens for bullet points\n- Select text and press Ctrl+B or tap 'Bold' to make it bold: **word**\n- Use $$ x = 5 $$ for block formulas or $x = 5$ for inline formulas\n- Paste tables directly from web articles (Wikipedia, textbooks) — they format automatically!`}
                   className="w-full p-4 rounded-xl border border-slate-300 bg-slate-50/50 text-slate-900 text-sm font-sans focus:bg-white focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none leading-relaxed transition-all resize-y"
                 />
               </div>

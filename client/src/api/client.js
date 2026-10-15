@@ -1,4 +1,26 @@
-const BASE_URL = '/api';
+const API_URL = import.meta.env.VITE_API_URL || '';
+const BASE_URL = API_URL ? (API_URL.endsWith('/api') ? API_URL : `${API_URL}/api`) : '/api';
+
+/**
+ * Resolves static or uploaded asset URLs (e.g., /uploads/xyz.pdf or full URLs)
+ * Supports single-origin deploy (Render) as well as split deploys (Vercel + Render)
+ */
+export function resolveAssetUrl(url) {
+  if (!url) return '';
+  if (
+    url.startsWith('http://') ||
+    url.startsWith('https://') ||
+    url.startsWith('blob:') ||
+    url.startsWith('data:')
+  ) {
+    return url;
+  }
+  if (API_URL) {
+    const origin = API_URL.replace(/\/api\/?$/, '');
+    return `${origin}${url.startsWith('/') ? '' : '/'}${url}`;
+  }
+  return url;
+}
 
 export class ApiError extends Error {
   constructor(message, status, data) {

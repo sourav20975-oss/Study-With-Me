@@ -16,6 +16,8 @@ import doubtRoutes from './routes/doubtRoutes.js';
 import progressRoutes from './routes/progressRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 import newsRoutes from './routes/newsRoutes.js';
+import documentRoutes from './routes/documentRoutes.js';
+import motivationRoutes from './routes/motivationRoutes.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -30,8 +32,8 @@ app.use(cors({
   credentials: true
 }));
 
-app.use(express.json({ limit: '10mb' }));
-app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+app.use(express.json({ limit: '100mb' }));
+app.use(express.urlencoded({ extended: true, limit: '100mb' }));
 
 // Static uploads serving
 app.use('/uploads', express.static(config.uploadDir));
@@ -57,6 +59,8 @@ app.use('/api', doubtRoutes);
 app.use('/api', progressRoutes);
 app.use('/api', uploadRoutes);
 app.use('/api', newsRoutes);
+app.use('/api', documentRoutes);
+app.use('/api', motivationRoutes);
 
 // 404 handler for API routes
 app.use('/api/*', (req, res) => {

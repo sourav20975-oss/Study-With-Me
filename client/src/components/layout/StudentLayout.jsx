@@ -12,12 +12,14 @@ import {
   Bookmark,
   Newspaper,
   Home,
-  Sparkles
+  Sparkles,
+  Library
 } from 'lucide-react';
 
 const DESKTOP_NAV = [
   { to: '/app', label: 'Study Room', icon: Home, color: 'text-orange-500', end: true },
   { to: '/app/subjects', label: 'Syllabus & Notes', icon: BookOpen, color: 'text-emerald-600' },
+  { to: '/app/pdfs', label: 'PDF Library & Books', icon: Library, color: 'text-indigo-600' },
   { to: '/app/quizzes', label: 'Practice Tests', icon: CheckSquare, color: 'text-amber-500' },
   { to: '/app/homework', label: 'Homework Desk', icon: FileCheck, color: 'text-rose-500' },
   { to: '/app/doubts', label: 'Ask Tutor Doubts', icon: HelpCircle, color: 'text-teal-600' },

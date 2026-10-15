@@ -36,7 +36,10 @@ import {
   AlertCircle,
   RotateCcw,
   ListTodo,
-  CheckCircle2
+  CheckCircle2,
+  FileText,
+  Download,
+  Play
 } from 'lucide-react';
 
 const SUBJECTS_META = [
@@ -143,17 +146,22 @@ export function StudentDashboard() {
   const [selectedCalendarDay, setSelectedCalendarDay] = useState(null);
   const [showDayModal, setShowDayModal] = useState(false);
 
+  // Daily Motivation state
+  const [dailyMotivation, setDailyMotivation] = useState(null);
+  const [showMotivationModal, setShowMotivationModal] = useState(false);
+
   // Initial Data Fetching
   const fetchDashboardData = async () => {
     try {
-      const [tasksRes, quizzesRes, asgRes, notesRes, doubtsRes, newsRes, progRes] = await Promise.all([
+      const [tasksRes, quizzesRes, asgRes, notesRes, doubtsRes, newsRes, progRes, motRes] = await Promise.all([
         api.get('/student/tasks'),
         api.get('/quizzes'),
         api.get('/assignments'),
         api.get('/notes?role=student'),
         api.get('/doubts/mine'),
         api.get('/news'),
-        api.get('/student/progress')
+        api.get('/student/progress'),
+        api.get('/motivation/daily').catch(() => ({ video: null }))
       ]);
 
       setTasks(tasksRes.tasks || []);
@@ -163,6 +171,7 @@ export function StudentDashboard() {
       setRecentDoubts((doubtsRes.doubts || []).slice(0, 3));
       setNews((newsRes.articles || []).slice(0, 3));
       setProgress(progRes.progress || null);
+      setDailyMotivation(motRes?.video || null);
     } catch (err) {
       console.error('Failed to load dashboard:', err);
     } finally {
@@ -317,15 +326,9 @@ export function StudentDashboard() {
   const taskProgressPercent = tasks.length > 0 ? Math.round((completedTasksCount / tasks.length) * 100) : 0;
 
   // ----------------------------------------------------
-  // CALENDAR COMPUTATION
+  // CALENDAR COMPUTATION (100% Dynamic from Student Activity)
   // ----------------------------------------------------
-  const activityMap = progress?.streak?.activityMap || {
-    '2026-10-12': 3,
-    '2026-10-11': 4,
-    '2026-10-10': 2,
-    '2026-10-08': 1,
-    '2026-10-06': 3
-  };
+  const activityMap = progress?.streak?.activityMap || {};
 
   const calendarDays = useMemo(() => {
     const year = calendarMonth.getFullYear();
@@ -421,7 +424,7 @@ export function StudentDashboard() {
 
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-400 text-amber-950 text-xs font-extrabold shadow-sm border border-amber-300">
                 <Flame className="w-3.5 h-3.5 fill-current animate-pulse text-amber-900" />
-                <span>{progress?.streak?.currentDays || 3} Days Streak! 🔥</span>
+                <span>{progress?.streak?.currentDays ?? 0} Days Streak! 🔥</span>
               </span>
 
               <span className="hidden sm:inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white/15 text-[11px] font-semibold text-white/90">
@@ -455,7 +458,7 @@ export function StudentDashboard() {
                   Accuracy
                 </div>
                 <div className="text-xl sm:text-2xl font-black font-display leading-tight">
-                  {progress?.averageAccuracy || 78}% ⭐
+                  {progress?.averageAccuracy ?? 0}% ⭐
                 </div>
               </div>
             </div>
@@ -477,6 +480,70 @@ export function StudentDashboard() {
           </div>
         </div>
       </section>
+
+      {/* ----------------------------------------------------
+          DAILY MOTIVATION BANNER (Daily Video & Quote)
+      ---------------------------------------------------- */}
+      {dailyMotivation && (
+        <section className="bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 rounded-2xl p-4 sm:p-5 text-white shadow-md flex flex-col md:flex-row items-center justify-between gap-4 relative overflow-hidden">
+          <div className="flex items-center gap-4 relative z-10 w-full md:w-auto">
+            {/* Thumbnail Preview with Play Button */}
+            <div
+              onClick={() => setShowMotivationModal(true)}
+              className="relative w-24 sm:w-32 aspect-video rounded-xl overflow-hidden shadow-md shrink-0 cursor-pointer group bg-black/30"
+            >
+              <img
+                src={dailyMotivation.thumbnailUrl || `https://i.ytimg.com/vi/${dailyMotivation.youtubeId}/hqdefault.jpg`}
+                alt={dailyMotivation.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+              />
+              <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full bg-red-600 text-white flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
+                  <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
+                </div>
+              </div>
+            </div>
+
+            {/* Quote & Speaker */}
+            <div className="space-y-1 overflow-hidden">
+              <div className="flex items-center gap-2">
+                <span className="px-2 py-0.5 rounded-full bg-white/20 backdrop-blur-xs text-[10px] font-black uppercase tracking-wider text-amber-100 flex items-center gap-1">
+                  <Flame className="w-3 h-3 fill-current" />
+                  Today's Motivation
+                </span>
+                <span className="text-[11px] text-white/90 font-bold truncate">
+                  {dailyMotivation.speaker || 'Study Mentor'}
+                </span>
+              </div>
+              <h3 className="font-bold text-xs sm:text-sm text-white line-clamp-1">
+                {dailyMotivation.title}
+              </h3>
+              {dailyMotivation.quote && (
+                <p className="text-xs text-orange-50 italic line-clamp-1 font-serif">
+                  "{dailyMotivation.quote}"
+                </p>
+              )}
+            </div>
+          </div>
+
+          {/* Quick CTAs */}
+          <div className="flex items-center gap-2 relative z-10 w-full md:w-auto justify-end shrink-0">
+            <button
+              onClick={() => setShowMotivationModal(true)}
+              className="px-3.5 py-2 rounded-xl bg-white text-orange-950 hover:bg-orange-50 text-xs font-bold flex items-center gap-1.5 transition-all active:scale-95 shadow-xs"
+            >
+              <Play className="w-3.5 h-3.5 fill-current text-orange-600" />
+              <span>Watch Daily Video</span>
+            </button>
+            <Link
+              to="/app/motivation"
+              className="px-3 py-2 rounded-xl bg-black/20 hover:bg-black/30 text-white border border-white/20 text-xs font-bold transition-all"
+            >
+              All Videos →
+            </Link>
+          </div>
+        </section>
+      )}
 
       {/* ----------------------------------------------------
           2. CLASS 8 SUBJECT PORTALS (4 Responsive Tiles)
@@ -538,6 +605,36 @@ export function StudentDashboard() {
               </Link>
             );
           })}
+        </div>
+
+        {/* PDF Library & Books Callout Banner */}
+        <div className="w-full bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 rounded-2xl p-4 sm:p-5 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-4 border border-indigo-800/40 shadow-sm mt-3.5">
+          <div className="flex items-center gap-3.5">
+            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-indigo-500/20 border border-indigo-400/30 flex items-center justify-center text-indigo-300 shrink-0">
+              <FileText className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.2]" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-indigo-500 text-white">
+                  New Resource
+                </span>
+                <span className="text-xs text-indigo-200 font-semibold hidden sm:inline">Science, English, Maths & SST</span>
+              </div>
+              <h3 className="font-display text-sm sm:text-base font-extrabold text-white mt-0.5">
+                PDF Library & Class 8 Curriculum Books
+              </h3>
+              <p className="text-xs text-slate-300 line-clamp-1">
+                Read textbooks, atomic structure notes, and formula handbooks online or download in 1 click.
+              </p>
+            </div>
+          </div>
+          <Link
+            to="/app/pdfs"
+            className="shrink-0 px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-600 active:scale-95 text-white font-black text-xs flex items-center justify-center gap-2 transition-all shadow-md shadow-orange-500/25"
+          >
+            <span>Open PDF Library</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </section>
 
@@ -1443,6 +1540,56 @@ export function StudentDashboard() {
                 Close Log
               </button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* DAILY MOTIVATION VIDEO PLAYER MODAL */}
+      {showMotivationModal && dailyMotivation && (
+        <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-surface rounded-2xl border border-border max-w-2xl w-full overflow-hidden shadow-2xl space-y-3">
+            <div className="flex items-center justify-between p-4 border-b border-border">
+              <div className="overflow-hidden pr-2">
+                <span className="text-[10px] font-bold text-orange-600 uppercase tracking-wider">
+                  {dailyMotivation.speaker || 'Today\'s Motivation'}
+                </span>
+                <h3 className="font-bold text-sm sm:text-base text-text truncate">
+                  {dailyMotivation.title}
+                </h3>
+              </div>
+              <button
+                onClick={() => setShowMotivationModal(false)}
+                className="p-1 rounded-lg text-text-muted hover:text-text hover:bg-page shrink-0"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="relative aspect-video bg-black w-full">
+              <iframe
+                src={`${dailyMotivation.embedUrl}?autoplay=1&rel=0`}
+                title={dailyMotivation.title}
+                className="w-full h-full border-0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+
+            {dailyMotivation.quote && (
+              <div className="p-4 pt-1 flex items-center justify-between gap-3">
+                <blockquote className="text-xs text-text italic flex-1 bg-page p-2.5 rounded-xl border-l-2 border-orange-500">
+                  "{dailyMotivation.quote}"
+                </blockquote>
+                <Link
+                  to="/app/motivation"
+                  onClick={() => setShowMotivationModal(false)}
+                  className="px-3 py-2 rounded-xl bg-orange-500 hover:bg-orange-600 text-white text-xs font-bold shrink-0 flex items-center gap-1"
+                >
+                  <span>Explore More</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       )}

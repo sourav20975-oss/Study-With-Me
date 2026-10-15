@@ -11,7 +11,9 @@ import {
   ArrowRightLeft,
   LogOut,
   ChevronRight,
-  ShieldCheck
+  ShieldCheck,
+  BookOpen,
+  Flame
 } from 'lucide-react';
 
 export function MoreMenu() {
@@ -21,6 +23,7 @@ export function MoreMenu() {
     {
       title: 'Learning & Practice',
       links: [
+        { to: '/app/pdfs', label: 'PDF Books & Guides', icon: BookOpen, desc: 'Class 8 textbooks, science guides & papers' },
         { to: '/app/homework', label: 'Homework & Worksheets', icon: FileCheck, desc: 'Submit and view teacher grades' },
         { to: '/app/revision', label: 'Mistake Notebook & Saved', icon: RotateCcw, desc: 'Focus on missed test questions' },
         { to: '/app/bookmarks', label: 'Bookmarked Notes', icon: Bookmark, desc: 'Your saved study chapters' },
@@ -30,7 +33,8 @@ export function MoreMenu() {
     {
       title: 'Exploration & Updates',
       links: [
-        { to: '/app/news', label: 'Science & Education News', icon: Newspaper, desc: 'Curated articles via GNews' },
+        { to: '/app/motivation', label: 'Daily Motivation Videos', icon: Flame, desc: 'Daily inspirational talks, Khan Sir & top mentors' },
+        { to: '/app/news', label: 'Science & Education News', icon: Newspaper, desc: 'Curated articles & ICSE breakthroughs' },
         { to: '/app/notifications', label: 'Notifications', icon: Bell, desc: 'Doubt answers and feedback' }
       ]
     }

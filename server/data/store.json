@@ -9,8 +9,8 @@
       "grade": "Senior Faculty & Narayana ICSE Coordinator",
       "isActive": true,
       "createdAt": "2025-01-10T10:00:00.000Z",
-      "lastLoginAt": "2026-10-12T09:22:38.225Z",
-      "updatedAt": "2026-10-12T09:22:38.227Z"
+      "lastLoginAt": "2026-10-15T11:51:05.648Z",
+      "updatedAt": "2026-10-15T11:51:05.648Z"
     },
     {
       "id": "usr-student-1",
@@ -21,8 +21,8 @@
       "grade": "Class 8 (Narayana ICSE Techno Curriculum)",
       "isActive": true,
       "createdAt": "2025-01-10T10:30:00.000Z",
-      "lastLoginAt": "2026-10-12T09:23:12.977Z",
-      "updatedAt": "2026-10-12T09:23:12.977Z"
+      "lastLoginAt": "2026-10-15T05:35:40.733Z",
+      "updatedAt": "2026-10-15T05:35:40.733Z"
     }
   ],
   "subjects": [
@@ -69,102 +69,6 @@
   ],
   "chapters": [
     {
-      "id": "ch-math-1",
-      "subjectId": "sub-maths",
-      "title": "Rational Numbers & Number Systems",
-      "description": "Closure, commutative, associative and distributive properties, operations, and number line representation.",
-      "sortOrder": 1,
-      "isPublished": true
-    },
-    {
-      "id": "ch-math-2",
-      "subjectId": "sub-maths",
-      "title": "Exponents & Powers (Laws of Indices)",
-      "description": "Laws of integral exponents, negative exponents, exponential simplification, and scientific notation.",
-      "sortOrder": 2,
-      "isPublished": true
-    },
-    {
-      "id": "ch-math-3",
-      "subjectId": "sub-maths",
-      "title": "Algebraic Expressions & Special Identities",
-      "description": "Polynomial operations, multiplication of binomials, (a+b)², (a-b)², a²-b², and algebraic factorization.",
-      "sortOrder": 3,
-      "isPublished": true
-    },
-    {
-      "id": "ch-math-4",
-      "subjectId": "sub-maths",
-      "title": "Linear Equations in One Variable",
-      "description": "Standard form equations, cross-multiplication, and word problems on ages, digits, and speed-time.",
-      "sortOrder": 4,
-      "isPublished": true
-    },
-    {
-      "id": "ch-math-5",
-      "subjectId": "sub-maths",
-      "title": "Commercial Arithmetic: Profit, Loss & Compound Interest",
-      "description": "Cost price, selling price, marked price, successive discounts, and annual compound interest calculations.",
-      "sortOrder": 5,
-      "isPublished": true
-    },
-    {
-      "id": "ch-math-6",
-      "subjectId": "sub-maths",
-      "title": "Mensuration: Surface Area & Solid Volumes",
-      "description": "Area of trapezium, polygon division, surface area and volume of cubes, cuboids, and cylinders.",
-      "sortOrder": 6,
-      "isPublished": true
-    },
-    {
-      "id": "ch-sci-1",
-      "subjectId": "sub-science",
-      "title": "Physics: Thrust, Pressure & Fluid Mechanics",
-      "description": "Thrust and pressure relationship, laws of liquid pressure, atmospheric pressure, and Torricellian barometer.",
-      "sortOrder": 1,
-      "isPublished": true
-    },
-    {
-      "id": "ch-sci-2",
-      "subjectId": "sub-science",
-      "title": "Physics: Work, Energy & Conservation of Power",
-      "description": "Mechanical work (W = F × s), kinetic energy (½mv²), potential energy (mgh), and power calculations.",
-      "sortOrder": 2,
-      "isPublished": true
-    },
-    {
-      "id": "ch-sci-3",
-      "subjectId": "sub-science",
-      "title": "Chemistry: Elements, Radicals & Language of Chemistry",
-      "description": "Chemical symbols, mono/polyatomic radicals, valency criss-cross formula writing, and balancing equations.",
-      "sortOrder": 3,
-      "isPublished": true
-    },
-    {
-      "id": "ch-sci-4",
-      "subjectId": "sub-science",
-      "title": "Chemistry: Atomic Structure & Subatomic Particles",
-      "description": "Dalton atomic theory, Thomson, Rutherford alpha scattering, Bohr model, atomic number (Z) and mass number (A).",
-      "sortOrder": 4,
-      "isPublished": true
-    },
-    {
-      "id": "ch-sci-5",
-      "subjectId": "sub-science",
-      "title": "Biology: Transport of Food and Minerals in Plants",
-      "description": "Diffusion, osmosis, active transport, root hair absorption, xylem-phloem conduction, and transpiration pull.",
-      "sortOrder": 5,
-      "isPublished": true
-    },
-    {
-      "id": "ch-sci-6",
-      "subjectId": "sub-science",
-      "title": "Biology: The Human Circulatory & Nervous Systems",
-      "description": "Heart anatomy, cardiac cycle, double circulation, blood groups, neuron structure, and reflex action arc.",
-      "sortOrder": 6,
-      "isPublished": true
-    },
-    {
       "id": "ch-eng-1",
       "subjectId": "sub-english",
       "title": "ICSE Prose: The Model Millionaire (Oscar Wilde)",
@@ -195,467 +99,903 @@
       "description": "Land use patterns, soil horizons, soil conservation methods, hydrological cycle, and rainwater harvesting.",
       "sortOrder": 2,
       "isPublished": true
+    },
+    {
+      "subjectId": "sub-maths",
+      "title": "Comparing Quantities",
+      "description": "speed distance,simple interest,compount interest,train formula",
+      "sortOrder": 1,
+      "isPublished": true,
+      "id": "cha-1792042680857-mdjap",
+      "createdAt": "2026-10-15T05:38:00.857Z"
+    },
+    {
+      "subjectId": "sub-science",
+      "title": "Nature of Matter",
+      "description": "Elements, Compounds and Mixtures",
+      "sortOrder": 1,
+      "isPublished": true,
+      "id": "cha-1792044371039-szuh7",
+      "createdAt": "2026-10-15T06:06:11.039Z"
     }
   ],
   "notes": [
     {
-      "id": "note-math-1",
       "subjectId": "sub-maths",
-      "chapterId": "ch-math-1",
+      "chapterId": "cha-1792042680857-mdjap",
       "createdBy": "usr-admin-1",
-      "title": "Rational Numbers — Complete Core Notes & Algebraic Properties",
-      "summary": "In-depth Narayana notes on closure, commutative, associative properties, and representation on a number line.",
-      "tags": [
-        "Class 8 Maths",
-        "Narayana ICSE",
-        "Rational Numbers",
-        "Properties"
-      ],
-      "readTimeMinutes": 7,
+      "title": "Ex-8.1: Speed, Distance and Time",
+      "summary": "Basic Question of math and science",
+      "contentHtml": "1. Basic Definitions\n\n1. Distance\n\nDistance is the total length covered by a moving object.\n\nExample: A boy cycles 5 km from his home to school. The distance covered is 5 km.\n\n2. Time\n\nTime is the duration taken to cover a distance.\n\nExample: A boy takes 30 minutes to reach school. The time taken is 30 minutes.\n\n3. Speed\n\nSpeed tells us how fast or slowly an object moves. It is the distance travelled per unit of time.\n\nExample: A car travels 60 km in 2 hours.\n\nSpeed = Distance ÷ Time\n\nSpeed = 60 ÷ 2 = 30 km/h\n\n2. Speed, Distance and Time Formula\nQuantity\tFormula\nSpeed\tDistance ÷ Time\nDistance\tSpeed × Time\nTime\tDistance ÷ Speed\n\n![](https://res.cloudinary.com/czb80riv/image/upload/v1792043420/studysathi/uploads/xfu9dsqjf22mdm13xrv8.jpg)\n\nSolved Example 1: Find the distance.\n\nA car travels at 40 km/h for 3 hours. Find the distance covered.\n\nFormula:\n\nDistance = Speed × Time\n\nSolution:\n\nDistance = 40 × 3\n\nAnswer: 120 km\n\nSolved Example 2: Find the time.\n\nA cyclist travels 20 km at 10 km/h. Find the time taken.\n\nFormula:\n\nTime = Distance ÷ Speed\n\nSolution:\n\nTime = 20 ÷ 10\n\nAnswer: 2 hours\n\n3. Conversion of Speed Units\n\nThere are two important conversions.\n\nA. Convert km/h into m/s\n\nMultiply the speed by 5/18.\n\n$$ \\text{Speed in m/s}=\\text{Speed in km/h}\\times\\frac{5}{18} $$\n\nSolved Example: Convert 72 km/h into m/s.\n\n$$ 72\\times\\frac{5}{18} $$ $$ =4\\times5 $$\n\nAnswer: 20 m/s\n\nB. Convert m/s into km/h\n\nMultiply the speed by 18/5.\n\n$$ \\text{Speed in km/h}=\\text{Speed in m/s}\\times\\frac{18}{5} $$\n\nSolved Example: Convert 25 m/s into km/h.\n\n$$ 25\\times\\frac{18}{5} $$ $$ =5\\times18 $$\n\nAnswer: 90 km/h\n\nRemember:\n\nkm/h → m/s: Multiply by 5/18.\nm/s → km/h: Multiply by 18/5.\n4. Conversion of Time\n\nWhen speed is given in km/h, time should generally be expressed in hours.\n\nMinutes\tHours\n15 minutes\t15/60 = 1/4 hour\n30 minutes\t30/60 = 1/2 hour\n45 minutes\t45/60 = 3/4 hour\n60 minutes\t60/60 = 1 hour\n90 minutes\t90/60 = 3/2 hours\n\nSolved Example: Convert 90 minutes into hours.\n\n$$ \\text{Time}=\\frac{90}{60}=1.5\\text{ hours} $$\n\nAnswer: 1.5 hours\n\n5. Average Speed\n\nAverage speed is calculated by dividing the total distance travelled by the total time taken.\n\n$$ \\boxed{\\text{Average Speed}=\\frac{\\text{Total Distance}}{\\text{Total Time}}} $$\n\nSolved Example 1\n\nA car travels 120 km in 2 hours and another 180 km in 3 hours. Find its average speed.\n\nStep 1: Total distance\n\n120 + 180 = 300 km\n\nStep 2: Total time\n\n2 + 3 = 5 hours\n\nStep 3: Average speed\n\n$$ \\text{Average Speed}=\\frac{300}{5} $$\n\nAnswer: 60 km/h\n\nSolved Example 2: Equal Distances\n\nA car travels equal distances at 40 km/h and 60 km/h. Find its average speed.\n\nWhen the distances are equal, use:\n\n$$ \\boxed{\\text{Average Speed}=\\frac{2xy}{x+y}} $$\n\nHere, x = 40 and y = 60.\n\n$$ =\\frac{2\\times40\\times60}{40+60} $$ $$ =\\frac{4800}{100} $$\n\nAnswer: 48 km/h\n\nImportant: Do not simply calculate the average of two speeds when finding average speed for a journey. Use the total distance divided by the total time, or the special formula when the distances are equal.\n\n6. Quick Revision: Important Formulas\nNo.\tFormula\n1\tSpeed = Distance ÷ Time\n2\tDistance = Speed × Time\n3\tTime = Distance ÷ Speed\n4\tkm/h to m/s = Multiply by 5/18\n5\tm/s to km/h = Multiply by 18/5\n6\tAverage speed = Total distance ÷ Total time\n7\tAverage speed for two equal distances = 2xy ÷ (x + y)\nImportant Points to Remember\nAlways write the correct formula before solving a problem.\nConvert minutes into hours when necessary.\nConvert speed units carefully.\nUse the correct unit in the final answer.\nFor average speed, calculate total distance and total time first.\nUse the special average-speed formula only when the distances are equal.",
+      "attachments": [],
+      "tags": [],
+      "readTimeMinutes": 20,
       "status": "published",
-      "publishedAt": "2026-10-10T09:00:00.000Z",
-      "createdAt": "2026-10-10T08:30:00.000Z",
-      "contentHtml": "\n<h3>1. What is a Rational Number?</h3>\n<p>A number that can be expressed in the form <strong>\\( \\frac{p}{q} \\)</strong>, where \\( p \\) and \\( q \\) are integers and \\( q \\neq 0 \\), is called a rational number.</p>\n<p><strong>Examples:</strong> \\( \\frac{2}{3}, -\\frac{5}{7}, 0 = \\frac{0}{1}, 4 = \\frac{4}{1} \\).</p>\n\n<hr/>\n\n<h3>2. Key Properties of Rational Numbers</h3>\n<table>\n  <thead>\n    <tr>\n      <th>Property</th>\n      <th>Addition</th>\n      <th>Subtraction</th>\n      <th>Multiplication</th>\n      <th>Division</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><strong>Closure</strong></td>\n      <td>Yes: \\( a + b \\in \\mathbb{Q} \\)</td>\n      <td>Yes: \\( a - b \\in \\mathbb{Q} \\)</td>\n      <td>Yes: \\( a \\times b \\in \\mathbb{Q} \\)</td>\n      <td>No (division by zero is undefined)</td>\n    </tr>\n    <tr>\n      <td><strong>Commutative</strong></td>\n      <td>Yes: \\( a + b = b + a \\)</td>\n      <td>No: \\( a - b \\neq b - a \\)</td>\n      <td>Yes: \\( a \\times b = b \\times a \\)</td>\n      <td>No: \\( a \\div b \\neq b \\div a \\)</td>\n    </tr>\n    <tr>\n      <td><strong>Associative</strong></td>\n      <td>Yes: \\( (a+b)+c = a+(b+c) \\)</td>\n      <td>No</td>\n      <td>Yes: \\( (ab)c = a(bc) \\)</td>\n      <td>No</td>\n    </tr>\n    <tr>\n      <td><strong>Distributive</strong></td>\n      <td colspan=\"4\">\\( a \\times (b + c) = (a \\times b) + (a \\times c) \\)</td>\n    </tr>\n  </tbody>\n</table>\n\n<hr/>\n\n<h3>3. Additive and Multiplicative Inverses</h3>\n<ul>\n  <li><strong>Additive Identity:</strong> \\( 0 \\) is the additive identity because \\( a + 0 = 0 + a = a \\).</li>\n  <li><strong>Additive Inverse:</strong> The additive inverse of \\( \\frac{a}{b} \\) is \\( -\\frac{a}{b} \\).</li>\n  <li><strong>Multiplicative Identity:</strong> \\( 1 \\) is the multiplicative identity because \\( a \\times 1 = a \\).</li>\n  <li><strong>Multiplicative Inverse (Reciprocal):</strong> The reciprocal of \\( \\frac{a}{b} \\) is \\( \\frac{b}{a} \\) (provided \\( a \\neq 0 \\)). <em>Note: 0 has no reciprocal.</em></li>\n</ul>\n"
+      "publishedAt": "2026-10-15T05:52:51.655Z",
+      "id": "not-1792043571655-3oqyc",
+      "createdAt": "2026-10-15T05:52:51.655Z"
     },
     {
-      "id": "note-math-2",
       "subjectId": "sub-maths",
-      "chapterId": "ch-math-3",
+      "chapterId": "cha-1792042680857-mdjap",
       "createdBy": "usr-admin-1",
-      "title": "Algebraic Expressions & Special Identities — Narayana Core Notes",
-      "summary": "Master standard binomial expansions: (a+b)², (a-b)², a²-b² and factorization methods with worked examples.",
-      "tags": [
-        "Class 8 Maths",
-        "Narayana ICSE",
-        "Algebra",
-        "Identities"
-      ],
-      "readTimeMinutes": 8,
+      "title": "Exercise 8.2 — Detailed Notes, Formulas, Quick Tricks & Solved Questions",
+      "summary": "These notes follow your uploaded Discover Mathematics, Class 8, Volume 2 textbook. Exercise 8.2 covers train problems, relative speed, boats and streams, and problems involving different travel times.",
+      "contentHtml": "1. Train Problems 🚆\nConcept 1: When a train crosses a pole\n\nWhen a train crosses a pole, the train covers a distance equal to its own length.\n\nImportant formulas\n$$ \\boxed{\\text{Speed}=\\frac{\\text{Length of Train}}{\\text{Time}}} $$ $$ \\boxed{\\text{Time}=\\frac{\\text{Length of Train}}{\\text{Speed}}} $$ $$ \\boxed{\\text{Length of Train}=\\text{Speed}\\times\\text{Time}} $$\n\nImportant: If the train's length is in metres and time is in seconds, calculate speed in metres per second (m/s).\n\n![Fig: Screenshot 2026 10 15 113033](https://res.cloudinary.com/czb80riv/image/upload/v1792044075/studysathi/uploads/xqicjk6qqvxabiupkdjl.png)\n\nSolved Example\n\nA train is 150 m long. It crosses a pole in 10 seconds. Find its speed.\n\nStep 1: Write the given values.\n\nLength = 150 m\n\nTime = 10 seconds\n\nStep 2: Apply the formula.\n\n$$ \\text{Speed}=\\frac{\\text{Distance}}{\\text{Time}} $$ $$ =\\frac{150}{10}=15\\text{ m/s} $$\n\nStep 3: Convert into km/h.\n\n$$ 15\\times\\frac{18}{5}=54\\text{ km/h} $$\n\nAnswer: 15 m/s or 54 km/h.\n\nQuick Trick\n\nWhenever a question says “a train crosses a pole”, use:\n\nDistance = Length of train.\n\n2. When a Train Crosses a Bridge or Platform\n\nWhen a train crosses a bridge or platform, it must travel the length of the bridge or platform plus its own length.\n\n5\nImportant formula\n$$ \\boxed{\\text{Total Distance}=\\text{Train Length}+\\text{Bridge Length}} $$\n\nTherefore,\n\n$$ \\boxed{\\text{Time}=\\frac{\\text{Train Length}+\\text{Bridge Length}}{\\text{Speed}}} $$\nSolved Example\n\nA train is 200 m long and crosses a bridge 300 m long. If its speed is 25 m/s, find the time taken.\n\nStep 1: Find the total distance.\n\n$$ 200+300=500\\text{ m} $$\n\nStep 2: Calculate the time.\n\n$$ \\text{Time}=\\frac{500}{25} $$ $$ \\boxed{20\\text{ seconds}} $$\nQuick Trick\nCrossing a pole → use the train's length.\nCrossing a bridge → add the train's length and bridge's length.\nCrossing a platform → add the train's length and platform's length.\n\nCommon mistake: Do not use only the bridge's length when calculating the time taken by a train to cross the entire bridge.\n\n3. Conversion of Speed\n\nBefore solving train problems, you may need to convert km/h into m/s.\n\nFormula 1: km/h to m/s\n$$ \\boxed{\\text{m/s}=\\text{km/h}\\times\\frac{5}{18}} $$\nFormula 2: m/s to km/h\n$$ \\boxed{\\text{km/h}=\\text{m/s}\\times\\frac{18}{5}} $$\nExample\n\nConvert 72 km/h into m/s.\n\n$$ 72\\times\\frac{5}{18} =4\\times5 $$ $$ \\boxed{20\\text{ m/s}} $$\n\nQuick tip: If a train's length is given in metres and its crossing time in seconds, converting its speed into m/s usually makes the calculation easier.\n\n4. Relative Speed\n\nRelative speed tells us how quickly one moving object approaches or moves away from another.\n\nThere are two important cases.\n\nCase A: Two objects move in the same direction\n\nSubtract their speeds.\n\n$$ \\boxed{\\text{Relative Speed}=\\text{Faster Speed}-\\text{Slower Speed}} $$\nExample\n\nTwo trains move in the same direction at 60 km/h and 40 km/h.\n\n$$ \\text{Relative Speed}=60-40 $$ $$ \\boxed{20\\text{ km/h}} $$\nCase B: Two objects move in opposite directions\n\nAdd their speeds.\n\n$$ \\boxed{\\text{Relative Speed}=\\text{Speed}_1+\\text{Speed}_2} $$\nExample\n\nTwo trains move towards each other at 60 km/h and 40 km/h.\n\n$$ \\text{Relative Speed}=60+40 $$ $$ \\boxed{100\\text{ km/h}} $$\nQuick Trick\nDirection\tOperation\nSame direction\tSubtract\nOpposite directions\tAdd\n\nRemember: If you calculate the time taken for two trains to cross each other, you must also consider the lengths of both trains.\n\n5. Two Trains Crossing Each Other\n\nWhen two trains cross each other completely, the total distance covered relative to each other equals the sum of their lengths.\n\nCase A: Same direction\n$$ \\boxed{\\text{Time}=\\frac{\\text{Sum of Train Lengths}}{\\text{Difference of Speeds}}} $$\n\nThe speeds must be expressed in the same units.\n\nCase B: Opposite directions\n$$ \\boxed{\\text{Time}=\\frac{\\text{Sum of Train Lengths}}{\\text{Sum of Speeds}}} $$\nSolved Example\n\nTwo trains are 100 m and 150 m long. They travel in opposite directions at 10 m/s and 15 m/s. Find the time taken to cross each other.\n\nStep 1: Calculate the total length.\n\n$$ 100+150=250\\text{ m} $$\n\nStep 2: Calculate the relative speed.\n\nSince they move in opposite directions:\n\n$$ 10+15=25\\text{ m/s} $$\n\nStep 3: Calculate the time.\n\n$$ \\text{Time}=\\frac{250}{25} $$ $$ \\boxed{10\\text{ seconds}} $$\n6. Boats and Streams 🚣\n\nA boat's speed changes depending on whether it moves with or against the current.\n\nSpeed of the boat in still water: The speed of the boat when the water is not flowing.\n\nSpeed of the stream: The speed at which the water flows.\n\nCase A: Downstream\n\nDownstream means the boat moves in the same direction as the water current.\n\nThe current helps the boat move faster.\n\n$$ \\boxed{\\text{Downstream Speed}=u+v} $$\n\nHere:\n\n\\(u\\) = speed of the boat in still water\n\\(v\\) = speed of the stream\nExample\n\nSpeed of the boat in still water = 10 km/h.\n\nSpeed of the stream = 2 km/h.\n\n$$ \\text{Downstream Speed}=10+2 $$ $$ \\boxed{12\\text{ km/h}} $$\nCase B: Upstream\n\nUpstream means the boat moves against the direction of the water current.\n\nThe current slows the boat down.\n\n$$ \\boxed{\\text{Upstream Speed}=u-v} $$\nExample\n\nSpeed of the boat in still water = 10 km/h.\n\nSpeed of the stream = 2 km/h.\n\n$$ \\text{Upstream Speed}=10-2 $$ $$ \\boxed{8\\text{ km/h}} $$\nTwo additional formulas\n\nIf downstream and upstream speeds are known:\n\n$$ \\boxed{\\text{Boat Speed in Still Water}=\\frac{D+U}{2}} $$ $$ \\boxed{\\text{Stream Speed}=\\frac{D-U}{2}} $$\n\nHere, \\(D\\) is the downstream speed and \\(U\\) is the upstream speed.\n\nQuick Trick\n\nDownstream = Add (+)\n\nUpstream = Subtract (−)\n\n7. Time, Speed and Distance in Boat Problems\n\nThe same basic formula applies to boats.\n\n$$ \\boxed{\\text{Time}=\\frac{\\text{Distance}}{\\text{Speed}}} $$\n\nHowever, always use the correct speed.\n\nFor downstream travel, use downstream speed.\nFor upstream travel, use upstream speed.\nSolved Example\n\nA boat travels at 8 km/h in still water. The stream flows at 2 km/h. Find the time taken to travel 30 km downstream.\n\nStep 1: Find downstream speed.\n\n$$ 8+2=10\\text{ km/h} $$\n\nStep 2: Find time.\n\n$$ \\text{Time}=\\frac{30}{10} $$ $$ \\boxed{3\\text{ hours}} $$\nAnother Example\n\nA boat travels at 8 km/h in still water. The stream flows at 2 km/h. Find the time taken to travel 30 km upstream.\n\nStep 1: Find upstream speed.\n\n$$ 8-2=6\\text{ km/h} $$\n\nStep 2: Find time.\n\n$$ \\text{Time}=\\frac{30}{6} $$ $$ \\boxed{5\\text{ hours}} $$\n\nNotice that the same distance takes longer upstream because the water current opposes the boat's movement.\n\n8. Questions Involving Being Late or Early\n\nThese questions compare the travel time at two different speeds.\n\nThe important idea is that the difference between the two travel times can be calculated from the difference between the late and early arrival times.\n\nExample\n\nA student is 10 minutes late when travelling at 4 km/h but arrives 10 minutes early when travelling at 6 km/h. Find the distance between home and school.\n\nStep 1: Find the difference in travel times.\n\nOne journey makes the student 10 minutes late; the other makes the student 10 minutes early.\n\nTherefore, the difference is:\n\n$$ 10+10=20\\text{ minutes} $$\n\nConvert into hours:\n\n$$ 20/60=\\frac13\\text{ hour} $$\n\nStep 2: Let the distance be \\(x\\) km.\n\nTime at 4 km/h:\n\n$$ \\frac{x}{4} $$\n\nTime at 6 km/h:\n\n$$ \\frac{x}{6} $$\n\nStep 3: Find the difference between the times.\n\n$$ \\frac{x}{4}-\\frac{x}{6}=\\frac13 $$\n\nTaking the LCM of 4 and 6:\n\n$$ \\frac{3x-2x}{12}=\\frac13 $$ $$ \\frac{x}{12}=\\frac13 $$ $$ x=4 $$\n\nAnswer: 4 km\n\nQuick Trick\n\nWhen a person is late at a slower speed and early at a faster speed:\n\nTime difference = Late time + Early time\n\nConvert the time difference into hours if the speeds are in km/h.\n\n9. Exercise 8.2 — Detailed Solutions\n\nThe following questions are from Exercise 8.2 in your uploaded textbook.\n\nQuestion 1\n\nA train 150 m long crosses a pole in 12 seconds. Find its speed in m/s and km/h.\n\nGiven:\n\nTrain length = 150 m\n\nTime = 12 seconds\n\nStep 1: Calculate speed in m/s.\n\n$$ \\text{Speed}=\\frac{150}{12}=12.5\\text{ m/s} $$\n\nStep 2: Convert into km/h.\n\n$$ 12.5\\times\\frac{18}{5}=45\\text{ km/h} $$\n\nAnswer: 12.5 m/s and 45 km/h.\n\nQuestion 2\n\nA train running at 72 km/h crosses a pole in 15 seconds. Find the length of the train.\n\nStep 1: Convert speed into m/s.\n\n$$ 72\\times\\frac{5}{18}=20\\text{ m/s} $$\n\nStep 2: Calculate the train's length.\n\n$$ \\text{Length}=\\text{Speed}\\times\\text{Time} $$ $$ =20\\times15 $$\n\nAnswer: 300 m.\n\nQuestion 3\n\nA train crosses a pole in 8 seconds and a bridge 120 m long in 20 seconds. Find the length of the train and its speed in km/h.\n\nLet the train's length be \\(x\\) metres.\n\nStep 1: Express the speed using the pole.\n\n$$ \\text{Speed}=\\frac{x}{8}\\text{ m/s} $$\n\nStep 2: Express the speed using the bridge.\n\nTotal distance while crossing the bridge:\n\n$$ x+120 $$\n\nTherefore:\n\n$$ \\text{Speed}=\\frac{x+120}{20}\\text{ m/s} $$\n\nBoth expressions represent the same speed.\n\n$$ \\frac{x}{8}=\\frac{x+120}{20} $$\n\nCross-multiply:\n\n$$ 20x=8(x+120) $$ $$ 20x=8x+960 $$ $$ 12x=960 $$ $$ x=80 $$\n\nThe train's length is 80 m.\n\nStep 3: Find its speed.\n\n$$ \\text{Speed}=\\frac{80}{8}=10\\text{ m/s} $$\n\nConvert into km/h:\n\n$$ 10\\times\\frac{18}{5}=36\\text{ km/h} $$\n\nAnswer: Length = 80 m; speed = 36 km/h.\n\nQuestion 4\n\nA train 180 m long crosses a pole in 9 seconds. Find the time taken to cross a bridge 270 m long.\n\nStep 1: Find the train's speed.\n\n$$ \\text{Speed}=\\frac{180}{9}=20\\text{ m/s} $$\n\nStep 2: Find the total distance.\n\n$$ 180+270=450\\text{ m} $$\n\nStep 3: Calculate time.\n\n$$ \\text{Time}=\\frac{450}{20} $$ $$ \\boxed{22.5\\text{ seconds}} $$\n\nAnswer: 22.5 seconds.\n\nQuestion 5\n\nA man is 15 minutes late to catch a train when he cycles at 8 km/h but becomes 15 minutes early when he cycles at 12 km/h. Find the distance to the station.\n\nStep 1: Calculate the difference in time.\n\n$$ 15+15=30\\text{ minutes} $$\n\nConvert into hours:\n\n$$ 30/60=\\frac12\\text{ hour} $$\n\nStep 2: Let the distance be \\(x\\) km.\n\nAt 8 km/h, time taken:\n\n$$ \\frac{x}{8} $$\n\nAt 12 km/h, time taken:\n\n$$ \\frac{x}{12} $$\n\nStep 3: Form the equation.\n\n$$ \\frac{x}{8}-\\frac{x}{12}=\\frac12 $$\n\nLCM of 8 and 12 = 24.\n\n$$ \\frac{3x-2x}{24}=\\frac12 $$ $$ \\frac{x}{24}=\\frac12 $$ $$ x=12 $$\n\nAnswer: 12 km.\n\nQuestion 6\n\nThe speed of a boat in still water is 7 km/h. It travels 22 km upstream in 4 hours. Find the speed of the current.\n\nStep 1: Calculate upstream speed.\n\n$$ \\text{Upstream Speed}=\\frac{22}{4}=5.5\\text{ km/h} $$\n\nStep 2: Calculate the speed of the current.\n\n$$ \\text{Upstream Speed}=\\text{Boat Speed}-\\text{Stream Speed} $$\n\nTherefore:\n\n$$ 5.5=7-v $$ $$ v=7-5.5 $$\n\nAnswer: 1.5 km/h.\n\nQuestion 7\n\nA boat travels at 36 km/h in still water. It covers 56 km upstream in 1 hour 45 minutes. Find the time taken to cover the same distance downstream.\n\nStep 1: Convert time into hours.\n\n$$ 1\\text{ hour }45\\text{ minutes}=1.75\\text{ hours} $$\n\nStep 2: Calculate upstream speed.\n\n$$ \\text{Upstream Speed}=\\frac{56}{1.75}=32\\text{ km/h} $$\n\nStep 3: Calculate the speed of the stream.\n\n$$ \\text{Stream Speed}=36-32=4\\text{ km/h} $$\n\nStep 4: Calculate downstream speed.\n\n$$ 36+4=40\\text{ km/h} $$\n\nStep 5: Calculate downstream time.\n\n$$ \\text{Time}=\\frac{56}{40}=1.4\\text{ hours} $$\n\nConvert 0.4 hour into minutes:\n\n$$ 0.4\\times60=24\\text{ minutes} $$\n\nAnswer: 1 hour 24 minutes.\n\nQuestion 8\n\nThe speed of a boat in still water is 8 km/h, and the speed of the stream is 2.5 km/h.\n\nPart A: Find the time taken to travel 63 km downstream.\n\nStep 1: Find downstream speed.\n\n$$ 8+2.5=10.5\\text{ km/h} $$\n\nStep 2: Calculate time.\n\n$$ \\text{Time}=\\frac{63}{10.5} $$\n\nAnswer: 6 hours.\n\nPart B: Find the time taken to travel 22 km upstream.\n\nStep 1: Find upstream speed.\n\n$$ 8-2.5=5.5\\text{ km/h} $$\n\nStep 2: Calculate time.\n\n$$ \\text{Time}=\\frac{22}{5.5} $$\n\nAnswer: 4 hours.\n\nQuestion 9\n\nTwo boats P and Q have still-water speeds of 10 km/h and 14 km/h. At 8 a.m., P travels downstream and Q travels upstream from two places 96 km apart. The stream speed is 2 km/h. When will they meet?\n\nStep 1: Find the downstream speed of boat P.\n\n$$ 10+2=12\\text{ km/h} $$\n\nStep 2: Find the upstream speed of boat Q.\n\n$$ 14-2=12\\text{ km/h} $$\n\nStep 3: Calculate their combined speed.\n\nThey travel towards each other, so add their speeds.\n\n$$ 12+12=24\\text{ km/h} $$\n\nStep 4: Calculate the meeting time.\n\n$$ \\text{Time}=\\frac{96}{24}=4\\text{ hours} $$\n\nThey start at 8 a.m.\n\n$$ 8\\text{ a.m.}+4\\text{ hours}=12\\text{ noon} $$\n\nAnswer: 12 noon.\n\nQuestion 10\n\nA boat travels 40 km upstream in 5 hours. If the speed of the current is 2 km/h, find the speed of the boat in still water.\n\nStep 1: Calculate upstream speed.\n\n$$ \\text{Upstream Speed}=\\frac{40}{5}=8\\text{ km/h} $$\n\nStep 2: Calculate the boat's still-water speed.\n\n$$ \\text{Upstream Speed}=\\text{Boat Speed}-\\text{Stream Speed} $$\n\nTherefore:\n\n$$ 8=u-2 $$ $$ u=8+2 $$\n\nAnswer: 10 km/h.\n\n10. Quick Revision Sheet\nSituation\tFormula or Rule\nTrain crosses a pole\tDistance = Train length\nTrain crosses a bridge\tDistance = Train length + Bridge length\nTrain crosses a platform\tDistance = Train length + Platform length\nSpeed\tDistance ÷ Time\nDistance\tSpeed × Time\nTime\tDistance ÷ Speed\nSame-direction relative speed\tDifference of speeds\nOpposite-direction relative speed\tSum of speeds\nDownstream speed\tBoat speed + Stream speed\nUpstream speed\tBoat speed − Stream speed\nBoat speed in still water\t(Downstream + Upstream) ÷ 2\nStream speed\t(Downstream − Upstream) ÷ 2\nkm/h to m/s\tMultiply by 5/18\nm/s to km/h\tMultiply by 18/5\n11. Common Mistakes to Avoid\nForgetting the train's length: When crossing a bridge, add both lengths.\nUsing the wrong relative speed: Subtract speeds for the same direction; add them for opposite directions.\nMixing units: Convert km/h to m/s when distances are in metres and times are in seconds.\nConfusing upstream and downstream: Downstream is addition; upstream is subtraction.\nForgetting to convert minutes: Convert minutes into hours before using speed in km/h.\nWriting no units: Always include km, m, hours, seconds, km/h or m/s as appropriate.\n12. Practice Questions for Students\n\nTry these questions after completing the notes.\n\nA train 240 m long crosses a pole in 12 seconds. Find its speed in m/s and km/h.\nA train travels at 54 km/h and crosses a pole in 20 seconds. Find its length.\nA train 120 m long crosses a bridge 180 m long at 15 m/s. Find the time taken.\nTwo trains travel in the same direction at 70 km/h and 50 km/h. Find their relative speed.\nA boat travels at 12 km/h in still water. The stream speed is 3 km/h. Find its upstream and downstream speeds.\nA boat covers 36 km downstream at 9 km/h. Find the time taken.\nA boat's downstream speed is 18 km/h and its upstream speed is 12 km/h. Find its still-water speed and stream speed.\nA student is 10 minutes late at 5 km/h and 10 minutes early at 7 km/h. Find the distance between home and school.\nAnswer Key\nQuestion\tAnswer\n1\t20 m/s; 72 km/h\n2\t300 m\n3\t20 seconds\n4\t20 km/h\n5\tUpstream: 9 km/h; downstream: 15 km/h\n6\t4 hours\n7\tStill-water speed: 15 km/h; stream speed: 3 km/h\n8\t\\(35/6\\) km, or approximately 5.83 km\n\nTeaching suggestion: Teach train-crossing questions first, then relative speed, followed by boats and streams. Finish with late-and-early questions, which require students to form an equation. This sequence moves from basic formulas to more challenging applications.",
+      "attachments": [],
+      "tags": [],
+      "readTimeMinutes": 30,
       "status": "published",
-      "publishedAt": "2026-10-10T10:00:00.000Z",
-      "createdAt": "2026-10-10T09:30:00.000Z",
-      "contentHtml": "\n<h3>1. Core Algebraic Identities (Standard ICSE Narayana Syllabus)</h3>\n<p>An identity is an equality which is true for all values of the variables.</p>\n\n<ol>\n  <li><strong>Identity I:</strong> \\( (a + b)^2 = a^2 + 2ab + b^2 \\)</li>\n  <li><strong>Identity II:</strong> \\( (a - b)^2 = a^2 - 2ab + b^2 \\)</li>\n  <li><strong>Identity III:</strong> \\( (a + b)(a - b) = a^2 - b^2 \\)</li>\n  <li><strong>Identity IV:</strong> \\( (x + a)(x + b) = x^2 + (a + b)x + ab \\)</li>\n</ol>\n\n<hr/>\n\n<h3>2. Worked Example 1: Expansion</h3>\n<p><strong>Problem:</strong> Expand \\( (3x + 4y)^2 \\).</p>\n<p><strong>Solution:</strong> Using Identity I with \\( a = 3x \\) and \\( b = 4y \\):</p>\n<p>\\[ (3x + 4y)^2 = (3x)^2 + 2(3x)(4y) + (4y)^2 = 9x^2 + 24xy + 16y^2 \\]</p>\n\n<hr/>\n\n<h3>3. Worked Example 2: Difference of Two Squares</h3>\n<p><strong>Problem:</strong> Evaluate \\( 103 \\times 97 \\) using algebraic identities.</p>\n<p><strong>Solution:</strong> Rewrite as \\( (100 + 3)(100 - 3) \\). Using \\( (a+b)(a-b) = a^2 - b^2 \\):</p>\n<p>\\[ (100 + 3)(100 - 3) = 100^2 - 3^2 = 10000 - 9 = 9991 \\]</p>\n"
+      "publishedAt": "2026-10-15T06:01:30.044Z",
+      "id": "not-1792044090044-4fbrx",
+      "createdAt": "2026-10-15T06:01:30.044Z",
+      "subjectName": "Mathematics",
+      "chapterTitle": "Comparing Quantities",
+      "updatedAt": "2026-10-15T06:03:07.454Z"
     },
     {
-      "id": "note-sci-1",
       "subjectId": "sub-science",
-      "chapterId": "ch-sci-1",
+      "chapterId": "cha-1792044371039-szuh7",
       "createdBy": "usr-admin-1",
-      "title": "Physics: Thrust, Pressure & Fluid Mechanics — Narayana Techno",
-      "summary": "Complete derivations of pressure P = F/A, hydrostatic pressure P = hρg, and atmospheric barometer principles.",
-      "tags": [
-        "Class 8 Physics",
-        "Narayana ICSE",
-        "Force & Pressure",
-        "Hydrostatics"
-      ],
-      "readTimeMinutes": 9,
+      "title": "Elements, Compounds and Mixtures",
+      "summary": "",
+      "contentHtml": "1. What Is Matter?\n\n![](https://res.cloudinary.com/czb80riv/image/upload/v1792044570/studysathi/uploads/onfm9yleets775drxk3n.jpg)\n\nDefinition: Matter is anything that has mass and occupies space.\n\nExamples:\n\nWater\nAir\nBooks\nStones\nMilk\nWood\n\nEasy explanation: Anything that has weight and takes up space is called matter.\n\nFor example, a book has mass and occupies space, so it is matter.\n\nQuick Tip\n\nRemember two important things about matter:\n\nIt has mass.\nIt occupies space.\n2. Classification of Matter\n\nMatter can be classified into two main groups:\n\nA. Pure Substances\n\nPure substances have a fixed composition and characteristic properties.\n\nThey are divided into:\n\nElements\nCompounds\n\nExamples: Pure copper, oxygen and distilled water.\n\nB. Mixtures\n\nA mixture is formed when two or more substances are physically combined.\n\nExamples: Air, seawater, soil and snack mixtures.\n\nImportant Point\n\nDistilled water is a pure substance, but it is a compound, not an element.\n\n3. Elements\nDefinition\n\nAn element is a pure substance made of only one kind of atom.\n\nIt cannot be broken down into simpler substances by ordinary chemical methods.\n\n| Rule 1 | True / Applicable | Requires Condition |\n| Rule 2 | Always Valid | Exception at 0 |\nExamples of Elements\nElement\tChemical Symbol\nHydrogen\tH\nOxygen\tO\nCarbon\tC\nSodium\tNa\nPotassium\tK\nIron\tFe\nCalcium\tCa\nZinc\tZn\nSulphur\tS\nMercury\tHg\nEasy Explanation\n\nThink of an element as a substance made from just one type of building block.\n\nFor example, pure iron contains iron atoms.\n\nQuick Tips\nAn element contains one kind of atom.\nEach element has a chemical symbol.\nThe first letter of a symbol is always capital.\nIf there is a second letter, it is lowercase.\n\nExample: Co and CO mean different things. Co is the symbol for cobalt, while CO is the formula for carbon monoxide.\n\n4. Compounds\nDefinition\n\nA compound is a pure substance formed when two or more different elements chemically combine in a fixed proportion.\n\nExamples\nCompound\tChemical Formula\tElements Present\nWater\tH₂O\tHydrogen and oxygen\nCarbon dioxide\tCO₂\tCarbon and oxygen\nSodium chloride\tNaCl\tSodium and chlorine\nEasy Explanation\n\nWater is made from hydrogen and oxygen that are chemically combined.\n\nWater has properties different from those of hydrogen and oxygen.\n\nImportant Properties of Compounds\nThey contain two or more different elements.\nThe elements are chemically combined.\nThe elements are present in a fixed proportion.\nTheir properties differ from those of their constituent elements.\nThey cannot be separated by simple physical methods.\nQuick Tip\n\nCompound = Different elements + Chemical combination + Fixed proportion.\n\n5. Mixtures\nDefinition\n\nA mixture is formed when two or more substances are physically combined without forming a new substance.\n\nExamples\nAir\nSoil\nSalt water\nSeawater\nRice puffs mixed with peanuts and raisins\nProperties of Mixtures\nThey contain two or more substances.\nThe substances are physically combined.\nTheir composition can vary.\nThe components generally retain their own properties.\nThey can often be separated by physical methods.\nMethods of Separating Mixtures\nMethod\tExample\nHandpicking\tSeparating stones from rice\nFiltration\tSeparating sand from water\nEvaporation\tObtaining salt from salt water\nSieving\tSeparating larger particles from smaller particles\nMagnetic separation\tSeparating iron filings from sand\nQuick Tip\n\nA mixture can often be separated by physical methods because its components are not chemically combined.\n\n6. Types of Mixtures\n\nMixtures are mainly classified into two types: homogeneous and heterogeneous.\n\n6\nA. Homogeneous Mixture\n\nDefinition: A homogeneous mixture has a uniform composition throughout.\n\nThis means the mixture is the same throughout, and its different components are not visibly distinguishable.\n\nExamples:\n\nSalt solution\nSugar solution\nAir\nVinegar\nBrass\n\nEasy explanation: When salt dissolves completely in water, the salt solution looks the same throughout.\n\nB. Heterogeneous Mixture\n\nDefinition: A heterogeneous mixture does not have a uniform composition throughout.\n\nIts different components or regions may be distinguishable.\n\nExamples:\n\nSoil\nMuddy water\nOil mixed with water\nRice puffs mixed with peanuts and raisins\n\nEasy explanation: When oil and water are mixed, they form separate layers. Therefore, the mixture is heterogeneous.\n\nQuick Comparison\nHomogeneous Mixture\tHeterogeneous Mixture\nUniform composition\tNon-uniform composition\nComponents are not visibly distinguishable\tComponents or regions may be distinguishable\nExample: Salt solution\tExample: Muddy water\nExample: Air\tExample: Soil\nEasy Memory Trick\nHomo = Same\nHetero = Different\n7. Other Important Terms\nA. Solution\n\nA solution is a homogeneous mixture.\n\nExample: Salt water.\n\nB. Alloy\n\nAn alloy is a mixture containing a metal and one or more other elements.\n\nExamples:\n\nBrass\nBronze\nC. Colloid\n\nA colloid is a mixture containing tiny dispersed particles.\n\nExamples:\n\nMilk\nFog\nD. Suspension\n\nA suspension is a heterogeneous mixture whose particles may settle when left undisturbed.\n\nExample: Muddy water.\n\nThese definitions and examples follow your uploaded notes.\n\n8. Pure Substance vs Mixture\n\nThis is an important comparison for examinations.\n\nPure Substance\tMixture\nHas a fixed composition\tComposition can vary\nContains one element or one compound\tContains two or more substances\nHas characteristic properties\tProperties depend on its components and proportions\nHas definite melting and boiling points under a given pressure\tMay melt or boil over a range of temperatures\nCannot be separated into its components by ordinary physical methods\tComponents can often be separated by physical methods\nExample: Pure copper\tExample: Air\nQuick Tip\n\nRemember these four words:\n\nPure substance: Fixed composition.\n\nMixture: Variable composition.\n\n9. Case Studies from the Chapter\nCase Study 1: Box 1\n\nThe box contained crystals that looked similar in shape and colour.\n\nEven after crushing, the smaller pieces looked similar.\n\nSamples from different places were described in the story as having the same taste.\n\nConclusion: The intended conclusion in the textbook is that Box 1 contains a pure substance.\n\nCase Study 2: Box 2\n\nThe box contained:\n\nRice puffs\nPeanuts\nCornflakes\nRaisins\nSalt crystals\n\nThe components looked different and could be separated by hand.\n\nConclusion: Box 2 contains a heterogeneous mixture.\n\nComparison\nBox 1\tBox 2\nSimilar-looking crystals\tDifferent snack ingredients\nPieces looked similar after crushing\tComponents remained distinguishable\nNo distinct components were visible to pick out\tComponents could be separated by hand\nIntended conclusion: Pure substance\tHeterogeneous mixture\n\nSafety Tip: Never taste unknown substances in a laboratory or classroom. Use teacher-approved observation methods only.\n\n10. Important Scientists and Their Contributions\nScientist\tContribution\nEmpedocles\tProposed four basic substances: earth, air, fire and water\nLeucippus\tAssociated with early ideas that matter is made of tiny particles\nDemocritus\tUsed the word atomos, meaning indivisible\nMaharishi Kanada\tAssociated with the ancient idea that matter consists of tiny particles\nAntoine Lavoisier\tHelped establish modern chemistry and the Law of Conservation of Mass\nJoseph Proust\tAssociated with the Law of Definite Proportions\nJohn Dalton\tDeveloped an influential early modern atomic theory\nQuick Memory Tips\nDemocritus: Atomos.\nLavoisier: Conservation of Mass.\nProust: Definite Proportions.\nDalton: Atomic Theory.\n\nThese are the key historical contributions listed in your uploaded notes.\n\n11. Why Is Water a Compound?\n\nWater has the chemical formula H₂O.\n\nIt contains hydrogen and oxygen chemically combined in a fixed ratio.\n\nTherefore, water is a compound, not a mixture.\n\nWhat Happens When Water Freezes?\n\nWhen water freezes into ice, it remains H₂O.\n\nWhen ice melts into water, it also remains H₂O.\n\nThese are physical changes because the state changes, but the substance remains the same.\n\nWhat Is Electrolysis?\n\nElectrolysis is a process in which electricity is used to decompose water into hydrogen and oxygen gases under suitable conditions.\n\nSafety: Electrolysis requires appropriate equipment and teacher supervision. Never use a household power supply or an open flame near the gases produced.\n\n12. Quick Revision Sheet\n\nRevise these definitions before a test.\n\nTerm\tOne-Line Definition\nMatter\tAnything that has mass and occupies space\nPure substance\tA material with fixed composition and characteristic properties\nElement\tA pure substance made of one kind of atom\nCompound\tDifferent elements chemically combined in a fixed proportion\nMixture\tTwo or more substances physically combined\nHomogeneous mixture\tA mixture with uniform composition\nHeterogeneous mixture\tA mixture with non-uniform composition\nSolution\tA homogeneous mixture\nAlloy\tA mixture containing a metal and one or more other elements\nColloid\tA mixture containing tiny dispersed particles\nSuspension\tA heterogeneous mixture whose particles may settle\n13. Practice Questions\nA. Very Short Answer Questions\nWhat is matter?\nDefine an element.\nWhat is a compound?\nGive two examples of compounds.\nWhat is a mixture?\nDefine a homogeneous mixture.\nDefine a heterogeneous mixture.\nWhat is an alloy?\nWhat does the word atomos mean?\nWho is associated with the Law of Definite Proportions?\nB. Short Answer Questions\nWrite four properties of a pure substance.\nWrite four differences between a pure substance and a mixture.\nExplain the conclusions from Case Study 1 and Case Study 2.\nDifferentiate between an element and a compound, with examples.\nWhy is freezing water into ice a physical change?\nWrite one contribution each of Democritus, Lavoisier, Proust and Dalton.\nC. Classification Questions\n\nClassify each substance as an element, compound, homogeneous mixture or heterogeneous mixture.\n\nOxygen\nDistilled water\nAir\nBrass\nMuddy water\nSodium\nSugar solution\nRice puffs mixed with peanuts and raisins\nCarbon dioxide\nSoil\nD. Think and Explain\nWhy can the components of a snack mixture be separated by hand, but the elements in water cannot?\nIs every pure substance an element? Explain with an example.\nWhy is salt water considered a homogeneous mixture?\nWhy is muddy water considered a heterogeneous mixture?\n14. Answer Key\nA. Very Short Answers\nMatter is anything that has mass and occupies space.\nAn element is a pure substance made of one kind of atom.\nA compound is formed when different elements chemically combine in a fixed proportion.\nWater and carbon dioxide.\nA mixture is formed when two or more substances are physically combined.\nA mixture with uniform composition throughout.\nA mixture with non-uniform composition.\nAn alloy is a mixture containing a metal and one or more other elements.\nIt means indivisible.\nJoseph Proust.\nB. Key Points for Short Answers\nA pure substance has fixed composition, characteristic properties, definite melting and boiling points under a given pressure, and cannot be separated into its components by ordinary physical methods.\nA pure substance has fixed composition, while a mixture has variable composition. A pure substance may be an element or compound, while a mixture contains physically combined substances. Mixtures can often be separated physically, unlike pure substances.\nBox 1 was intended to represent a pure substance because the crystals appeared similar. Box 2 was a heterogeneous mixture because its different components could be identified and separated.\nAn element contains one kind of atom, such as iron. A compound contains different elements chemically combined, such as water.\nFreezing is a physical change because water remains H₂O; only its physical state changes.\nDemocritus: atomos; Lavoisier: Conservation of Mass; Proust: Definite Proportions; Dalton: Atomic Theory.\nC. Classification Answers\nQuestion\tSubstance\tClassification\n17\tOxygen\tElement\n18\tDistilled water\tCompound\n19\tAir\tHomogeneous mixture\n20\tBrass\tHomogeneous mixture\n21\tMuddy water\tHeterogeneous mixture\n22\tSodium\tElement\n23\tSugar solution\tHomogeneous mixture\n24\tRice puffs, peanuts and raisins\tHeterogeneous mixture\n25\tCarbon dioxide\tCompound\n26\tSoil\tHeterogeneous mixture\nD. Think and Explain\nThe components of a snack mixture are physically combined and can be picked out. Hydrogen and oxygen in water are chemically combined, so they cannot be separated by hand.\nNo. Pure substances can be elements or compounds. Distilled water is a pure substance but is a compound because it contains hydrogen and oxygen chemically combined.\nSalt dissolves throughout the water, producing a uniform mixture.\nMuddy water is heterogeneous because its composition is not uniform and its particles may settle when left undisturbed.\nFinal Teaching Tip\n\nTeach this chapter in the following order:\n\nMatter and pure substances.\nElements and compounds.\nMixtures and their types.\nPure substance versus mixture.\nCase studies.\nScientists and their contributions.\nWater as a compound.\nPractice questions and classification.\n\nThe most important examination topics are the definitions, differences between elements and compounds, homogeneous versus heterogeneous mixtures, the contributions of scientists, and the classification of everyday substances.",
+      "attachments": [],
+      "tags": [],
+      "readTimeMinutes": 25,
       "status": "published",
-      "publishedAt": "2026-10-10T11:00:00.000Z",
-      "createdAt": "2026-10-10T10:30:00.000Z",
-      "contentHtml": "\n<h3>1. Thrust vs Pressure</h3>\n<ul>\n  <li><strong>Thrust:</strong> The total force acting normally (perpendicularly) on a surface is called thrust. Unit: <strong>Newton (N)</strong>.</li>\n  <li><strong>Pressure:</strong> The thrust acting per unit area of a surface is called pressure.</li>\n</ul>\n\n<p><strong>Formula:</strong></p>\n<p>\\[ \\text{Pressure } P = \\frac{\\text{Thrust } (F)}{\\text{Area } (A)} \\]</p>\n<p><strong>SI Unit:</strong> \\( \\text{N/m}^2 \\) or <strong>Pascal (Pa)</strong>. \\( 1 \\text{ Pa} = 1 \\text{ N/m}^2 \\).</p>\n\n<hr/>\n\n<h3>2. Pressure in Fluids (Liquids & Gases)</h3>\n<p>Liquids exert pressure on the bottom as well as the walls of their container.</p>\n<p><strong>Hydrostatic Pressure Formula:</strong></p>\n<p>\\[ P = h \\times \\rho \\times g \\]</p>\n<p>Where \\( h \\) = depth of liquid column, \\( \\rho \\) = density of the liquid, and \\( g \\) = acceleration due to gravity.</p>\n\n<hr/>\n\n<h3>3. Atmospheric Pressure & Barometer</h3>\n<p>The envelope of air surrounding the earth is called atmosphere, and the pressure exerted by it is called atmospheric pressure.</p>\n<p>At sea level, normal atmospheric pressure is equal to <strong>76 cm (or 760 mm) of mercury (Hg)</strong> column \\( \\approx 1.013 \\times 10^5 \\text{ Pa} \\).</p>\n"
-    },
-    {
-      "id": "note-sci-2",
-      "subjectId": "sub-science",
-      "chapterId": "ch-sci-3",
-      "createdBy": "usr-admin-1",
-      "title": "Chemistry: Elements, Radicals & Language of Chemistry — Narayana Notes",
-      "summary": "Valency charts of positive and negative radicals, chemical formula derivation via criss-cross method, and balancing reactions.",
-      "tags": [
-        "Class 8 Chemistry",
-        "Narayana ICSE",
-        "Language of Chemistry",
-        "Valency"
-      ],
-      "readTimeMinutes": 8,
-      "status": "published",
-      "publishedAt": "2026-10-10T12:00:00.000Z",
-      "createdAt": "2026-10-10T11:30:00.000Z",
-      "contentHtml": "\n<h3>1. Radicals and Valency (Narayana ICSE Reference Table)</h3>\n<p>A radical is an atom or a group of atoms behaving as a single unit with a definite electric charge.</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Valency</th>\n      <th>Electropositive Radicals (Cations)</th>\n      <th>Electronegative Radicals (Anions)</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><strong>Monovalent (1)</strong></td>\n      <td>\\( \\text{Na}^+, \\text{K}^+, \\text{NH}_4^+, \\text{H}^+ \\)</td>\n      <td>\\( \\text{Cl}^-, \\text{OH}^-, \\text{NO}_3^-, \\text{HCO}_3^- \\)</td>\n    </tr>\n    <tr>\n      <td><strong>Divalent (2)</strong></td>\n      <td>\\( \\text{Ca}^{2+}, \\text{Mg}^{2+}, \\text{Zn}^{2+}, \\text{Fe}^{2+} \\)</td>\n      <td>\\( \\text{O}^{2-}, \\text{SO}_4^{2-}, \\text{CO}_3^{2-}, \\text{S}^{2-} \\)</td>\n    </tr>\n    <tr>\n      <td><strong>Trivalent (3)</strong></td>\n      <td>\\( \\text{Al}^{3+}, \\text{Fe}^{3+} \\)</td>\n      <td>\\( \\text{N}^{3-}, \\text{PO}_4^{3-} \\)</td>\n    </tr>\n  </tbody>\n</table>\n\n<hr/>\n\n<h3>2. Writing Chemical Formulas (Criss-Cross Method)</h3>\n<p><strong>Example: Calcium Hydroxide</strong></p>\n<ol>\n  <li>Write symbols with valencies: \\( \\text{Ca}^{2+} \\) and \\( \\text{OH}^{1-} \\)</li>\n  <li>Criss-cross valencies: 2 goes to OH, 1 goes to Ca</li>\n  <li>Formula: <strong>\\( \\text{Ca(OH)}_2 \\)</strong></li>\n</ol>\n"
-    },
-    {
-      "id": "note-sci-3",
-      "subjectId": "sub-science",
-      "chapterId": "ch-sci-5",
-      "createdBy": "usr-admin-1",
-      "title": "Biology: Transport of Food & Minerals in Plants — Narayana Notes",
-      "summary": "Osmosis vs diffusion, xylem conduction of sap, phloem translocation, root hair adaptations, and transpiration pull.",
-      "tags": [
-        "Class 8 Biology",
-        "Narayana ICSE",
-        "Plant Physiology",
-        "Transport"
-      ],
-      "readTimeMinutes": 7,
-      "status": "published",
-      "publishedAt": "2026-10-10T13:00:00.000Z",
-      "createdAt": "2026-10-10T12:30:00.000Z",
-      "contentHtml": "\n<h3>1. Absorption Mechanisms in Plant Roots</h3>\n<ul>\n  <li><strong>Diffusion:</strong> Free movement of molecules from a region of higher concentration to a region of lower concentration.</li>\n  <li><strong>Osmosis:</strong> Movement of water molecules from a dilute solution to a concentrated solution through a <em>semi-permeable membrane</em>.</li>\n  <li><strong>Active Transport:</strong> Movement of mineral ions from lower concentration to higher concentration using metabolic energy (ATP).</li>\n</ul>\n\n<hr/>\n\n<h3>2. Vascular Tissues: Xylem vs Phloem</h3>\n<table>\n  <thead>\n    <tr>\n      <th>Feature</th>\n      <th>Xylem</th>\n      <th>Phloem</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><strong>Function</strong></td>\n      <td>Transports water and dissolved minerals (Sap)</td>\n      <td>Transports synthesized food (Sucrose/Glucose)</td>\n    </tr>\n    <tr>\n      <td><strong>Direction</strong></td>\n      <td>Unidirectional (Upward only: Roots to Leaves)</td>\n      <td>Bidirectional (Upward and downward)</td>\n    </tr>\n    <tr>\n      <td><strong>Driving Force</strong></td>\n      <td>Transpiration pull and root pressure</td>\n      <td>Active transport and osmotic pressure</td>\n    </tr>\n  </tbody>\n</table>\n"
+      "publishedAt": "2026-10-15T06:11:15.959Z",
+      "id": "not-1792044675959-76s0c",
+      "createdAt": "2026-10-15T06:11:15.959Z"
     }
   ],
   "questions": [
     {
-      "id": "q-math-1",
       "subjectId": "sub-maths",
-      "chapterId": "ch-math-1",
-      "prompt": "If $a = -\\frac{2}{3}$ and $b = \\frac{5}{7}$, verify the commutative property of addition $a + b = b + a$. What is the sum?",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "single_select",
+      "prompt": "What is the formula for speed?",
       "options": [
-        "$\\frac{1}{21}$",
-        "$-\\frac{1}{21}$",
-        "$\\frac{4}{21}$",
-        "$-\\frac{29}{21}$"
+        "Distance × Time",
+        "Distance ÷ Time",
+        "Time ÷ Distance",
+        "Distance + Time"
       ],
-      "correctAnswer": 0,
+      "correctAnswer": "1",
+      "explanation": "Speed is calculated by dividing distance by time.",
+      "difficulty": "easy",
       "marks": 1,
-      "explanation": "$$a + b = -\\frac{2}{3} + \\frac{5}{7} = \\frac{-14 + 15}{21} = \\frac{1}{21}$$\n$$b + a = \\frac{5}{7} + \\left(-\\frac{2}{3}\\right) = \\frac{15 - 14}{21} = \\frac{1}{21}$$\nSince both expressions equal $\\frac{1}{21}$, the commutative property holds.",
-      "reviewStatus": "approved"
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437044-7x1ku",
+      "createdAt": "2026-10-15T11:40:37.044Z"
     },
     {
-      "id": "q-math-2",
       "subjectId": "sub-maths",
-      "chapterId": "ch-math-1",
-      "prompt": "Which of the following rational numbers has NO reciprocal (multiplicative inverse)?",
-      "options": [
-        "1",
-        "-1",
-        "0",
-        "Any fraction"
-      ],
-      "correctAnswer": 2,
-      "marks": 1,
-      "explanation": "The number 0 has no reciprocal because division by zero ($\\frac{1}{0}$) is undefined in mathematics.",
-      "reviewStatus": "approved"
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "numerical",
+      "prompt": "A car travels 120 km in 3 hours. Find its speed in km/h.",
+      "options": [],
+      "correctAnswer": "40",
+      "explanation": "Speed = Distance ÷ Time = 120 ÷ 3 = 40 km/h.",
+      "difficulty": "easy",
+      "marks": 2,
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437048-v98t5",
+      "createdAt": "2026-10-15T11:40:37.048Z"
     },
     {
-      "id": "q-math-3",
       "subjectId": "sub-maths",
-      "chapterId": "ch-math-3",
-      "prompt": "Using the identity $(a+b)(a-b) = a^2 - b^2$, evaluate $105 \\times 95$.",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "single_select",
+      "prompt": "Convert 72 km/h into m/s.",
       "options": [
-        "9975",
-        "9985",
-        "9925",
-        "10025"
+        "18 m/s",
+        "20 m/s",
+        "25 m/s",
+        "30 m/s"
       ],
-      "correctAnswer": 0,
+      "correctAnswer": "1",
+      "explanation": "Multiply by 5/18: 72 × 5/18 = 20 m/s.",
+      "difficulty": "easy",
       "marks": 1,
-      "explanation": "$$105 \\times 95 = (100 + 5)(100 - 5) = 100^2 - 5^2 = 10000 - 25 = 9975$$",
-      "reviewStatus": "approved"
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437054-73k4x",
+      "createdAt": "2026-10-15T11:40:37.054Z"
     },
     {
-      "id": "q-math-4",
       "subjectId": "sub-maths",
-      "chapterId": "ch-math-4",
-      "prompt": "Solve the linear equation: $3(t - 3) = 5(2t + 1)$. What is the value of $t$?",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "single_select",
+      "prompt": "Convert 25 m/s into km/h.",
       "options": [
-        "$t = -2$",
-        "$t = 2$",
-        "$t = -14$",
-        "$t = -3$"
+        "72 km/h",
+        "80 km/h",
+        "90 km/h",
+        "100 km/h"
       ],
-      "correctAnswer": 0,
+      "correctAnswer": "2",
+      "explanation": "Multiply by 18/5: 25 × 18/5 = 90 km/h.",
+      "difficulty": "easy",
       "marks": 1,
-      "explanation": "Step 1: Open the brackets:\n$$3t - 9 = 10t + 5$$\nStep 2: Transpose terms with variable to one side:\n$$3t - 10t = 5 + 9$$\n$$-7t = 14$$\n$$t = \\frac{14}{-7} = -2$$",
-      "reviewStatus": "approved"
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437057-im2cq",
+      "createdAt": "2026-10-15T11:40:37.057Z"
     },
     {
-      "id": "q-math-5",
       "subjectId": "sub-maths",
-      "chapterId": "ch-math-2",
-      "prompt": "Simplify using laws of exponents: $\\frac{2^5 \\times 3^4 \\times 2^{-2}}{3^2 \\times 2^3}$.",
-      "options": [
-        "9",
-        "18",
-        "27",
-        "3"
-      ],
-      "correctAnswer": 0,
-      "marks": 1,
-      "explanation": "Combine base 2 and base 3 using exponent laws:\n$$2^{5 + (-2) - 3} \\times 3^{4 - 2} = 2^{0} \\times 3^{2} = 1 \\times 9 = 9$$",
-      "reviewStatus": "approved"
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "numerical",
+      "prompt": "A cyclist travels at 20 km/h for 90 minutes. How far does the cyclist travel in kilometres?",
+      "options": [],
+      "correctAnswer": "30",
+      "explanation": "90 minutes = 1.5 hours. Distance = 20 × 1.5 = 30 km.",
+      "difficulty": "easy",
+      "marks": 2,
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437060-gntrq",
+      "createdAt": "2026-10-15T11:40:37.060Z"
     },
     {
-      "id": "q-sci-1",
+      "subjectId": "sub-maths",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "single_select",
+      "prompt": "A train travels 495 km in 4 hours 30 minutes. What is its speed?",
+      "options": [
+        "99 km/h",
+        "100 km/h",
+        "110 km/h",
+        "120 km/h"
+      ],
+      "correctAnswer": "2",
+      "explanation": "4 hours 30 minutes = 4.5 hours. Speed = 495 ÷ 4.5 = 110 km/h.",
+      "difficulty": "medium",
+      "marks": 2,
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437063-8if2n",
+      "createdAt": "2026-10-15T11:40:37.063Z"
+    },
+    {
+      "subjectId": "sub-maths",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "numerical",
+      "prompt": "A man runs at 10 km/h. How many minutes does he take to cover 750 metres?",
+      "options": [],
+      "correctAnswer": "4.5 minutes",
+      "explanation": "750 m = 0.75 km. Time = 0.75 ÷ 10 = 0.075 hour = 4.5 minutes.",
+      "difficulty": "medium",
+      "marks": 2,
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437065-a6d7b",
+      "createdAt": "2026-10-15T11:40:37.065Z"
+    },
+    {
+      "subjectId": "sub-maths",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "single_select",
+      "prompt": "A car travels equal distances at 60 km/h and 90 km/h. What is its average speed?",
+      "options": [
+        "75 km/h",
+        "72 km/h",
+        "70 km/h",
+        "80 km/h"
+      ],
+      "correctAnswer": "1",
+      "explanation": "For equal distances, average speed = 2xy/(x+y) = 2×60×90/150 = 72 km/h.",
+      "difficulty": "medium",
+      "marks": 2,
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437068-h63pi",
+      "createdAt": "2026-10-15T11:40:37.068Z"
+    },
+    {
+      "subjectId": "sub-maths",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "true_false",
+      "prompt": "Average speed is always total distance divided by total time.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "0",
+      "explanation": "Average speed is defined as total distance travelled divided by total time taken.",
+      "difficulty": "easy",
+      "marks": 1,
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437074-iqsow",
+      "createdAt": "2026-10-15T11:40:37.074Z"
+    },
+    {
+      "subjectId": "sub-maths",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "numerical",
+      "prompt": "A truck covers 450 km in 9 hours. Find its average speed in km/h.",
+      "options": [],
+      "correctAnswer": "50",
+      "explanation": "Average speed = 450 ÷ 9 = 50 km/h.",
+      "difficulty": "easy",
+      "marks": 1,
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437077-4owwh",
+      "createdAt": "2026-10-15T11:40:37.077Z"
+    },
+    {
+      "subjectId": "sub-maths",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "single_select",
+      "prompt": "A 150 m train crosses a pole in 12 seconds. What is its speed in m/s?",
+      "options": [
+        "10 m/s",
+        "12.5 m/s",
+        "15 m/s",
+        "18 m/s"
+      ],
+      "correctAnswer": "1",
+      "explanation": "Speed = train length ÷ time = 150 ÷ 12 = 12.5 m/s.",
+      "difficulty": "easy",
+      "marks": 2,
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437080-l668x",
+      "createdAt": "2026-10-15T11:40:37.080Z"
+    },
+    {
+      "subjectId": "sub-maths",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "numerical",
+      "prompt": "A train travels at 72 km/h and crosses a pole in 15 seconds. Find the train's length in metres.",
+      "options": [],
+      "correctAnswer": "300 m",
+      "explanation": "72 km/h = 20 m/s. Length = 20 × 15 = 300 m.",
+      "difficulty": "easy",
+      "marks": 2,
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437083-lag55",
+      "createdAt": "2026-10-15T11:40:37.083Z"
+    },
+    {
+      "subjectId": "sub-maths",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "numerical",
+      "prompt": "A train 180 m long crosses a pole in 9 seconds. How long will it take to cross a 270 m bridge?",
+      "options": [],
+      "correctAnswer": "22.5 seconds",
+      "explanation": "Speed = 180 ÷ 9 = 20 m/s. Total distance = 180 + 270 = 450 m. Time = 450 ÷ 20 = 22.5 s.",
+      "difficulty": "medium",
+      "marks": 2,
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437085-qgbj6",
+      "createdAt": "2026-10-15T11:40:37.085Z"
+    },
+    {
+      "subjectId": "sub-maths",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "single_select",
+      "prompt": "Two objects move in the same direction at 70 km/h and 50 km/h. What is their relative speed?",
+      "options": [
+        "120 km/h",
+        "20 km/h",
+        "60 km/h",
+        "25 km/h"
+      ],
+      "correctAnswer": "1",
+      "explanation": "For the same direction, subtract speeds: 70 − 50 = 20 km/h.",
+      "difficulty": "easy",
+      "marks": 1,
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437088-racdp",
+      "createdAt": "2026-10-15T11:40:37.088Z"
+    },
+    {
+      "subjectId": "sub-maths",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "single_select",
+      "prompt": "A boat's speed in still water is 8 km/h and the stream speed is 2.5 km/h. What is its downstream speed?",
+      "options": [
+        "5.5 km/h",
+        "8 km/h",
+        "10.5 km/h",
+        "12.5 km/h"
+      ],
+      "correctAnswer": "2",
+      "explanation": "Downstream speed = boat speed + stream speed = 8 + 2.5 = 10.5 km/h.",
+      "difficulty": "easy",
+      "marks": 1,
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437090-mbh8u",
+      "createdAt": "2026-10-15T11:40:37.090Z"
+    },
+    {
+      "subjectId": "sub-maths",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "single_select",
+      "prompt": "A boat's speed in still water is 7 km/h. It travels 22 km upstream in 4 hours. What is the stream speed?",
+      "options": [
+        "1 km/h",
+        "1.5 km/h",
+        "2 km/h",
+        "2.5 km/h"
+      ],
+      "correctAnswer": "1",
+      "explanation": "Upstream speed = 22 ÷ 4 = 5.5 km/h. Stream speed = 7 − 5.5 = 1.5 km/h.",
+      "difficulty": "medium",
+      "marks": 2,
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437094-bcxaj",
+      "createdAt": "2026-10-15T11:40:37.094Z"
+    },
+    {
+      "subjectId": "sub-maths",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "numerical",
+      "prompt": "A boat travels 40 km upstream in 5 hours. The stream speed is 2 km/h. Find the boat's speed in still water.",
+      "options": [],
+      "correctAnswer": "10 km/h",
+      "explanation": "Upstream speed = 40 ÷ 5 = 8 km/h. Still-water speed = 8 + 2 = 10 km/h.",
+      "difficulty": "medium",
+      "marks": 2,
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437097-l8g1v",
+      "createdAt": "2026-10-15T11:40:37.097Z"
+    },
+    {
+      "subjectId": "sub-maths",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "true_false",
+      "prompt": "When a boat moves downstream, the speed of the stream is added to the speed of the boat in still water.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "0",
+      "explanation": "Downstream speed = still-water boat speed + stream speed.",
+      "difficulty": "easy",
+      "marks": 1,
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437099-8o0n2",
+      "createdAt": "2026-10-15T11:40:37.099Z"
+    },
+    {
       "subjectId": "sub-science",
-      "chapterId": "ch-sci-1",
-      "prompt": "A perpendicular force of $60\\text{ N}$ acts on a surface area of $0.5\\text{ m}^2$. What is the pressure produced on the surface?",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "single_select",
+      "prompt": "What is matter?",
       "options": [
-        "120 Pa",
-        "30 Pa",
-        "60 Pa",
-        "12 Pa"
+        "Anything that has colour",
+        "Anything that has mass and occupies space",
+        "Anything that is alive",
+        "Anything that can dissolve in water"
       ],
-      "correctAnswer": 0,
+      "correctAnswer": "1",
+      "explanation": "Matter is anything that has mass and occupies space.",
+      "difficulty": "easy",
       "marks": 1,
-      "explanation": "$$\\text{Pressure } P = \\frac{\\text{Thrust } (F)}{\\text{Area } (A)} = \\frac{60\\text{ N}}{0.5\\text{ m}^2} = 120\\text{ N/m}^2 = 120\\text{ Pa}$$",
-      "reviewStatus": "approved"
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437104-m1dty",
+      "createdAt": "2026-10-15T11:40:37.104Z"
     },
     {
-      "id": "q-sci-2",
       "subjectId": "sub-science",
-      "chapterId": "ch-sci-1",
-      "prompt": "What happens to atmospheric pressure as altitude (height above sea level) increases?",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "single_select",
+      "prompt": "An element is a pure substance made of:",
       "options": [
-        "It decreases",
-        "It increases",
-        "It remains constant",
-        "It doubles"
+        "Two or more compounds",
+        "Only one kind of atom",
+        "Different mixtures",
+        "Only molecules of water"
       ],
-      "correctAnswer": 0,
+      "correctAnswer": "1",
+      "explanation": "An element is made of only one kind of atom.",
+      "difficulty": "easy",
       "marks": 1,
-      "explanation": "Atmospheric pressure decreases with altitude because the column of air above becomes shorter and less dense as you go higher.",
-      "reviewStatus": "approved"
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437107-jhjuw",
+      "createdAt": "2026-10-15T11:40:37.107Z"
     },
     {
-      "id": "q-sci-3",
       "subjectId": "sub-science",
-      "chapterId": "ch-sci-2",
-      "prompt": "A body of mass $4\\text{ kg}$ is moving with a velocity of $5\\text{ m/s}$. Calculate its kinetic energy.",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "single_select",
+      "prompt": "Which of these is a compound?",
       "options": [
-        "50 J",
-        "100 J",
-        "20 J",
-        "10 J"
+        "Oxygen",
+        "Iron",
+        "Distilled water",
+        "Air"
       ],
-      "correctAnswer": 0,
+      "correctAnswer": "2",
+      "explanation": "Water (H₂O) is a compound of hydrogen and oxygen chemically combined in a fixed proportion.",
+      "difficulty": "easy",
       "marks": 1,
-      "explanation": "$$\\text{Kinetic Energy } KE = \\frac{1}{2} m v^2 = \\frac{1}{2} \\times 4\\text{ kg} \\times (5\\text{ m/s})^2 = 2 \\times 25 = 50\\text{ Joules}$$",
-      "reviewStatus": "approved"
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437110-k3jkx",
+      "createdAt": "2026-10-15T11:40:37.110Z"
     },
     {
-      "id": "q-sci-4",
       "subjectId": "sub-science",
-      "chapterId": "ch-sci-3",
-      "prompt": "What is the correct chemical formula for Aluminum Sulfate using valency rules ($Al^{3+}$ and $SO_4^{2-}$)?",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "single_select",
+      "prompt": "Which of these is a homogeneous mixture?",
       "options": [
-        "$Al_2(SO_4)_3$",
-        "$AlSO_4$",
-        "$Al_3(SO_4)_2$",
-        "$Al_2SO_4$"
+        "Muddy water",
+        "Soil",
+        "Oil and water",
+        "Salt solution"
       ],
-      "correctAnswer": 0,
+      "correctAnswer": "3",
+      "explanation": "A salt solution has a uniform composition throughout, so it is homogeneous.",
+      "difficulty": "easy",
       "marks": 1,
-      "explanation": "Using the criss-cross method: $Al$ has valency 3, and the radical $SO_4$ has valency 2. Crossing valencies gives $Al_2(SO_4)_3$.",
-      "reviewStatus": "approved"
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437113-jvh7o",
+      "createdAt": "2026-10-15T11:40:37.113Z"
     },
     {
-      "id": "q-sci-5",
       "subjectId": "sub-science",
-      "chapterId": "ch-sci-4",
-      "prompt": "In an atom with atomic number $Z = 11$ and mass number $A = 23$ (Sodium), how many neutrons are present in the nucleus?",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "single_select",
+      "prompt": "Which of these is a heterogeneous mixture?",
       "options": [
-        "12",
-        "11",
-        "23",
-        "34"
+        "Air",
+        "Sugar solution",
+        "Brass",
+        "Muddy water"
       ],
-      "correctAnswer": 0,
+      "correctAnswer": "3",
+      "explanation": "Muddy water is non-uniform and its particles may settle, so it is heterogeneous.",
+      "difficulty": "easy",
       "marks": 1,
-      "explanation": "$$\\text{Number of Neutrons } (n) = \\text{Mass Number } (A) - \\text{Atomic Number } (Z) = 23 - 11 = 12$$",
-      "reviewStatus": "approved"
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437116-urvoc",
+      "createdAt": "2026-10-15T11:40:37.116Z"
     },
     {
-      "id": "q-sci-6",
       "subjectId": "sub-science",
-      "chapterId": "ch-sci-5",
-      "prompt": "Which vascular tissue in plants is responsible for the UNIDIRECTIONAL upward transport of water and dissolved minerals?",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "true_false",
+      "prompt": "A pure substance may be an element or a compound.",
       "options": [
-        "Xylem",
-        "Phloem",
-        "Cortex",
-        "Pith"
+        "True",
+        "False"
       ],
-      "correctAnswer": 0,
+      "correctAnswer": "0",
+      "explanation": "Pure substances include elements such as copper and compounds such as distilled water.",
+      "difficulty": "easy",
       "marks": 1,
-      "explanation": "Xylem transports water and dissolved mineral salts upward from roots to the leaves in a unidirectional flow driven by transpiration pull.",
-      "reviewStatus": "approved"
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437119-9yik2",
+      "createdAt": "2026-10-15T11:40:37.119Z"
     },
     {
-      "id": "q-sci-7",
       "subjectId": "sub-science",
-      "chapterId": "ch-sci-6",
-      "prompt": "Which chamber of the human heart receives oxygenated blood directly from the lungs through the pulmonary veins?",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "single_select",
+      "prompt": "Which method can be used to obtain salt from salt water?",
       "options": [
-        "Left Atrium",
-        "Right Atrium",
-        "Left Ventricle",
-        "Right Ventricle"
+        "Handpicking",
+        "Evaporation",
+        "Magnetic separation",
+        "Sieving"
       ],
-      "correctAnswer": 0,
+      "correctAnswer": "1",
+      "explanation": "Evaporation removes water and leaves the dissolved salt behind.",
+      "difficulty": "easy",
       "marks": 1,
-      "explanation": "The Left Atrium receives oxygen-rich blood from the lungs via pulmonary veins and then pumps it to the left ventricle for systemic circulation.",
-      "reviewStatus": "approved"
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437122-h7r1h",
+      "createdAt": "2026-10-15T11:40:37.122Z"
     },
     {
-      "id": "q-eng-1",
-      "subjectId": "sub-english",
-      "chapterId": "ch-eng-1",
-      "prompt": "In Oscar Wilde's \"The Model Millionaire\", what profession was Hughie Erskine trying to establish?",
+      "subjectId": "sub-science",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "single_select",
+      "prompt": "What does the word 'atomos', associated with Democritus, mean?",
       "options": [
-        "None successfully, relying on an allowance",
-        "A stockbroker on Wall Street",
-        "A commissioned portrait painter",
-        "A bank manager"
+        "Mixture",
+        "Invisible liquid",
+        "Indivisible",
+        "Compound"
       ],
-      "correctAnswer": 0,
+      "correctAnswer": "2",
+      "explanation": "The word 'atomos' means indivisible.",
+      "difficulty": "easy",
       "marks": 1,
-      "explanation": "Hughie Erskine was charming but had no permanent trade or profession, living on an allowance of two hundred a year from an old aunt.",
-      "reviewStatus": "approved"
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437124-8naxn",
+      "createdAt": "2026-10-15T11:40:37.124Z"
     },
     {
-      "id": "q-eng-2",
-      "subjectId": "sub-english",
-      "chapterId": "ch-eng-2",
-      "prompt": "Change into Passive Voice: \"The teacher evaluated the ICSE mathematics papers.\"",
+      "subjectId": "sub-science",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "single_select",
+      "prompt": "Who is associated with the Law of Definite Proportions?",
       "options": [
-        "The ICSE mathematics papers were evaluated by the teacher.",
-        "The ICSE mathematics papers are evaluated by the teacher.",
-        "The ICSE mathematics papers had been evaluated by the teacher.",
-        "The teacher was evaluating the papers."
+        "John Dalton",
+        "Joseph Proust",
+        "Democritus",
+        "Empedocles"
       ],
-      "correctAnswer": 0,
+      "correctAnswer": "1",
+      "explanation": "Joseph Proust is associated with the Law of Definite Proportions.",
+      "difficulty": "medium",
       "marks": 1,
-      "explanation": "In the past simple active (\"evaluated\"), passive voice becomes \"was/were + past participle\" -> \"were evaluated by the teacher\".",
-      "reviewStatus": "approved"
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437127-38x5r",
+      "createdAt": "2026-10-15T11:40:37.127Z"
     },
     {
-      "id": "q-soc-1",
-      "subjectId": "sub-social",
-      "chapterId": "ch-soc-1",
-      "prompt": "Which of the following is known as the \"Soul and Heart of the Indian Constitution\" according to Dr. B.R. Ambedkar?",
+      "subjectId": "sub-science",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "true_false",
+      "prompt": "Freezing water into ice changes water into a different chemical compound.",
       "options": [
-        "Right to Constitutional Remedies (Article 32)",
-        "Right to Equality (Article 14)",
-        "Right to Freedom (Article 19)",
-        "Right to Education (Article 21A)"
+        "True",
+        "False"
       ],
-      "correctAnswer": 0,
+      "correctAnswer": "1",
+      "explanation": "Ice is still H₂O. Freezing is a physical change of state, not the formation of a new compound.",
+      "difficulty": "easy",
       "marks": 1,
-      "explanation": "Dr. B.R. Ambedkar called Article 32 (Right to Constitutional Remedies) the heart and soul of the Constitution because it empowers citizens to approach courts directly for enforcement of Fundamental Rights.",
-      "reviewStatus": "approved"
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437133-lvisv",
+      "createdAt": "2026-10-15T11:40:37.133Z"
+    },
+    {
+      "subjectId": "sub-science",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "single_select",
+      "prompt": "What is the chemical formula of water?",
+      "options": [
+        "HO",
+        "H₂O",
+        "H₂O₂",
+        "CO₂"
+      ],
+      "correctAnswer": "1",
+      "explanation": "Water has the chemical formula H₂O, containing hydrogen and oxygen chemically combined.",
+      "difficulty": "easy",
+      "marks": 1,
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437136-29qje",
+      "createdAt": "2026-10-15T11:40:37.136Z"
+    },
+    {
+      "subjectId": "sub-science",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "single_select",
+      "prompt": "Which statement best describes a mixture?",
+      "options": [
+        "Its components are always chemically combined in a fixed ratio",
+        "It contains only one kind of atom",
+        "Two or more substances are physically combined",
+        "It cannot be separated by physical methods"
+      ],
+      "correctAnswer": "2",
+      "explanation": "A mixture contains substances physically combined, usually in variable proportions, and components can often be separated physically.",
+      "difficulty": "easy",
+      "marks": 1,
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437139-hv0yb",
+      "createdAt": "2026-10-15T11:40:37.139Z"
+    },
+    {
+      "subjectId": "sub-science",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "single_select",
+      "prompt": "Which of these is an alloy?",
+      "options": [
+        "Distilled water",
+        "Brass",
+        "Oxygen",
+        "Carbon dioxide"
+      ],
+      "correctAnswer": "1",
+      "explanation": "Brass is an alloy and is a mixture containing copper and zinc.",
+      "difficulty": "easy",
+      "marks": 1,
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437142-o337e",
+      "createdAt": "2026-10-15T11:40:37.142Z"
+    },
+    {
+      "subjectId": "sub-science",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "single_select",
+      "prompt": "Which scientist is associated with the Law of Conservation of Mass?",
+      "options": [
+        "Antoine Lavoisier",
+        "Joseph Proust",
+        "Maharishi Kanada",
+        "Leucippus"
+      ],
+      "correctAnswer": "0",
+      "explanation": "Antoine Lavoisier helped establish modern chemistry and is associated with the Law of Conservation of Mass.",
+      "difficulty": "medium",
+      "marks": 1,
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437146-1284n",
+      "createdAt": "2026-10-15T11:40:37.146Z"
+    },
+    {
+      "subjectId": "sub-science",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "single_select",
+      "prompt": "Which of the following is an element?",
+      "options": [
+        "Carbon dioxide",
+        "Sodium",
+        "Salt solution",
+        "Distilled water"
+      ],
+      "correctAnswer": "1",
+      "explanation": "Sodium (Na) is an element made of one kind of atom.",
+      "difficulty": "easy",
+      "marks": 1,
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437149-k44f3",
+      "createdAt": "2026-10-15T11:40:37.149Z"
+    },
+    {
+      "subjectId": "sub-science",
+      "chapterId": "",
+      "createdBy": "usr-admin-1",
+      "type": "single_select",
+      "prompt": "What is a colloid?",
+      "options": [
+        "A pure element",
+        "A compound with a fixed formula",
+        "A mixture with tiny dispersed particles",
+        "A mixture whose particles always settle quickly"
+      ],
+      "correctAnswer": "2",
+      "explanation": "A colloid contains tiny dispersed particles; milk and fog are examples.",
+      "difficulty": "medium",
+      "marks": 1,
+      "negativeMarks": 0,
+      "sourceType": "manual",
+      "reviewStatus": "approved",
+      "id": "que-1792064437152-ew44t",
+      "createdAt": "2026-10-15T11:40:37.152Z"
+    },
+    {
+      "subjectId": "sub-maths",
+      "chapterId": "cha-1792042680857-mdjap",
+      "createdBy": "usr-admin-1",
+      "type": "single_select",
+      "prompt": "A shopkeeper buys a pair of shoes for \\( \\text{Rs. } 800 \\) and sells them for \\( \\text{Rs. } 1000 \\). What is the percentage profit earned by the shopkeeper?",
+      "options": [
+        "20%",
+        "25%",
+        "30%",
+        "15%"
+      ],
+      "correctAnswer": "1",
+      "explanation": "Step 1: Identify the Cost Price (CP) and Selling Price (SP). CP = \\( \\text{Rs. } 800 \\), SP = \\( \\text{Rs. } 1000 \\).\nStep 2: Calculate the Profit. Profit = SP - CP = \\( 1000 - 800 = 200 \\).\nStep 3: Calculate the percentage profit using the formula: \\( \\text{Profit \\%} = \\left( \\frac{\\text{Profit}}{\\text{CP}} \\right) \\times 100 \\).\nStep 4: Substitute the values: \\( \\text{Profit \\%} = \\left( \\frac{200}{800} \\right) \\times 100 = \\frac{1}{4} \\times 100 = 25\\% \\).\nTherefore, the percentage profit is 25%.",
+      "difficulty": "medium",
+      "marks": 2,
+      "negativeMarks": 0,
+      "sourceType": "ai",
+      "reviewStatus": "approved",
+      "id": "que-1792064511302-mfmnf",
+      "createdAt": "2026-10-15T11:41:51.302Z"
+    },
+    {
+      "subjectId": "sub-maths",
+      "chapterId": "cha-1792042680857-mdjap",
+      "createdBy": "usr-admin-1",
+      "type": "single_select",
+      "prompt": "The population of a town increased from 45,000 to 54,000 in one year. What is the percentage increase in the population?",
+      "options": [
+        "18%",
+        "20%",
+        "22%",
+        "25%"
+      ],
+      "correctAnswer": "1",
+      "explanation": "Step 1: Identify the initial population and final population. Initial = 45,000, Final = 54,000.\nStep 2: Calculate the increase in population. Increase = Final - Initial = \\( 54,000 - 45,000 = 9,000 \\).\nStep 3: Calculate the percentage increase using the formula: \\( \\text{Percentage Increase} = \\left( \\frac{\\text{Increase}}{\\text{Initial Value}} \\right) \\times 100 \\).\nStep 4: Substitute the values: \\( \\text{Percentage Increase} = \\left( \\frac{9,000}{45,000} \\right) \\times 100 = \\frac{1}{5} \\times 100 = 20\\% \\).\nTherefore, the percentage increase is 20%.",
+      "difficulty": "medium",
+      "marks": 2,
+      "negativeMarks": 0,
+      "sourceType": "ai",
+      "reviewStatus": "approved",
+      "id": "que-1792064511305-478e8",
+      "createdAt": "2026-10-15T11:41:51.305Z"
+    },
+    {
+      "subjectId": "sub-maths",
+      "chapterId": "cha-1792042680857-mdjap",
+      "createdBy": "usr-admin-1",
+      "type": "single_select",
+      "prompt": "A mobile phone is marked at \\( \\text{Rs. } 12,000 \\). The shopkeeper gives a discount of 15% on the marked price. What is the selling price of the mobile phone?",
+      "options": [
+        "\\( \\text{Rs. } 10,200 \\)",
+        "\\( \\text{Rs. } 10,500 \\)",
+        "\\( \\text{Rs. } 10,800 \\)",
+        "\\( \\text{Rs. } 11,000 \\)"
+      ],
+      "correctAnswer": "2",
+      "explanation": "Step 1: Identify the Marked Price (MP) and the Discount Percentage. MP = \\( \\text{Rs. } 12,000 \\), Discount = 15%.\nStep 2: Calculate the discount amount. Discount Amount = \\( \\frac{15}{100} \\times 12,000 = 15 \\times 120 = 1,800 \\).\nStep 3: Calculate the Selling Price (SP). SP = MP - Discount Amount = \\( 12,000 - 1,800 = 10,200 \\).\nWait, let me re-calculate. \\( 12000 - 1800 = 10200 \\). Let me check the options again. Option A is 10,200. Let me re-read the options provided in the thought process vs the final JSON. \nLet's re-evaluate the calculation to ensure accuracy. \nDiscount = 15% of 12,000. \n10% of 12,000 = 1,200. \n5% of 12,000 = 600. \nTotal Discount = 1,200 + 600 = 1,800. \nSP = 12,000 - 1,800 = 10,200. \nSo the correct answer is Option A (index 0). \nLet me adjust the options in the JSON to make sure the correct answer index matches the value. \nOptions: [\"10,200\", \"10,500\", \"10,800\", \"11,000\"] \nCorrect Answer Index: 0. \nLet's double check if I made a mistake in the previous thought. Yes, 10,200 is correct. \nSo, correctAnswer should be \"0\".",
+      "difficulty": "medium",
+      "marks": 2,
+      "negativeMarks": 0,
+      "sourceType": "ai",
+      "reviewStatus": "approved",
+      "id": "que-1792064511309-x47hy",
+      "createdAt": "2026-10-15T11:41:51.310Z"
     }
   ],
   "quizzes": [
     {
-      "id": "quiz-math-1",
+      "title": "Math Quiz -- Speed , Distance",
+      "description": "",
       "subjectId": "sub-maths",
-      "chapterId": "ch-math-1",
-      "title": "ICSE Narayana Mathematics: Rational Numbers & Algebraic Identities",
-      "description": "Comprehensive practice assessment covering closure laws, reciprocal properties, $(a+b)(a-b)$ evaluation, and linear transpositions.",
-      "durationSeconds": 900,
-      "attemptLimit": 3,
-      "attemptsUsed": 1,
-      "latestAttemptScore": 4,
-      "latestAttemptMax": 4,
-      "status": "published",
-      "publishedAt": "2026-10-10T10:00:00.000Z",
-      "createdAt": "2026-10-10T09:00:00.000Z",
+      "chapterIds": [],
       "questionRefs": [
         {
-          "questionId": "q-math-1",
-          "marks": 1
+          "questionId": "que-1792064437044-7x1ku",
+          "marks": 2,
+          "order": 1
         },
         {
-          "questionId": "q-math-2",
-          "marks": 1
+          "questionId": "que-1792064437048-v98t5",
+          "marks": 2,
+          "order": 2
         },
         {
-          "questionId": "q-math-3",
-          "marks": 1
+          "questionId": "que-1792064437054-73k4x",
+          "marks": 2,
+          "order": 3
         },
         {
-          "questionId": "q-math-4",
-          "marks": 1
+          "questionId": "que-1792064437057-im2cq",
+          "marks": 2,
+          "order": 4
+        },
+        {
+          "questionId": "que-1792064437060-gntrq",
+          "marks": 2,
+          "order": 5
+        },
+        {
+          "questionId": "que-1792064437068-h63pi",
+          "marks": 2,
+          "order": 6
+        },
+        {
+          "questionId": "que-1792064437077-4owwh",
+          "marks": 2,
+          "order": 7
+        },
+        {
+          "questionId": "que-1792064437088-racdp",
+          "marks": 2,
+          "order": 8
         }
-      ]
-    },
-    {
-      "id": "quiz-sci-1",
-      "subjectId": "sub-science",
-      "chapterId": "ch-sci-1",
-      "title": "ICSE Narayana Physics: Force, Liquid Pressure & Energy Evaluation",
-      "description": "Challenging numerical and conceptual evaluation on thrust, fluid pressure $P = F/A$, altitude effects, and kinetic energy formulas.",
+      ],
       "durationSeconds": 900,
-      "attemptLimit": 3,
-      "attemptsUsed": 1,
-      "latestAttemptScore": 2,
-      "latestAttemptMax": 3,
+      "attemptLimit": 2,
       "status": "published",
-      "publishedAt": "2026-10-10T11:00:00.000Z",
-      "createdAt": "2026-10-10T10:00:00.000Z",
-      "questionRefs": [
-        {
-          "questionId": "q-sci-1",
-          "marks": 1
-        },
-        {
-          "questionId": "q-sci-2",
-          "marks": 1
-        },
-        {
-          "questionId": "q-sci-3",
-          "marks": 1
-        }
-      ]
-    },
-    {
-      "id": "quiz-sci-2",
-      "subjectId": "sub-science",
-      "chapterId": "ch-sci-3",
-      "title": "ICSE Narayana Chemistry & Biology: Chemical Formulas & Transport in Plants",
-      "description": "Practice test evaluating valency criss-cross formulas, atomic structure subatomic particles, xylem/phloem function, and heart chambers.",
-      "durationSeconds": 900,
-      "attemptLimit": 3,
-      "attemptsUsed": 0,
-      "latestAttemptScore": null,
-      "latestAttemptMax": 4,
-      "status": "published",
-      "publishedAt": "2026-10-11T09:00:00.000Z",
-      "createdAt": "2026-10-11T08:00:00.000Z",
-      "questionRefs": [
-        {
-          "questionId": "q-sci-4",
-          "marks": 1
-        },
-        {
-          "questionId": "q-sci-5",
-          "marks": 1
-        },
-        {
-          "questionId": "q-sci-6",
-          "marks": 1
-        },
-        {
-          "questionId": "q-sci-7",
-          "marks": 1
-        }
-      ]
-    },
-    {
-      "id": "quiz-eng-1",
-      "subjectId": "sub-english",
-      "chapterId": "ch-eng-1",
-      "title": "ICSE English: Prose Comprehension & Active-Passive Voice",
-      "description": "Evaluation on Oscar Wilde's The Model Millionaire literary comprehension and active-passive voice grammar transformation.",
-      "durationSeconds": 900,
-      "attemptLimit": 3,
-      "attemptsUsed": 0,
-      "latestAttemptScore": null,
-      "latestAttemptMax": 2,
-      "status": "published",
-      "publishedAt": "2026-10-11T12:00:00.000Z",
-      "createdAt": "2026-10-11T11:00:00.000Z",
-      "questionRefs": [
-        {
-          "questionId": "q-eng-1",
-          "marks": 1
-        },
-        {
-          "questionId": "q-eng-2",
-          "marks": 1
-        }
-      ]
+      "createdBy": "usr-admin-1",
+      "id": "qui-1792064598563-jdhr0",
+      "createdAt": "2026-10-15T11:43:18.563Z"
     }
   ],
   "assignments": [
@@ -665,7 +1005,8 @@
       "subjectName": "Mathematics",
       "title": "Narayana ICSE Mathematics Worksheet: Numerical Applications on Pressure & Algebraic Identities",
       "instructions": "1) Expand (5x + 3y)² and (7a - 2b)². 2) Solve linear equation 4(x - 2) = 3(x + 5). 3) Submit clear notebook photos.",
-      "dueAt": "This Week (Friday, 5:00 PM)",
+      "dueAt": "2026-10-18T17:00:00.000Z",
+      "totalMarks": 20,
       "maxMarks": 20,
       "status": "published",
       "publishedAt": "2026-10-10T10:00:00.000Z",
@@ -674,10 +1015,12 @@
     {
       "id": "asg-sci-1",
       "subjectId": "sub-science",
+      "chapterId": "cha-1792044371039-szuh7",
       "subjectName": "Science",
       "title": "Narayana Techno Science Assignment: Balancing Chemical Equations & Plant Osmosis Diagram",
       "instructions": "Balance equations: 1) H₂ + O₂ → H₂O, 2) CaCO₃ → CaO + CO₂, 3) Draw a labeled diagram of root hair cell absorbing water.",
-      "dueAt": "Next Monday",
+      "dueAt": "2026-10-20T17:00:00.000Z",
+      "totalMarks": 15,
       "maxMarks": 15,
       "status": "published",
       "publishedAt": "2026-10-11T10:00:00.000Z",
@@ -686,45 +1029,36 @@
   ],
   "submissions": [
     {
-      "id": "subm-1",
+      "id": "subm-math-1",
       "assignmentId": "asg-math-1",
       "studentId": "usr-student-1",
-      "status": "reviewed",
-      "score": 18,
-      "feedback": "Excellent work on algebraic expansions Aarav! Step 2 in question 3 had a slight sign error, keep up the neat presentation.",
-      "submittedAt": "2026-10-11T14:30:00.000Z"
-    }
-  ],
-  "doubts": [
-    {
-      "id": "dbt-1",
-      "studentId": "usr-student-1",
-      "subjectId": "sub-maths",
-      "subjectName": "Mathematics",
-      "chapterId": "ch-math-4",
-      "chapterTitle": "Linear Equations in One Variable",
-      "questionText": "Sir, I am confused when there are brackets on both sides like $3(t - 3) = 5(2t + 1)$. Should I open brackets first or transpose the numbers first?",
-      "status": "answered",
-      "answeredBy": "Sourav Kumar",
-      "answeredAt": "2026-10-12T10:00:00.000Z",
-      "createdAt": "2026-10-12T08:30:00.000Z",
-      "answerText": "Hello Aarav! Very good question. This is a common hurdle in ICSE Class 8 algebra.\n\n**Golden Rule:** Always **open the brackets (expand)** first before attempting to transpose terms across the equals sign!\n\nLet's solve $3(t - 3) = 5(2t + 1)$ together step-by-step:\n\n- **Step 1: Open the brackets**\n  $$3t - 9 = 10t + 5$$\n\n- **Step 2: Transpose variable terms to the left and constant numbers to the right**\n  $$3t - 10t = 5 + 9$$\n  $$-7t = 14$$\n\n- **Step 3: Divide by coefficient of $t$**\n  $$t = \\frac{14}{-7} = -2$$\n\nAlways verify by substituting $t = -2$ back into the original equation:\nLHS: $3(-2 - 3) = 3(-5) = -15$.\nRHS: $5(2(-2) + 1) = 5(-4 + 1) = 5(-3) = -15$. Both sides match!"
+      "textAnswer": "Question 1 Expansion:\n1. (5x + 3y)² = (5x)² + 2(5x)(3y) + (3y)² = 25x² + 30xy + 9y².\n2. (7a - 2b)² = (7a)² - 2(7a)(2b) + (2b)² = 49a² - 28ab + 4b².\n\nQuestion 2 Linear Equation:\n4(x - 2) = 3(x + 5)\n4x - 8 = 3x + 15\n4x - 3x = 15 + 8\nx = 23.\n\nAll steps verified in my tuition notebook with rough margin.",
+      "attachments": [
+        "https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=800&auto=format&fit=crop"
+      ],
+      "status": "submitted",
+      "score": null,
+      "feedback": "",
+      "submittedAt": "2026-10-15T09:30:00.000Z",
+      "createdAt": "2026-10-15T09:30:00.000Z"
     },
     {
-      "id": "dbt-2",
+      "id": "subm-sci-1",
+      "assignmentId": "asg-sci-1",
       "studentId": "usr-student-1",
-      "subjectId": "sub-science",
-      "subjectName": "Science",
-      "chapterId": "ch-sci-1",
-      "chapterTitle": "Physics: Thrust, Pressure & Fluid Mechanics",
-      "questionText": "Why do sharp knives cut better than blunt knives even when applying the exact same force?",
-      "status": "answered",
-      "answeredBy": "Sourav Kumar",
-      "answeredAt": "2026-10-12T11:30:00.000Z",
-      "createdAt": "2026-10-12T10:15:00.000Z",
-      "answerText": "Great conceptual inquiry from Narayana Physics syllabus!\n\nRecall the fundamental definition:\n$$P = \\frac{F}{A}$$\n\n- A **sharp knife** has a very thin edge with a microscopic surface area ($A$). Because area $A$ is in the denominator, a smaller area produces an **enormously large pressure** for the same applied force $F$.\n- A **blunt knife** has a worn-out, broader edge with larger area ($A$), resulting in much lower pressure.\n\nHence, the sharp knife easily penetrates and slices objects with minimal effort!"
+      "textAnswer": "1. Balancing Equations:\n- 2H₂ + O₂ → 2H₂O (Balanced: 4 H atoms and 2 O atoms on each side)\n- CaCO₃ → CaO + CO₂ (Balanced as given: 1 Ca, 1 C, 3 O)\n\n2. Plant Osmosis & Root Hair Cell Diagram:\n- Root hair cell has thin permeable cell wall and semi-permeable cell membrane.\n- Water moves from soil (higher water potential) to root cell vacuole (lower water potential) through endosmosis.",
+      "attachments": [
+        "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=800&auto=format&fit=crop"
+      ],
+      "status": "reviewed",
+      "score": 14,
+      "feedback": "🌟 Outstanding work Aarav! Equations are perfectly balanced and the osmosis explanation is crystal clear. Keep up the high standard!",
+      "submittedAt": "2026-10-14T11:00:00.000Z",
+      "reviewedAt": "2026-10-14T16:20:00.000Z",
+      "createdAt": "2026-10-14T11:00:00.000Z"
     }
   ],
+  "doubts": [],
   "studyTasks": [
     {
       "id": "task-1",
@@ -826,6 +1160,78 @@
           "isCorrect": false
         }
       ]
+    },
+    {
+      "quizId": "qui-1792064598563-jdhr0",
+      "studentId": "usr-student-1",
+      "answers": [
+        {
+          "questionId": "que-1792064437044-7x1ku",
+          "answer": "1",
+          "isCorrect": true,
+          "scoreAwarded": 2,
+          "marks": 2
+        },
+        {
+          "questionId": "que-1792064437048-v98t5",
+          "answer": "55",
+          "isCorrect": false,
+          "scoreAwarded": 0,
+          "marks": 2
+        },
+        {
+          "questionId": "que-1792064437054-73k4x",
+          "answer": "1",
+          "isCorrect": true,
+          "scoreAwarded": 2,
+          "marks": 2
+        },
+        {
+          "questionId": "que-1792064437057-im2cq",
+          "answer": "1",
+          "isCorrect": false,
+          "scoreAwarded": 0,
+          "marks": 2
+        },
+        {
+          "questionId": "que-1792064437060-gntrq",
+          "answer": "5",
+          "isCorrect": false,
+          "scoreAwarded": 0,
+          "marks": 2
+        },
+        {
+          "questionId": "que-1792064437068-h63pi",
+          "answer": "1",
+          "isCorrect": true,
+          "scoreAwarded": 2,
+          "marks": 2
+        },
+        {
+          "questionId": "que-1792064437077-4owwh",
+          "answer": "45.2",
+          "isCorrect": false,
+          "scoreAwarded": 0,
+          "marks": 2
+        },
+        {
+          "questionId": "que-1792064437088-racdp",
+          "answer": "1",
+          "isCorrect": true,
+          "scoreAwarded": 2,
+          "marks": 2
+        }
+      ],
+      "score": 8,
+      "maxScore": 16,
+      "accuracy": 50,
+      "startedAt": "2026-10-15T11:43:45.268Z",
+      "submittedAt": "2026-10-15T11:44:39.434Z",
+      "status": "submitted",
+      "timeSpentSeconds": 53,
+      "id": "qui-1792064625269-j0g3a",
+      "createdAt": "2026-10-15T11:43:45.269Z",
+      "updatedAt": "2026-10-15T11:44:39.435Z"
     }
   ],
   "bookmarks": [
@@ -864,6 +1270,16 @@
       "link": "/app/homework",
       "isRead": false,
       "createdAt": "2026-10-11T15:00:00.000Z"
+    },
+    {
+      "userId": "usr-student-1",
+      "type": "quiz_completed",
+      "title": "Quiz Completed: Math Quiz -- Speed , Distance",
+      "body": "You scored 8/16 (50% accuracy). Click to review explanations.",
+      "targetUrl": "/app/quiz-attempts/qui-1792064625269-j0g3a/result",
+      "isRead": false,
+      "id": "not-1792064679438-k68jn",
+      "createdAt": "2026-10-15T11:44:39.438Z"
     }
   ],
   "news": [
@@ -929,6 +1345,117 @@
       "status": "published",
       "likesCount": 18,
       "createdAt": "2025-01-17T12:00:00.000Z"
+    }
+  ],
+  "documents": [
+    {
+      "title": "Elements_Atoms_Notes (Part-2)",
+      "description": "",
+      "subjectId": "sub-science",
+      "chapterId": "",
+      "category": "Curriculum Textbook",
+      "fileUrl": "/uploads/file-1792054362095-268377906.pdf",
+      "fileName": "Class_8_Science_Elements_Atoms_Notes_and_Practice.pdf",
+      "fileSize": 162576,
+      "fileSizeFormatted": "158.8 KB",
+      "pageCount": 6,
+      "tags": [],
+      "isPublished": true,
+      "uploadedBy": "usr-admin-1",
+      "downloadCount": 0,
+      "viewCount": 0,
+      "createdAt": "2026-10-15T08:52:46.608Z",
+      "id": "doc-1792054366609-hcbvn",
+      "updatedAt": "2026-10-15T11:24:54.138Z"
+    },
+    {
+      "title": "Nature_of_Matter_Notes-- (part-1)",
+      "description": "",
+      "subjectId": "sub-science",
+      "chapterId": "",
+      "category": "Curriculum Textbook",
+      "fileUrl": "/uploads/file-1792063406669-833934308.pdf",
+      "fileName": "Nature_of_Matter_Notes-- (part-1).pdf",
+      "fileSize": 287639,
+      "fileSizeFormatted": "280.9 KB",
+      "pageCount": null,
+      "tags": [],
+      "isPublished": true,
+      "uploadedBy": "usr-admin-1",
+      "downloadCount": 0,
+      "viewCount": 0,
+      "createdAt": "2026-10-15T11:23:31.467Z",
+      "id": "doc-1792063411468-4plv3"
+    }
+  ],
+  "motivation_videos": [
+    {
+      "id": "mot-khan-sir-1",
+      "title": "विजयी होने के लिए संघर्ष करना होगा 🔥 | Best Study Motivation",
+      "youtubeUrl": "https://youtu.be/3pg0nzainMo",
+      "youtubeId": "3pg0nzainMo",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/3pg0nzainMo",
+      "thumbnailUrl": "https://i.ytimg.com/vi/3pg0nzainMo/hqdefault.jpg",
+      "speaker": "Khan Sir (KGS)",
+      "quote": "मेहनत इतनी खामोशी से करो कि तुम्हारी सफलता शोर मचा दे! संघर्ष ही जीत का रास्ता है।",
+      "category": "Exam Focus & Struggle",
+      "tags": [
+        "Study Motivation",
+        "Khan Sir",
+        "Discipline",
+        "Success"
+      ],
+      "isSpotlight": true,
+      "status": "active",
+      "cheersCount": 68,
+      "viewsCount": 245,
+      "createdAt": "2026-10-15T08:00:00.000Z",
+      "updatedAt": "2026-10-15T12:22:50.769Z"
+    },
+    {
+      "title": "How to Build Self-Discipline: The Mindset Method - ( Napoleon Hill )",
+      "youtubeUrl": "https://youtu.be/edw8mPQqaEw",
+      "youtubeId": "edw8mPQqaEw",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/edw8mPQqaEw",
+      "thumbnailUrl": "https://i.ytimg.com/vi/edw8mPQqaEw/hqdefault.jpg",
+      "speaker": "Napoleon Hill Mantra",
+      "quote": "Keep moving forward — every small step counts toward your big dream!",
+      "category": "Exam Focus & Struggle",
+      "tags": [
+        "Study",
+        "Motivation",
+        "ICSE"
+      ],
+      "isSpotlight": false,
+      "status": "active",
+      "cheersCount": 0,
+      "viewsCount": 0,
+      "createdAt": "2026-10-15T12:22:03.562Z",
+      "id": "mot-1792066923563-7jji4",
+      "updatedAt": "2026-10-15T12:22:50.772Z"
+    },
+    {
+      "id": "mot-success-2",
+      "title": "🔥 \"सपना तेरा है... तो तड़प भी तेरे अंदर होनी चाहिए!\" Powerful Study Motivation",
+      "youtubeUrl": "https://youtu.be/2OI6OErC3Jk",
+      "youtubeId": "2OI6OErC3Jk",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/2OI6OErC3Jk",
+      "thumbnailUrl": "https://i.ytimg.com/vi/2OI6OErC3Jk/hqdefault.jpg",
+      "speaker": "Success Study Motivation",
+      "quote": "जब तक तोड़ेंगे नहीं, तब तक छोड़ेंगे नहीं! अपने सपनों के लिए हर दिन पूरी लगन से मेहनत करो।",
+      "category": "Never Give Up",
+      "tags": [
+        "Dreams",
+        "Passion",
+        "Consistency",
+        "Hard Work"
+      ],
+      "isSpotlight": false,
+      "status": "active",
+      "cheersCount": 54,
+      "viewsCount": 189,
+      "createdAt": "2026-10-15T09:00:00.000Z",
+      "updatedAt": "2026-10-15T12:22:50.774Z"
     }
   ]
 }

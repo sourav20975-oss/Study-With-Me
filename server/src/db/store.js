@@ -60,13 +60,24 @@ class Store {
       const tempPath = this.filePath + '.tmp';
       fs.writeFileSync(tempPath, JSON.stringify(this.data, null, 2), 'utf-8');
       fs.renameSync(tempPath, this.filePath);
+      this.lastDiskMtime = fs.statSync(this.filePath).mtimeMs;
     } catch (err) {
       console.error('❌ Error saving store to disk:', err);
     }
   }
 
   get(collection) {
-    return this.data[collection] || [];
+    if (fs.existsSync(this.filePath)) {
+      try {
+        const stats = fs.statSync(this.filePath);
+        if (!this.data || !this.lastDiskMtime || stats.mtimeMs > this.lastDiskMtime) {
+          const raw = fs.readFileSync(this.filePath, 'utf-8');
+          this.data = JSON.parse(raw);
+          this.lastDiskMtime = stats.mtimeMs;
+        }
+      } catch (e) {}
+    }
+    return (this.data && this.data[collection]) || [];
   }
 
   getById(collection, id) {

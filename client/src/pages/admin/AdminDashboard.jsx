@@ -140,7 +140,7 @@ export function AdminDashboard() {
             </div>
           </div>
           <div className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-            {analytics?.publishedNotesCount ?? 7}
+            {analytics?.publishedNotesCount ?? 0}
           </div>
           <div className="text-[11px] text-slate-500 mt-1 flex items-center justify-between">
             <span>ICSE Chapter Notes</span>
@@ -160,7 +160,7 @@ export function AdminDashboard() {
             </div>
           </div>
           <div className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-            {analytics?.totalQuestions ?? 15}
+            {analytics?.totalQuestions ?? 0}
           </div>
           <div className="text-[11px] text-emerald-600 font-semibold mt-1 flex items-center justify-between">
             <span>Auto-synced with Student Quiz</span>
@@ -245,6 +245,10 @@ export function AdminDashboard() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {SUBJECT_ITEMS.map((sub) => {
             const Icon = sub.icon;
+            const dyn = (analytics?.subjects || []).find((s) => s.id === sub.id);
+            const notesCount = dyn?.notes ?? sub.notes;
+            const chapsCount = dyn?.chapters ?? sub.chapters;
+
             return (
               <Link
                 key={sub.id}
@@ -256,7 +260,7 @@ export function AdminDashboard() {
                     <Icon className="w-4 h-4" />
                   </div>
                   <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-white border border-slate-200 text-slate-600">
-                    {sub.notes} notes
+                    {notesCount} notes
                   </span>
                 </div>
                 <div>
@@ -264,7 +268,7 @@ export function AdminDashboard() {
                     {sub.name}
                   </h3>
                   <span className="text-[11px] text-slate-500 block mt-0.5">
-                    {sub.chapters} chapters mapped
+                    {chapsCount} chapters mapped
                   </span>
                 </div>
               </Link>

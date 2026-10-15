@@ -227,10 +227,10 @@ export function QuizTaking() {
       <div className="bg-surface rounded-lg border border-border p-5 sm:p-7 space-y-5">
         <div className="flex items-center justify-between border-b border-border pb-3">
           <span className="text-xs font-medium text-text-muted">
-            Marks: {currentQ.marks} · {currentQ.difficulty?.toUpperCase()}
+            Marks: {currentQ.marks ?? 1} · {(currentQ.difficulty || 'Medium').toUpperCase()}
           </span>
           <span className="text-[11px] px-2 py-0.5 rounded bg-surface-muted text-text-muted capitalize">
-            {currentQ.type.replace('_', ' ')}
+            {(currentQ.type || 'single_select').replace('_', ' ')}
           </span>
         </div>
 
@@ -241,8 +241,8 @@ export function QuizTaking() {
 
         {/* Options / Input */}
         <div className="space-y-2.5 pt-2">
-          {currentQ.type === 'single_select' || currentQ.type === 'true_false' ? (
-            currentQ.options.map((opt, optIdx) => {
+          {(!currentQ.type || currentQ.type === 'single_select' || currentQ.type === 'true_false') ? (
+            (currentQ.options || []).map((opt, optIdx) => {
               const optKey = String(optIdx);
               const isSelected = answers[currentQ.id] === optKey;
 

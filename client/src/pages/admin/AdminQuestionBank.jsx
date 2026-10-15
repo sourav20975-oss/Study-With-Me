@@ -830,7 +830,7 @@ export function AdminQuestionBank() {
                         </span>
 
                         <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 capitalize">
-                          {q.difficulty} • {q.type.replace('_', ' ')} • {q.marks} {q.marks === 1 ? 'Mark' : 'Marks'}
+                          {q.difficulty || 'Medium'} • {(q.type || 'single_select').replace('_', ' ')} • {q.marks ?? 1} {q.marks === 1 ? 'Mark' : 'Marks'}
                         </span>
 
                         <button
@@ -1530,7 +1530,7 @@ export function AdminQuestionBank() {
                       <span className="font-bold text-text-muted shrink-0">#{idx + 1}</span>
                       <span className="font-medium text-text truncate flex-1">{pq.prompt}</span>
                       <span className="text-[10px] px-2 py-0.5 rounded bg-surface border border-border text-text-muted shrink-0 capitalize">
-                        {pq.type} • {pq.difficulty}
+                        {(pq.type || 'single_select').replace('_', ' ')} • {pq.difficulty || 'Medium'}
                       </span>
                     </div>
                   ))}

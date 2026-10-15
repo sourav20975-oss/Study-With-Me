@@ -375,3 +375,344 @@ export async function generateQuestionsWithAI({
 
   return generated;
 }
+
+// -----------------------------------------------------------------------------
+// Science Feed Article Generation
+// -----------------------------------------------------------------------------
+
+const SCIENCE_CATEGORIES = [
+  'Space & Astronomy',
+  'Environment & Agriculture',
+  'Physics & Machines',
+  'Biology & Nature',
+  'Chemistry & Earth',
+  'ICSE Discoveries'
+];
+
+function selectScienceCoverImage(topic = '', category = '') {
+  const t = topic.toLowerCase();
+  const c = category.toLowerCase();
+
+  if (
+    t.includes('periodic') || t.includes('chem') || t.includes('atom') ||
+    t.includes('element') || t.includes('acid') || t.includes('base') ||
+    t.includes('reaction') || t.includes('metal') || t.includes('matter') ||
+    c.includes('chem')
+  ) {
+    const images = [
+      'https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?q=80&w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1507668077129-56e32842fceb?q=80&w=1200&auto=format&fit=crop'
+    ];
+    return {
+      category: 'Chemistry & Earth',
+      image: images[Math.floor(Math.random() * images.length)]
+    };
+  }
+
+  if (
+    t.includes('bio') || t.includes('cell') || t.includes('micro') ||
+    t.includes('plant') || t.includes('animal') || t.includes('dna') ||
+    t.includes('tissue') || t.includes('organ') || t.includes('ecosystem') ||
+    c.includes('bio')
+  ) {
+    const images = [
+      'https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=1200&auto=format&fit=crop'
+    ];
+    return {
+      category: 'Biology & Nature',
+      image: images[Math.floor(Math.random() * images.length)]
+    };
+  }
+
+  if (
+    t.includes('crop') || t.includes('soil') || t.includes('farm') ||
+    t.includes('pollut') || t.includes('climat') || t.includes('environment') ||
+    c.includes('agri') || c.includes('environ')
+  ) {
+    const images = [
+      'https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?q=80&w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1473081556163-2a17de81fc97?q=80&w=1200&auto=format&fit=crop'
+    ];
+    return {
+      category: 'Environment & Agriculture',
+      image: images[Math.floor(Math.random() * images.length)]
+    };
+  }
+
+  if (
+    t.includes('physic') || t.includes('light') || t.includes('force') ||
+    t.includes('sound') || t.includes('electric') || t.includes('magnet') ||
+    t.includes('energy') || t.includes('pressure') || t.includes('machine') ||
+    c.includes('physic')
+  ) {
+    const images = [
+      'https://images.unsplash.com/photo-1507413245164-6160d8298b31?q=80&w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200&auto=format&fit=crop'
+    ];
+    return {
+      category: 'Physics & Machines',
+      image: images[Math.floor(Math.random() * images.length)]
+    };
+  }
+
+  // Default Space & Astronomy
+  const spaceImages = [
+    'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1200&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop'
+  ];
+  return {
+    category: 'Space & Astronomy',
+    image: spaceImages[Math.floor(Math.random() * spaceImages.length)]
+  };
+}
+
+function parseArticleJSON(raw) {
+  let cleaned = (raw || '').replace(/```json/gi, '').replace(/```/g, '').trim();
+  const firstBrace = cleaned.indexOf('{');
+  const lastBrace = cleaned.lastIndexOf('}');
+  if (firstBrace !== -1 && lastBrace !== -1) {
+    cleaned = cleaned.substring(firstBrace, lastBrace + 1);
+  }
+
+  try {
+    return JSON.parse(cleaned);
+  } catch (err) {
+    // Repair unescaped newlines in JSON strings
+    let inString = false;
+    let repaired = '';
+    for (let i = 0; i < cleaned.length; i++) {
+      const char = cleaned[i];
+      if (char === '"' && cleaned[i - 1] !== '\\') {
+        inString = !inString;
+        repaired += char;
+      } else if (inString && (char === '\n' || char === '\r')) {
+        repaired += char === '\n' ? '\\n' : '';
+      } else if (inString && char === '\t') {
+        repaired += '\\t';
+      } else {
+        repaired += char;
+      }
+    }
+
+    try {
+      return JSON.parse(repaired);
+    } catch (err2) {
+      // Regex field extractor fallback
+      const titleMatch = cleaned.match(/"title"\s*:\s*"([^"]+)"/i);
+      const categoryMatch = cleaned.match(/"category"\s*:\s*"([^"]+)"/i);
+      const descMatch = cleaned.match(/"description"\s*:\s*"([^"]+)"/i);
+      const readTimeMatch = cleaned.match(/"readTimeMinutes"\s*:\s*(\d+)/i);
+
+      let content = '';
+      const contentIdx = cleaned.indexOf('"content"');
+      if (contentIdx !== -1) {
+        const colonIdx = cleaned.indexOf(':', contentIdx);
+        const quoteStart = cleaned.indexOf('"', colonIdx + 1);
+        if (quoteStart !== -1) {
+          const readTimeIdx = cleaned.indexOf('"readTimeMinutes"', quoteStart);
+          const tagsIdx = cleaned.indexOf('"tags"', quoteStart);
+          let endIdx = cleaned.length - 1;
+          if (readTimeIdx !== -1) endIdx = Math.min(endIdx, readTimeIdx);
+          if (tagsIdx !== -1) endIdx = Math.min(endIdx, tagsIdx);
+
+          let rawContent = cleaned.substring(quoteStart + 1, endIdx);
+          rawContent = rawContent.replace(/",\s*$/, '').replace(/"$/, '').trim();
+          content = rawContent.replace(/\\n/g, '\n');
+        }
+      }
+
+      if (titleMatch || content) {
+        return {
+          title: titleMatch ? titleMatch[1] : null,
+          category: categoryMatch ? categoryMatch[1] : null,
+          description: descMatch ? descMatch[1] : null,
+          content: content || null,
+          readTimeMinutes: readTimeMatch ? parseInt(readTimeMatch[1]) : 4
+        };
+      }
+      throw err;
+    }
+  }
+}
+
+export async function generateScienceArticleWithAI({ topic = 'Space Science Exploration', category = 'Space & Astronomy' }) {
+  const meta = selectScienceCoverImage(topic, category);
+  const targetCategory = SCIENCE_CATEGORIES.includes(category) && category !== 'All' ? category : meta.category;
+
+  const prompt = `You are a distinguished science educator and curriculum specialist writing for ICSE Class 8 students.
+The user wants an educational science article based on this topic prompt: "${topic}".
+User suggested category: "${targetCategory}".
+
+INSTRUCTIONS:
+1. Correct any typos or misspellings in the user's prompt (e.g. "prodic table chemisrty" -> "The Periodic Table of Elements & Chemistry").
+2. Assign the single most appropriate category from this exact list:
+   - "Chemistry & Earth"
+   - "Physics & Machines"
+   - "Biology & Nature"
+   - "Space & Astronomy"
+   - "Environment & Agriculture"
+   - "ICSE Discoveries"
+3. Create an engaging, scientifically accurate, and age-appropriate ICSE Class 8 article.
+4. Output MUST BE strictly valid JSON without markdown code fences. Inside the JSON, any newlines in the "content" field MUST be escaped as \\n.
+
+JSON structure:
+{
+  "title": "Clear, engaging title (e.g. 'Unlocking the Periodic Table: The Building Blocks of Matter')",
+  "category": "Exact category from the list above",
+  "description": "Engaging 2-sentence summary hook explaining what students will learn.",
+  "content": "Full markdown text of the article with \\n for line breaks. Must include:\\n### 1. Introduction\\n### 2. Historical Discovery & Core Principle\\n### 3. Key Concepts, Formulas & Scientific Notation\\n### 4. Real-World Applications & Daily Life Examples\\n### 5. ICSE Class 8 Exam Spotlight (Key takeaways for exams)\\n### 6. Mind-Blowing Science Fact",
+  "readTimeMinutes": 4,
+  "source": "Tutor AI Science Lab",
+  "tags": ["Science", "ICSE Class 8"]
+}`;
+
+  let raw = '';
+
+  // 1. Try OpenRouter (meta-llama/llama-3.3-70b-instruct)
+  if (config.openrouterApiKey) {
+    try {
+      const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${config.openrouterApiKey}`
+        },
+        body: JSON.stringify({
+          model: 'meta-llama/llama-3.3-70b-instruct',
+          messages: [{ role: 'user', content: prompt }],
+          temperature: 0.3
+        })
+      });
+      if (res.ok) {
+        const data = await res.json();
+        raw = data.choices?.[0]?.message?.content || '';
+      }
+    } catch (err) {
+      console.warn('⚠️ OpenRouter article generation failed:', err.message);
+    }
+  }
+
+  // 2. Try Groq (openai/gpt-oss-120b or qwen/qwen3.8-27b)
+  if (!raw && config.groqApiKey) {
+    for (const model of ['openai/gpt-oss-120b', 'qwen/qwen3.8-27b', 'openai/gpt-oss-20b']) {
+      try {
+        const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${config.groqApiKey}`
+          },
+          body: JSON.stringify({
+            model,
+            messages: [{ role: 'user', content: prompt }],
+            temperature: 0.3
+          })
+        });
+        if (res.ok) {
+          const data = await res.json();
+          raw = data.choices?.[0]?.message?.content || '';
+          if (raw) break;
+        }
+      } catch (err) {
+        console.warn(`⚠️ Groq model ${model} article generation failed:`, err.message);
+      }
+    }
+  }
+
+  // If live AI produced output, parse it
+  if (raw) {
+    try {
+      const parsed = parseArticleJSON(raw);
+      if (parsed && parsed.title && parsed.content) {
+        const finalCategory = SCIENCE_CATEGORIES.includes(parsed.category) ? parsed.category : targetCategory;
+        return {
+          title: parsed.title,
+          category: finalCategory,
+          description: parsed.description || `Exploring fundamental science concepts behind ${parsed.title}.`,
+          content: parsed.content,
+          image: meta.image,
+          source: 'Tutor AI Science Lab (ICSE)',
+          readTimeMinutes: parsed.readTimeMinutes || 4,
+          status: 'draft'
+        };
+      }
+    } catch (err) {
+      console.warn('⚠️ Failed to parse AI article JSON, using intelligent fallback:', err.message);
+    }
+  }
+
+  // 3. Fallback: Topic-aware ICSE curriculum article
+  const t = topic.toLowerCase();
+  let fallbackTitle = `${topic} — ICSE Class 8 Science Spotlight`;
+  let fallbackContent = '';
+  let fallbackCategory = targetCategory;
+
+  if (t.includes('periodic') || t.includes('chem') || t.includes('atom') || t.includes('element')) {
+    fallbackCategory = 'Chemistry & Earth';
+    fallbackTitle = 'The Periodic Table & Chemistry: Decoding the Building Blocks of Matter';
+    fallbackContent = `### 1. Introduction to Elements & Matter
+Everything around us — the air we breathe ($O_2$), water ($H_2O$), and common salt ($NaCl$) — is composed of basic chemical elements. The Modern Periodic Table arranges all 118 known elements in order of increasing atomic number ($Z$).
+
+### 2. Historical Discovery: Dmitri Mendeleev's Vision
+In 1869, Russian chemist Dmitri Mendeleev discovered that when elements are arranged by atomic properties, a recurring periodic pattern emerges. He famously left blank spaces in his table for undiscovered elements like Gallium and Germanium, accurately predicting their chemical behaviors before they were found!
+
+### 3. Anatomy of the Periodic Table
+* **Periods (Horizontal Rows):** There are 7 periods. Across a period, atomic radius decreases as nuclear pull increases.
+* **Groups (Vertical Columns):** There are 18 groups. Elements in the same group possess the same number of valence electrons, giving them matching chemical reactivity.
+
+### 4. Key Groups for ICSE Class 8:
+1. **Group 1 (Alkali Metals):** Sodium ($Na$), Potassium ($K$) — highly reactive, soft metals stored under kerosene oil.
+2. **Group 2 (Alkaline Earth Metals):** Magnesium ($Mg$), Calcium ($Ca$) — essential for bones, teeth, and cellular energy.
+3. **Group 17 (Halogens):** Chlorine ($Cl_2$), Bromine ($Br_2$), Iodine ($I_2$) — reactive non-metals used in disinfectants and salts.
+4. **Group 18 (Noble Gases):** Helium ($He$), Neon ($Ne$), Argon ($Ar$) — inert gases with full octets in their outermost energy shells.
+
+### 5. ICSE Exam Spotlight & Key Formulas:
+* **Atomic Number ($Z$):** Number of protons = Number of electrons in a neutral atom.
+* **Mass Number ($A$):** Number of protons + Number of neutrons ($A = Z + N$).
+* **Valency:** Combining capacity of an element determined by outermost electrons.
+
+### 6. Mind-Blowing Science Fact:
+Did you know that Helium was discovered on the Sun during a solar eclipse in 1868 — almost 30 years before scientists successfully isolated it on Earth? That's why it is named after *Helios*, the ancient Greek god of the Sun!`;
+  } else if (t.includes('light') || t.includes('sound') || t.includes('physic') || t.includes('force')) {
+    fallbackCategory = 'Physics & Machines';
+    fallbackTitle = `${topic}: Fundamental Forces & Principles in Action`;
+    fallbackContent = `### 1. Core Physical Principle
+Understanding how ${topic} governs energy transfer, motion, and everyday technology.
+
+### 2. Historical & Experimental Foundations
+From Sir Isaac Newton's laws of motion and optics to modern electromagnetic applications.
+
+### 3. Key ICSE Class 8 Formulas & Units:
+* **Force:** $F = m \\times a$ (measured in Newtons, $N$).
+* **Pressure:** $P = \\frac{F}{A}$ (measured in Pascals, $Pa$).
+* **Work & Energy:** $W = F \\times s$ (measured in Joules, $J$).
+
+### 4. Real-world Significance:
+Modern high-speed transit, electric vehicles, and renewable power systems utilize these exact physics relationships daily!`;
+  } else {
+    fallbackContent = `### 1. Overview of ${topic}
+Exploring the cutting-edge science and ICSE Class 8 curriculum connections of ${topic}.
+
+### 2. Key Scientific Principles
+1. **Underlying Mechanisms:** How molecules, forces, and biological systems interact.
+2. **Experimental Evidence:** Key observations and laboratory findings.
+3. **Daily Life Applications:** How this concept improves medicine, energy, and global sustainability.
+
+### 3. Did You Know?
+Scientific research in this field continues to unlock new technologies for Indian and global space, medical, and environmental frontiers!`;
+  }
+
+  return {
+    title: fallbackTitle,
+    category: fallbackCategory,
+    description: `A deep dive into ${fallbackTitle} — connecting fundamental scientific principles directly to ICSE Class 8 syllabus concepts.`,
+    content: fallbackContent,
+    image: meta.image,
+    source: 'Tutor AI Science Lab (ICSE)',
+    readTimeMinutes: 4,
+    status: 'draft'
+  };
+}
+

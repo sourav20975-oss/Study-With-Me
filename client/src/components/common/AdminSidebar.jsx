@@ -4,6 +4,7 @@ import {
   LayoutDashboard,
   FolderTree,
   FileText,
+  BookOpen,
   HelpCircle,
   Sparkles,
   CheckSquare,
@@ -11,6 +12,7 @@ import {
   BarChart2,
   Newspaper,
   Settings,
+  Flame,
   X
 } from 'lucide-react';
 
@@ -18,11 +20,13 @@ const ADMIN_LINKS = [
   { to: '/admin', label: 'Tutor Overview', icon: LayoutDashboard, end: true },
   { to: '/admin/subjects', label: 'Syllabus & Chapters', icon: FolderTree },
   { to: '/admin/notes', label: 'Notes Editor', icon: FileText },
+  { to: '/admin/pdfs', label: 'PDF Library & Books', icon: BookOpen, badge: '100MB' },
   { to: '/admin/questions', label: 'Question Bank', icon: HelpCircle },
   { to: '/admin/ai-question-generator', label: 'AI Generator', icon: Sparkles, badge: 'Multi-AI' },
   { to: '/admin/quizzes', label: 'Quizzes & Tests', icon: CheckSquare },
   { to: '/admin/assignments', label: 'Homework Grading', icon: FileCheck },
   { to: '/admin/doubts', label: 'Doubts Queue', icon: HelpCircle },
+  { to: '/admin/motivation', label: 'Daily Motivation', icon: Flame, badge: 'Daily' },
   { to: '/admin/news', label: 'Science Feed', icon: Newspaper },
   { to: '/admin/settings', label: 'Settings & Status', icon: Settings },
 ];

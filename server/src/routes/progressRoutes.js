@@ -25,39 +25,107 @@ router.get('/student/progress', authenticate, requireRole('student'), (req, res)
   const totalAssignments = assignments.length;
   const completedAssignments = submissions.filter((s) => s.status === 'reviewed' || s.status === 'submitted').length;
 
-  // Chapter performance analysis
-  const allQuestions = store.get('questions');
-  const chapters = store.get('chapters');
-  const chapterPerformance = {};
+  const allQuizzes = store.get('quizzes') || [];
+  const allQuestions = store.get('questions') || [];
+  const subjects = store.get('subjects') || [];
+  const chapters = store.get('chapters') || [];
 
-  attempts.forEach((att) => {
-    (att.answers || []).forEach((ans) => {
-      const q = allQuestions.find((item) => item.id === ans.questionId);
-      if (q && q.chapterId) {
-        if (!chapterPerformance[q.chapterId]) {
-          chapterPerformance[q.chapterId] = { total: 0, correct: 0 };
-        }
-        chapterPerformance[q.chapterId].total++;
-        if (ans.isCorrect) {
-          chapterPerformance[q.chapterId].correct++;
-        }
-      }
-    });
-  });
+  // Helper to resolve quiz metadata
+  const resolveQuizMeta = (quizId) => {
+    const qz = allQuizzes.find((q) => q.id === quizId);
+    if (qz) return qz;
+    if (quizId?.includes('math')) return { title: 'Mathematics Practice Quiz', subjectId: 'sub-maths' };
+    if (quizId?.includes('sci')) return { title: 'Science Atoms & Matter Quiz', subjectId: 'sub-science' };
+    if (quizId?.includes('eng')) return { title: 'English Prose & Grammar Test', subjectId: 'sub-english' };
+    if (quizId?.includes('soc')) return { title: 'Social Science Assessment', subjectId: 'sub-social' };
+    return { title: 'Class 8 Practice Assessment', subjectId: 'sub-maths' };
+  };
 
-  const chaptersBreakdown = Object.entries(chapterPerformance).map(([chapterId, data]) => {
-    const chap = chapters.find((c) => c.id === chapterId);
-    const pct = Math.round((data.correct / data.total) * 100);
+  // 1. Dynamic Accuracy Trend (chronological attempts)
+  const sortedAttempts = [...attempts].sort((a, b) => new Date(a.submittedAt || 0) - new Date(b.submittedAt || 0));
+
+  const accuracyTrend = sortedAttempts.map((att, idx) => {
+    const qz = resolveQuizMeta(att.quizId);
+    const dateObj = new Date(att.submittedAt || Date.now());
+    const formattedDate = dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    const acc = att.accuracy !== undefined ? Math.round(att.accuracy) : Math.round(((att.score || 0) / (att.maxScore || 1)) * 100);
+
     return {
-      chapterId,
-      title: chap?.title || 'Chapter',
-      totalQuestionsAnswered: data.total,
-      accuracy: pct,
-      needsRevision: pct < 70 && data.total >= 2
+      testNumber: idx + 1,
+      title: qz.title || `Assessment #${idx + 1}`,
+      date: formattedDate,
+      accuracy: acc,
+      score: `${att.score}/${att.maxScore}`,
+      subjectId: qz.subjectId
     };
   });
 
-    // Streak & Calendar activity calculation
+  // Calculate change in accuracy from previous attempt to latest attempt
+  let accuracyChange = null;
+  if (sortedAttempts.length >= 2) {
+    const latestAtt = sortedAttempts[sortedAttempts.length - 1];
+    const prevAtt = sortedAttempts[sortedAttempts.length - 2];
+    const latestAcc = latestAtt.accuracy !== undefined ? latestAtt.accuracy : Math.round(((latestAtt.score || 0) / (latestAtt.maxScore || 1)) * 100);
+    const prevAcc = prevAtt.accuracy !== undefined ? prevAtt.accuracy : Math.round(((prevAtt.score || 0) / (prevAtt.maxScore || 1)) * 100);
+    accuracyChange = Math.round(latestAcc - prevAcc);
+  }
+
+  // Average time spent per quiz in minutes
+  const avgDurationMinutes = totalAttempts > 0
+    ? Math.round(attempts.reduce((sum, a) => sum + (a.timeSpentSeconds || 0), 0) / (totalAttempts * 60))
+    : 0;
+
+  // 2. Dynamic Subject-Wise Performance (No fake 70%!)
+  const subjectPerformance = subjects.map((sub) => {
+    const subAttempts = attempts.filter((att) => {
+      const qz = resolveQuizMeta(att.quizId);
+      if (qz.subjectId === sub.id) return true;
+      if (sub.id === 'sub-maths' && att.quizId?.includes('math')) return true;
+      if (sub.id === 'sub-science' && att.quizId?.includes('sci')) return true;
+      if (sub.id === 'sub-english' && att.quizId?.includes('eng')) return true;
+      if (sub.id === 'sub-social' && att.quizId?.includes('soc')) return true;
+      // Also check if any question answered in attempt belongs to this subject
+      return (att.answers || []).some((ans) => {
+        const q = allQuestions.find((item) => item.id === ans.questionId);
+        return q?.subjectId === sub.id;
+      });
+    });
+
+    let subAccuracy = 0;
+    let totalQuestionsPracticed = 0;
+    const attempted = subAttempts.length > 0;
+
+    if (attempted) {
+      const totalAcc = subAttempts.reduce((acc, a) => {
+        const itemAcc = a.accuracy !== undefined ? a.accuracy : Math.round(((a.score || 0) / (a.maxScore || 1)) * 100);
+        return acc + itemAcc;
+      }, 0);
+      subAccuracy = Math.round(totalAcc / subAttempts.length);
+      totalQuestionsPracticed = subAttempts.reduce((acc, a) => acc + (a.answers?.length || 0), 0);
+    }
+
+    const colorMap = {
+      'sub-maths': { color: '#f97316', gradient: 'from-orange-500 to-amber-500' },
+      'sub-science': { color: '#0d9488', gradient: 'from-teal-500 to-emerald-500' },
+      'sub-english': { color: '#eab308', gradient: 'from-amber-500 to-yellow-500' },
+      'sub-social': { color: '#6366f1', gradient: 'from-indigo-500 to-purple-500' }
+    };
+    const colors = colorMap[sub.id] || { color: '#f97316', gradient: 'from-orange-500 to-amber-500' };
+
+    return {
+      name: sub.name,
+      code: sub.id.replace('sub-', ''),
+      subjectId: sub.id,
+      accuracy: subAccuracy,
+      target: 75,
+      questionsPracticed: totalQuestionsPracticed,
+      attempted,
+      color: colors.color,
+      gradient: colors.gradient
+    };
+  });
+
+  // 3. Dynamic Streak & Calendar activity calculation (From authentic events only)
   const activityMap = {};
   attempts.forEach((a) => {
     if (a.submittedAt) {
@@ -77,27 +145,203 @@ router.get('/student/progress', authenticate, requireRole('student'), (req, res)
       activityMap[day] = (activityMap[day] || 0) + 1;
     }
   });
+  doubts.forEach((d) => {
+    if (d.createdAt) {
+      const day = new Date(d.createdAt).toISOString().split('T')[0];
+      activityMap[day] = (activityMap[day] || 0) + 1;
+    }
+  });
 
-  const todayIso = new Date().toISOString().split('T')[0];
-  activityMap[todayIso] = Math.max(activityMap[todayIso] || 0, 2);
+  // Calculate real consecutive days streak
+  const todayDate = new Date();
+  const todayIso = todayDate.toISOString().split('T')[0];
   const yesterdayIso = new Date(Date.now() - 86400000).toISOString().split('T')[0];
-  activityMap[yesterdayIso] = Math.max(activityMap[yesterdayIso] || 0, 3);
-  const twoDaysAgoIso = new Date(Date.now() - 172800000).toISOString().split('T')[0];
-  activityMap[twoDaysAgoIso] = Math.max(activityMap[twoDaysAgoIso] || 0, 1);
-  const threeDaysAgoIso = new Date(Date.now() - 259200000).toISOString().split('T')[0];
-  activityMap[threeDaysAgoIso] = Math.max(activityMap[threeDaysAgoIso] || 0, 4);
+
+  let currentStreak = 0;
+  let checkDate = new Date();
+  if (!activityMap[todayIso] && activityMap[yesterdayIso]) {
+    checkDate.setDate(checkDate.getDate() - 1);
+  }
+
+  while (true) {
+    const iso = checkDate.toISOString().split('T')[0];
+    if (activityMap[iso] > 0) {
+      currentStreak++;
+      checkDate.setDate(checkDate.getDate() - 1);
+    } else {
+      break;
+    }
+  }
+
+  // Calculate best streak historically
+  const sortedDates = Object.keys(activityMap)
+    .filter((d) => activityMap[d] > 0)
+    .sort();
+
+  let bestStreak = 0;
+  let tempStreak = 0;
+  let prevTimestamp = 0;
+
+  for (const dateStr of sortedDates) {
+    const ts = new Date(dateStr).getTime();
+    if (prevTimestamp === 0) {
+      tempStreak = 1;
+    } else {
+      const diffDays = Math.round((ts - prevTimestamp) / 86400000);
+      if (diffDays === 1) {
+        tempStreak++;
+      } else if (diffDays > 1) {
+        tempStreak = 1;
+      }
+    }
+    prevTimestamp = ts;
+    if (tempStreak > bestStreak) bestStreak = tempStreak;
+  }
+  if (currentStreak > bestStreak) bestStreak = currentStreak;
+
+  const currentYearMonth = todayIso.slice(0, 7);
+  const activeDaysThisMonth = Object.keys(activityMap).filter(
+    (d) => d.startsWith(currentYearMonth) && activityMap[d] > 0
+  ).length;
 
   const streak = {
-    currentDays: 3,
-    bestStreak: 7,
-    activeDaysThisMonth: Object.keys(activityMap).length,
+    currentDays: currentStreak,
+    bestStreak: Math.max(bestStreak, currentStreak),
+    activeDaysThisMonth,
     activityMap
+  };
+
+  // 4. Dynamic 7-Day Study Effort (Weekly Pillars)
+  const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const weeklyStudyActivity = [];
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date();
+    d.setDate(d.getDate() - i);
+    const dateStr = d.toISOString().split('T')[0];
+    const dayName = daysOfWeek[d.getDay()];
+
+    const dayAttempts = attempts.filter((a) => (a.submittedAt || '').startsWith(dateStr));
+    const daySubs = submissions.filter((s) => (s.submittedAt || '').startsWith(dateStr));
+    const dayTasks = tasks.filter((t) => t.completed && (t.completedAt || t.updatedAt || '').startsWith(dateStr));
+
+    const qCount = dayAttempts.reduce((acc, a) => acc + (a.answers?.length || 0), 0);
+    const attemptMins = dayAttempts.reduce((acc, a) => acc + Math.round((a.timeSpentSeconds || 600) / 60), 0);
+    const totalMins = attemptMins + (daySubs.length * 20) + (dayTasks.length * 15);
+
+    weeklyStudyActivity.push({
+      day: dayName,
+      date: dateStr,
+      minutes: totalMins,
+      questions: qCount,
+      label: `${dayName}: ${totalMins}m · ${qCount} Qs`
+    });
+  }
+
+  // 5. Dynamic Chapters Breakdown (Real accuracy per chapter)
+  const chaptersBreakdown = chapters.map((chap) => {
+    const chapQuestions = allQuestions.filter((q) => q.chapterId === chap.id);
+    const chapQuestionIds = new Set(chapQuestions.map((q) => q.id));
+
+    let totalAnswered = 0;
+    let totalCorrect = 0;
+
+    attempts.forEach((att) => {
+      const qz = resolveQuizMeta(att.quizId);
+      const isChapQuiz = qz.chapterId === chap.id || qz.chapterIds?.includes(chap.id);
+
+      (att.answers || []).forEach((ans) => {
+        // Match 1: Directly linked question ID
+        if (chapQuestionIds.has(ans.questionId)) {
+          totalAnswered++;
+          if (ans.isCorrect) totalCorrect++;
+          return;
+        }
+
+        // Match 2: Quiz explicitly tagged with this chapter
+        if (isChapQuiz) {
+          totalAnswered++;
+          if (ans.isCorrect) totalCorrect++;
+          return;
+        }
+
+        // Match 3: If questions in the quiz have empty chapterId, but belongs to this subject
+        const qObj = allQuestions.find((item) => item.id === ans.questionId);
+        const ansSubjectId = qObj?.subjectId || qz.subjectId;
+        if (ansSubjectId === chap.subjectId) {
+          const sameSubChapters = chapters.filter((c) => c.subjectId === chap.subjectId);
+          if (sameSubChapters.length === 1) {
+            totalAnswered++;
+            if (ans.isCorrect) totalCorrect++;
+            return;
+          }
+          const titleWords = chap.title.toLowerCase().split(/\s+/).filter((w) => w.length > 3);
+          const qText = `${qz.title || ''} ${qObj?.prompt || ''}`.toLowerCase();
+          if (titleWords.some((w) => qText.includes(w))) {
+            totalAnswered++;
+            if (ans.isCorrect) totalCorrect++;
+          }
+        }
+      });
+    });
+
+    let accuracy = 0;
+    let status = 'unattempted'; // 'mastered' | 'learning' | 'needs_revision' | 'unattempted'
+    let needsRevision = false;
+    let isMastered = false;
+
+    if (totalAnswered > 0) {
+      accuracy = Math.round((totalCorrect / totalAnswered) * 100);
+      needsRevision = accuracy < 70;
+      isMastered = accuracy >= 80;
+      status = accuracy >= 80 ? 'mastered' : accuracy >= 60 ? 'learning' : 'needs_revision';
+    }
+
+    const sub = subjects.find((s) => s.id === chap.subjectId);
+
+    return {
+      chapterId: chap.id,
+      title: chap.title,
+      subjectId: chap.subjectId,
+      subjectName: sub?.name || 'Class 8 Syllabus',
+      totalQuestionsAnswered: totalAnswered,
+      accuracy,
+      status,
+      needsRevision,
+      isMastered
+    };
+  });
+
+  // 6. Dynamic Mastery Distribution (Donut Ring Chart with 4 authentic tiers)
+  const totalChaps = chaptersBreakdown.length || 1;
+  const masteredList = chaptersBreakdown.filter((c) => c.status === 'mastered');
+  const learningList = chaptersBreakdown.filter((c) => c.status === 'learning');
+  const revisionList = chaptersBreakdown.filter((c) => c.status === 'needs_revision');
+  const unattemptedList = chaptersBreakdown.filter((c) => c.status === 'unattempted');
+
+  const masteryDistribution = {
+    masteredCount: masteredList.length,
+    learningCount: learningList.length,
+    revisionCount: revisionList.length,
+    unattemptedCount: unattemptedList.length,
+    totalChapters: chaptersBreakdown.length,
+    masteredPct: Math.round((masteredList.length / totalChaps) * 100),
+    learningPct: Math.round((learningList.length / totalChaps) * 100),
+    revisionPct: Math.round((revisionList.length / totalChaps) * 100),
+    unattemptedPct: Math.max(
+      0,
+      100 -
+        Math.round((masteredList.length / totalChaps) * 100) -
+        Math.round((learningList.length / totalChaps) * 100) -
+        Math.round((revisionList.length / totalChaps) * 100)
+    )
   };
 
   res.json({
     progress: {
       quizzesAttempted: totalAttempts,
       averageAccuracy: avgAccuracy,
+      accuracyChange,
+      avgDurationMinutes,
       totalScoreEarned,
       totalMaxScore,
       homeworkCompleted: completedAssignments,
@@ -107,6 +351,10 @@ router.get('/student/progress', authenticate, requireRole('student'), (req, res)
       tasksCompleted: tasks.filter((t) => t.completed).length,
       tasksTotal: tasks.length,
       chaptersBreakdown,
+      subjectPerformance,
+      weeklyStudyActivity,
+      accuracyTrend,
+      masteryDistribution,
       recentAttempts: attempts.slice(-5).reverse(),
       streak
     }
@@ -307,34 +555,50 @@ router.post('/notifications/mark-all-read', authenticate, (req, res) => {
   res.json({ success: true });
 });
 
-// Admin: Analytics Dashboard
-router.get('/admin/analytics', authenticate, requireRole('admin'), (req, res) => {
-  const users = store.get('users');
+// Admin: Analytics Dashboard (supports both /admin/analytics and /analytics/dashboard)
+const handleAdminAnalytics = (req, res) => {
+  const users = store.get('users') || [];
   const students = users.filter((u) => u.role === 'student');
-  const notes = store.get('notes');
-  const questions = store.get('questions');
-  const quizzes = store.get('quizzes');
-  const attempts = store.get('quizAttempts');
-  const doubts = store.get('doubts');
-  const submissions = store.get('submissions');
+  const notes = store.get('notes') || [];
+  const questions = store.get('questions') || [];
+  const quizzes = store.get('quizzes') || [];
+  const attempts = store.get('quizAttempts') || [];
+  const doubts = store.get('doubts') || [];
+  const submissions = store.get('submissions') || [];
+  const subjects = store.get('subjects') || [];
+  const chapters = store.get('chapters') || [];
 
   const pendingDoubts = doubts.filter((d) => d.status === 'pending');
   const pendingSubmissions = submissions.filter((s) => s.status === 'submitted');
   const questionsNeedsReview = questions.filter((q) => q.reviewStatus === 'needs_review');
 
+  const subjectsWithCounts = subjects.map((sub) => ({
+    id: sub.id,
+    name: sub.name,
+    chapters: chapters.filter((c) => c.subjectId === sub.id).length,
+    notes: notes.filter((n) => n.subjectId === sub.id && n.status === 'published').length
+  }));
+
+  const stats = {
+    studentCount: students.length,
+    publishedNotesCount: notes.filter((n) => n.status === 'published').length,
+    draftNotesCount: notes.filter((n) => n.status === 'draft').length,
+    totalQuestions: questions.length,
+    questionsNeedingReview: questionsNeedsReview.length,
+    publishedQuizzesCount: quizzes.filter((q) => q.status === 'published').length,
+    totalQuizAttempts: attempts.length,
+    pendingDoubtsCount: pendingDoubts.length,
+    pendingHomeworkCount: pendingSubmissions.length,
+    subjects: subjectsWithCounts
+  };
+
   res.json({
-    analytics: {
-      studentCount: students.length,
-      publishedNotesCount: notes.filter((n) => n.status === 'published').length,
-      draftNotesCount: notes.filter((n) => n.status === 'draft').length,
-      totalQuestions: questions.length,
-      questionsNeedingReview: questionsNeedsReview.length,
-      publishedQuizzesCount: quizzes.filter((q) => q.status === 'published').length,
-      totalQuizAttempts: attempts.length,
-      pendingDoubtsCount: pendingDoubts.length,
-      pendingHomeworkCount: pendingSubmissions.length
-    }
+    analytics: stats,
+    stats
   });
-});
+};
+
+router.get('/admin/analytics', authenticate, requireRole('admin'), handleAdminAnalytics);
+router.get('/analytics/dashboard', authenticate, requireRole('admin'), handleAdminAnalytics);
 
 export default router;

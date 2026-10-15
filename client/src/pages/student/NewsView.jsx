@@ -76,8 +76,8 @@ export function NewsView() {
   const [isSaving, setIsSaving] = useState(false);
 
   // AI Generator Form State
-  const [aiTopic, setAiTopic] = useState('Chandrayaan Lunar Water Exploration');
-  const [aiCategory, setAiCategory] = useState('Space & Astronomy');
+  const [aiTopic, setAiTopic] = useState('Periodic Table & Chemistry');
+  const [aiCategory, setAiCategory] = useState('Chemistry & Earth');
   const [isGeneratingAI, setIsGeneratingAI] = useState(false);
 
   const fetchArticles = async () => {
@@ -672,6 +672,19 @@ export function NewsView() {
                   />
                 </label>
               </div>
+              {articleForm.image && (
+                <div className="mt-2 relative rounded-xl overflow-hidden h-28 border border-border bg-page">
+                  <img
+                    src={articleForm.image}
+                    alt="Cover preview"
+                    className="w-full h-full object-cover"
+                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                  />
+                  <span className="absolute bottom-1.5 right-2 px-2 py-0.5 rounded-md bg-black/60 text-white text-[10px] font-medium">
+                    Cover Preview
+                  </span>
+                </div>
+              )}
             </div>
 
             {/* Description / Summary */}
@@ -756,10 +769,46 @@ export function NewsView() {
                 type="text"
                 required
                 value={aiTopic}
-                onChange={(e) => setAiTopic(e.target.value)}
-                placeholder="e.g. Chandrayaan-3 Rover, How Solar Cells Work, Bioluminescence..."
+                onChange={(e) => {
+                  const val = e.target.value;
+                  setAiTopic(val);
+                  const lower = val.toLowerCase();
+                  if (lower.includes('periodic') || lower.includes('chem') || lower.includes('acid') || lower.includes('atom') || lower.includes('element') || lower.includes('prodic')) {
+                    setAiCategory('Chemistry & Earth');
+                  } else if (lower.includes('cell') || lower.includes('bio') || lower.includes('plant') || lower.includes('micro') || lower.includes('organ')) {
+                    setAiCategory('Biology & Nature');
+                  } else if (lower.includes('light') || lower.includes('sound') || lower.includes('force') || lower.includes('physic') || lower.includes('electric') || lower.includes('magnet')) {
+                    setAiCategory('Physics & Machines');
+                  } else if (lower.includes('space') || lower.includes('moon') || lower.includes('planet') || lower.includes('star') || lower.includes('chandra')) {
+                    setAiCategory('Space & Astronomy');
+                  } else if (lower.includes('crop') || lower.includes('soil') || lower.includes('farm') || lower.includes('pollut')) {
+                    setAiCategory('Environment & Agriculture');
+                  }
+                }}
+                placeholder="e.g. Periodic Table, Acids & Bases, How Sound Waves Travel..."
                 className="w-full px-3 py-2 border border-border rounded-xl text-xs sm:text-sm bg-page text-text font-medium"
               />
+              <div className="flex flex-wrap gap-1.5 pt-2">
+                {[
+                  { label: 'Periodic Table & Chemistry', cat: 'Chemistry & Earth' },
+                  { label: 'Light, Mirrors & Lenses', cat: 'Physics & Machines' },
+                  { label: 'Cell Structure & Organelles', cat: 'Biology & Nature' },
+                  { label: 'Chandrayaan & Lunar Ice', cat: 'Space & Astronomy' },
+                  { label: 'Crop Production & Soil Science', cat: 'Environment & Agriculture' }
+                ].map((chip) => (
+                  <button
+                    key={chip.label}
+                    type="button"
+                    onClick={() => {
+                      setAiTopic(chip.label);
+                      setAiCategory(chip.cat);
+                    }}
+                    className="px-2 py-0.5 rounded-lg bg-page hover:bg-page-hover border border-border text-[11px] font-medium text-text-muted hover:text-text transition-all active:scale-95"
+                  >
+                    + {chip.label}
+                  </button>
+                ))}
+              </div>
             </div>
 
             <div>

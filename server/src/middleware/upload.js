@@ -20,18 +20,20 @@ const fileFilter = (req, file, cb) => {
     'image/webp',
     'image/gif',
     'image/svg+xml',
-    'application/pdf'
+    'application/pdf',
+    'application/x-pdf',
+    'application/vnd.pdf'
   ];
 
-  if (allowedMimes.includes(file.mimetype)) {
+  if (allowedMimes.includes(file.mimetype) || file.originalname.toLowerCase().endsWith('.pdf')) {
     cb(null, true);
   } else {
-    cb(new Error('Invalid file format. Only images (PNG, JPG, SVG, WEBP) and PDF files are allowed.'), false);
+    cb(new Error('Invalid file format. Only PDF files and images (PNG, JPG, SVG, WEBP) are allowed.'), false);
   }
 };
 
 export const upload = multer({
   storage,
-  limits: { fileSize: 10 * 1024 * 1024 }, // 10MB
+  limits: { fileSize: 100 * 1024 * 1024 }, // 100MB max support
   fileFilter
 });

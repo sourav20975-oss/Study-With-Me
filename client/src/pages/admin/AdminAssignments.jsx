@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { api } from '../../api/client.js';
+import { api, resolveAssetUrl } from '../../api/client.js';
 import { StatusBadge } from '../../components/common/StatusBadge.jsx';
 import { MathRenderer } from '../../components/common/MathRenderer.jsx';
 import {
@@ -338,6 +338,25 @@ export function AdminAssignments() {
     }
   };
 
+  const [isGeneratingDemo, setIsGeneratingDemo] = useState(false);
+
+  // Generate Demo Student Submission (for easy testing of grading CRUD)
+  const handleCreateDemoSubmission = async () => {
+    setIsGeneratingDemo(true);
+    try {
+      const res = await api.post('/admin/submissions/demo', {
+        assignmentId: selectedAsgFilter !== 'all' ? selectedAsgFilter : undefined
+      });
+      setSubmissions((prev) => [res.submission, ...prev]);
+      setActiveTab('submissions');
+      setSubStatusFilter('all');
+    } catch (err) {
+      alert(err.message || 'Failed to generate demo submission.');
+    } finally {
+      setIsGeneratingDemo(false);
+    }
+  };
+
   // Filter submissions
   const filteredSubmissions = submissions.filter((sub) => {
     if (subStatusFilter === 'submitted' && sub.status !== 'submitted') return false;
@@ -390,14 +409,27 @@ export function AdminAssignments() {
           </p>
         </div>
 
-        <button
-          type="button"
-          onClick={handleOpenCreateModal}
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-accent hover:bg-accent-hover text-white text-xs sm:text-sm font-bold transition-all shadow-sm active:scale-95 shrink-0 self-start sm:self-auto"
-        >
-          <Plus className="w-4 h-4 stroke-[2.5]" />
-          <span>New Homework Assignment</span>
-        </button>
+        <div className="flex flex-wrap items-center gap-2.5 self-start sm:self-auto">
+          <button
+            type="button"
+            onClick={handleCreateDemoSubmission}
+            disabled={isGeneratingDemo}
+            className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl border border-orange-200 bg-orange-50 hover:bg-orange-100 text-orange-800 text-xs sm:text-sm font-bold transition-all shadow-2xs active:scale-95 disabled:opacity-50"
+            title="Create a mock student submission to test grading"
+          >
+            <Sparkles className="w-4 h-4 text-orange-600" />
+            <span>{isGeneratingDemo ? 'Simulating...' : '+ Demo Student Submission'}</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={handleOpenCreateModal}
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-orange-500 hover:bg-orange-600 active:scale-95 text-white text-xs sm:text-sm font-bold transition-all shadow-sm shrink-0"
+          >
+            <Plus className="w-4 h-4 stroke-[2.5]" />
+            <span>New Homework Assignment</span>
+          </button>
+        </div>
       </div>
 
       {/* Overview Stats Bar */}
@@ -548,6 +580,15 @@ export function AdminAssignments() {
               <FileCheck className="w-10 h-10 mx-auto text-text-muted/50 stroke-[1.5]" />
               <p className="text-sm font-semibold">No homework submissions found matching the filter.</p>
               <p className="text-xs text-text-muted">Students will see assigned worksheets and submit their step-by-step notebook pictures here.</p>
+              <button
+                type="button"
+                onClick={handleCreateDemoSubmission}
+                disabled={isGeneratingDemo}
+                className="mt-3 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-orange-50 border border-orange-200 hover:bg-orange-100 text-orange-800 text-xs font-bold transition-all shadow-2xs active:scale-95 disabled:opacity-50"
+              >
+                <Sparkles className="w-4 h-4 text-orange-600" />
+                <span>{isGeneratingDemo ? 'Generating...' : 'Simulate a Student Submission to Test Grading'}</span>
+              </button>
             </div>
           ) : (
             <div className="space-y-4">
@@ -634,7 +675,7 @@ export function AdminAssignments() {
                               className="relative group rounded-xl overflow-hidden border border-border hover:border-accent shadow-2xs transition-all"
                             >
                               <img
-                                src={attUrl}
+                                src={resolveAssetUrl(attUrl)}
                                 alt={`Homework page ${aIdx + 1}`}
                                 className="h-28 w-28 object-cover group-hover:scale-105 transition-transform"
                               />
@@ -788,7 +829,7 @@ export function AdminAssignments() {
                           <span className="text-[11px] text-text-muted font-semibold">Worksheet Image:</span>
                           <button
                             type="button"
-                            onClick={() => setPreviewImage(asg.attachments[0])}
+                            onClick={() => setPreviewImage(resolveAssetUrl(asg.attachments[0]))}
                             className="text-xs font-bold text-accent hover:underline flex items-center gap-1"
                           >
                             <Eye className="w-3.5 h-3.5" />
@@ -989,7 +1030,7 @@ export function AdminAssignments() {
                 <div className="flex flex-wrap gap-2">
                   {asgForm.attachments.map((url, idx) => (
                     <div key={idx} className="relative group rounded-lg overflow-hidden border border-border">
-                      <img src={url} alt="Attachment" className="h-16 w-16 object-cover" />
+                      <img src={resolveAssetUrl(url)} alt="Attachment" className="h-16 w-16 object-cover" />
                       <button
                         type="button"
                         onClick={() => handleRemoveAttachment(url)}
@@ -1179,7 +1220,7 @@ export function AdminAssignments() {
             </div>
             <div className="p-3 overflow-auto flex items-center justify-center bg-black/90">
               <img
-                src={previewImage}
+                src={resolveAssetUrl(previewImage)}
                 alt="Enlarged view"
                 className="max-h-[75vh] max-w-full object-contain rounded-lg"
               />

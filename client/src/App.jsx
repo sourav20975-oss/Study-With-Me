@@ -23,6 +23,8 @@ import { ProgressView } from './pages/student/ProgressView.jsx';
 import { NewsView } from './pages/student/NewsView.jsx';
 import { NotificationsView } from './pages/student/NotificationsView.jsx';
 import { MoreMenu } from './pages/student/MoreMenu.jsx';
+import { PDFLibraryView } from './pages/student/PDFLibraryView.jsx';
+import { DailyMotivationView } from './pages/student/DailyMotivationView.jsx';
 
 // Admin Pages
 import { AdminDashboard } from './pages/admin/AdminDashboard.jsx';
@@ -33,6 +35,8 @@ import { AdminAIGenerator } from './pages/admin/AdminAIGenerator.jsx';
 import { AdminQuizzes } from './pages/admin/AdminQuizzes.jsx';
 import { AdminAssignments } from './pages/admin/AdminAssignments.jsx';
 import { AdminDoubts } from './pages/admin/AdminDoubts.jsx';
+import { AdminPDFLibrary } from './pages/admin/AdminPDFLibrary.jsx';
+import { AdminMotivation } from './pages/admin/AdminMotivation.jsx';
 import { AdminSettings } from './pages/admin/AdminSettings.jsx';
 
 function ProtectedRoute({ children, requiredRole }) {
@@ -89,6 +93,8 @@ export function App() {
             <Route path="revision" element={<RevisionNotebook />} />
             <Route path="bookmarks" element={<RevisionNotebook />} />
             <Route path="progress" element={<ProgressView />} />
+            <Route path="pdfs" element={<PDFLibraryView />} />
+            <Route path="motivation" element={<DailyMotivationView />} />
             <Route path="news" element={<NewsView />} />
             <Route path="notifications" element={<NotificationsView />} />
             <Route path="more" element={<MoreMenu />} />
@@ -106,11 +112,13 @@ export function App() {
             <Route index element={<AdminDashboard />} />
             <Route path="subjects" element={<AdminSubjects />} />
             <Route path="notes" element={<AdminNotes />} />
+            <Route path="pdfs" element={<AdminPDFLibrary />} />
             <Route path="questions" element={<AdminQuestionBank />} />
             <Route path="ai-question-generator" element={<AdminAIGenerator />} />
             <Route path="quizzes" element={<AdminQuizzes />} />
             <Route path="assignments" element={<AdminAssignments />} />
             <Route path="doubts" element={<AdminDoubts />} />
+            <Route path="motivation" element={<AdminMotivation />} />
             <Route path="news" element={<NewsView />} />
             <Route path="analytics" element={<AdminDashboard />} />
             <Route path="settings" element={<AdminSettings />} />

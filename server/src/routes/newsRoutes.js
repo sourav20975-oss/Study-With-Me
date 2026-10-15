@@ -1,7 +1,7 @@
 import express from 'express';
 import { store } from '../db/store.js';
 import { authenticate, requireRole } from '../middleware/auth.js';
-import { generateQuestionsWithAI } from '../services/aiService.js';
+import { generateQuestionsWithAI, generateScienceArticleWithAI } from '../services/aiService.js';
 
 const router = express.Router();
 
@@ -172,26 +172,10 @@ router.post('/admin/news/:id/toggle-publish', authenticate, requireRole('admin')
 router.post('/admin/news/ai-generate', authenticate, requireRole('admin'), async (req, res) => {
   try {
     const { topic = 'Space Science Exploration', category = 'Space & Astronomy' } = req.body;
-
-    const draft = {
-      title: `${topic} — ICSE Class 8 Science Spotlight`,
-      category: category,
-      description: `A fascinating look into how ${topic} applies to our daily science concepts, forces, and natural phenomena.`,
-      content: `### The Science of ${topic}
-Exploring how ${topic} connects directly to our ICSE Class 8 curriculum.
-
-#### Key Principles:
-1. **Core Concept:** Understanding the fundamental physics and biological laws at play.
-2. **Real-world Significance:** How modern Indian and international scientists utilize this technology.
-3. **Did You Know?** Discoveries in this field continue to transform energy, medicine, and planetary astronomy!`,
-      image: 'https://images.unsplash.com/photo-1507413245164-6160d8298b31?q=80&w=800&auto=format&fit=crop',
-      source: 'Tutor AI Science Lab',
-      readTimeMinutes: 3,
-      status: 'draft'
-    };
-
-    res.json({ article: draft });
+    const article = await generateScienceArticleWithAI({ topic, category });
+    res.json({ article });
   } catch (err) {
+    console.error('Failed to generate AI article:', err);
     res.status(500).json({ error: 'Failed to generate article: ' + err.message });
   }
 });

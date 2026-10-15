@@ -61,6 +61,42 @@
   padding: 6px 0;
 }
 
+/* Ensure strong and bold elements are prominent and distinct */
+.math-rendered-content strong,
+.math-rendered-content b {
+  font-weight: 800;
+  color: #0F172A;
+}
+
+.math-rendered-content em,
+.math-rendered-content i {
+  font-style: italic;
+  color: #1E293B;
+}
+
+.math-rendered-content table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* KaTeX \boxed formulas and stretchy containers fix against CSS resets */
+.katex .fbox,
+.katex .fcolorbox {
+  box-sizing: border-box !important;
+  border: 0.04em solid currentColor !important;
+}
+
+.katex .katex-stretchy {
+  width: 100% !important;
+  display: block !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+}
+
+.katex .katex-stretchy.fbox {
+  border: 0.04em solid currentColor !important;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
@@ -142,3 +178,66 @@
 .pb-safe {
   padding-bottom: calc(5rem + env(safe-area-inset-bottom, 16px));
 }
+
+/* ----------------------------------------------------
+   ANIMATED CHART KEYFRAMES & UTILITIES
+---------------------------------------------------- */
+@keyframes chartLineDraw {
+  0% {
+    stroke-dashoffset: 1200;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes chartBarGrow {
+  0% {
+    transform: scaleY(0);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes chartFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes chartPulseGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 4px rgba(249, 115, 22, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba(249, 115, 22, 0.8));
+  }
+}
+
+.animate-chart-line {
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+  animation: chartLineDraw 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-chart-bar {
+  transform-origin: bottom;
+  animation: chartBarGrow 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-chart-fade {
+  animation: chartFadeIn 0.6s ease-out forwards;
+}
+
+.animate-chart-glow {
+  animation: chartPulseGlow 2.5s infinite ease-in-out;
+}
+
