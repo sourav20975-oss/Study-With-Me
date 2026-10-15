@@ -4,13 +4,12 @@
   "description": "StudySathi — ICSE Class 8 Narayana Academic Tuition Platform",
   "private": true,
   "scripts": {
-    "install:all": "npm install && cd server && npm install && cd ../client && npm install",
     "server": "cd server && npm run dev",
     "client": "cd client && npm run dev",
     "dev": "node start-dev.mjs",
-    "build": "npm run build --prefix client",
+    "build": "node build.mjs",
     "start": "node server/src/app.js",
-    "render-build": "npm install --prefix server && npm install --prefix client && npm run build --prefix client"
+    "render-build": "node build.mjs"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
