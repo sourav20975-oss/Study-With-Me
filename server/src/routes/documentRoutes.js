@@ -250,4 +250,37 @@ router.post('/documents/:id/download', (req, res) => {
   res.json({ success: true, downloadCount: updatedCount });
 });
 
+/**
+ * GET /api/documents/:id/download-file
+ * Stream or download the document file directly
+ */
+router.get('/documents/:id/download-file', (req, res) => {
+  const doc = store.getById('documents', req.params.id);
+  if (!doc) {
+    return res.status(404).json({ error: 'Document not found.' });
+  }
+
+  // Increment download counter
+  const updatedCount = (doc.downloadCount || 0) + 1;
+  store.update('documents', doc.id, { downloadCount: updatedCount });
+
+  // If remote URL (e.g. Cloudinary)
+  if (doc.fileUrl && (doc.fileUrl.startsWith('http://') || doc.fileUrl.startsWith('https://'))) {
+    return res.redirect(doc.fileUrl);
+  }
+
+  const filename = path.basename(doc.fileUrl || '');
+  const filePath = path.join(config.uploadDir, filename);
+
+  if (!fs.existsSync(filePath)) {
+    return res.status(404).json({
+      error: 'PDF file is not present on the server storage.',
+      details: 'Please ensure files in server/data/uploads are deployed.'
+    });
+  }
+
+  const downloadName = doc.fileName || `${doc.title || 'document'}.pdf`;
+  res.download(filePath, downloadName);
+});
+
 export default router;

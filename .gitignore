@@ -18,9 +18,7 @@ dist/
 build/
 **/build/
 
-# Uploads & Temporary Server Data
-server/data/uploads/
-**/data/uploads/
+# Temporary Server Data
 *.tmp
 
 # Logs

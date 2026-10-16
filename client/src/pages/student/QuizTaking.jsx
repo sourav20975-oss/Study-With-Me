@@ -296,7 +296,7 @@ export function QuizTaking() {
           type="button"
           onClick={() => setCurrentIndex((prev) => Math.max(0, prev - 1))}
           disabled={currentIndex === 0}
-          className="px-3 py-2 rounded-md border border-border bg-surface text-text text-xs font-medium hover:bg-surface-muted transition-colors disabled:opacity-40 flex items-center gap-1.5"
+          className="px-4 py-2 rounded-lg border border-border bg-surface text-text text-xs font-medium hover:bg-surface-muted transition-all disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5 cursor-pointer"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>Previous</span>
@@ -307,7 +307,7 @@ export function QuizTaking() {
             <button
               type="button"
               onClick={() => setCurrentIndex((prev) => Math.min(quiz.questions.length - 1, prev + 1))}
-              className="px-4 py-2 rounded-md bg-accent text-white text-xs font-semibold hover:bg-accent-hover transition-colors flex items-center gap-1.5"
+              className="px-5 py-2 rounded-lg bg-accent text-white text-xs font-semibold hover:bg-accent-hover active:scale-95 transition-all flex items-center gap-1.5 shadow-sm shadow-accent/25 cursor-pointer"
             >
               <span>Next</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -316,7 +316,7 @@ export function QuizTaking() {
             <button
               type="button"
               onClick={() => setShowConfirmModal(true)}
-              className="px-5 py-2 rounded-md bg-success text-white text-xs font-semibold hover:opacity-90 transition-opacity flex items-center gap-1.5"
+              className="px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white text-xs font-bold shadow-md shadow-emerald-600/25 transition-all flex items-center gap-1.5 cursor-pointer"
             >
               <FileCheck className="w-4 h-4" />
               <span>Submit Test</span>
@@ -328,11 +328,11 @@ export function QuizTaking() {
       {/* Confirmation Modal before final submit */}
       {showConfirmModal && (
         <div className="fixed inset-0 z-50 bg-text/40 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-surface rounded-lg border border-border p-6 max-w-sm w-full space-y-4 shadow-md">
+          <div className="bg-surface rounded-xl border border-border p-6 max-w-sm w-full space-y-4 shadow-xl">
             <h3 className="font-editorial text-lg font-bold text-text">
               Submit Quiz?
             </h3>
-            <p className="text-xs text-text-muted">
+            <p className="text-xs text-text-muted leading-relaxed">
               You have answered <span className="font-semibold text-text">{answeredCount}</span> of{' '}
               <span className="font-semibold text-text">{quiz.questions.length}</span> questions.
               Once submitted, your answers will be scored immediately.
@@ -341,7 +341,7 @@ export function QuizTaking() {
               <button
                 type="button"
                 onClick={() => setShowConfirmModal(false)}
-                className="px-3 py-1.5 rounded-md border border-border text-xs text-text hover:bg-surface-muted"
+                className="px-3.5 py-2 rounded-lg border border-border text-xs font-medium text-text hover:bg-surface-muted transition-colors cursor-pointer"
               >
                 Keep Reviewing
               </button>
@@ -349,9 +349,10 @@ export function QuizTaking() {
                 type="button"
                 onClick={handleFinalSubmit}
                 disabled={isSubmitting}
-                className="px-4 py-1.5 rounded-md bg-accent text-white text-xs font-semibold hover:bg-accent-hover transition-colors disabled:opacity-50"
+                className="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white text-xs font-bold transition-all shadow-sm shadow-emerald-600/20 disabled:opacity-50 flex items-center gap-1.5 cursor-pointer"
               >
-                {isSubmitting ? 'Scoring...' : 'Confirm Submit'}
+                <FileCheck className="w-4 h-4" />
+                <span>{isSubmitting ? 'Scoring...' : 'Confirm & Submit'}</span>
               </button>
             </div>
           </div>

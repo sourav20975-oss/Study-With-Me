@@ -35,8 +35,15 @@ app.use(cors({
 app.use(express.json({ limit: '100mb' }));
 app.use(express.urlencoded({ extended: true, limit: '100mb' }));
 
-// Static uploads serving
-app.use('/uploads', express.static(config.uploadDir));
+// Static uploads serving with proper content headers for inline PDF reading & downloads
+app.use('/uploads', express.static(config.uploadDir, {
+  setHeaders: (res, filePath) => {
+    if (filePath.endsWith('.pdf')) {
+      res.setHeader('Content-Type', 'application/pdf');
+      res.setHeader('Content-Disposition', 'inline');
+    }
+  }
+}));
 
 // Health check
 app.get('/api/health', (req, res) => {

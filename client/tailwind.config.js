@@ -39,6 +39,11 @@ export default {
           hover: '#DC2626',
           soft: '#FEF2F2',
         },
+        success: {
+          DEFAULT: '#10B981',
+          hover: '#059669',
+          soft: '#ECFDF5',
+        },
         text: {
           DEFAULT: '#1E293B',
           muted: '#64748B',

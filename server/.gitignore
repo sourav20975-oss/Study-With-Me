@@ -7,8 +7,7 @@ node_modules/
 *.env
 !.env.example
 
-# Uploads & Data
-data/uploads/
+# Temporary Data
 *.tmp
 
 # Logs

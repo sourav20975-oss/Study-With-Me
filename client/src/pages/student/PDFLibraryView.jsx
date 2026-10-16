@@ -132,10 +132,9 @@ export function PDFLibraryView() {
   // Handle Download with counter increment
   const handleDownload = async (doc) => {
     try {
-      api.post(`/documents/${doc.id}/download`).catch(() => {});
-      const resolvedUrl = resolveAssetUrl(doc.fileUrl);
+      const downloadUrl = resolveAssetUrl(`/api/documents/${doc.id}/download-file`);
       const a = document.createElement('a');
-      a.href = resolvedUrl;
+      a.href = downloadUrl;
       a.download = doc.fileName || `${doc.title}.pdf`;
       a.target = '_blank';
       document.body.appendChild(a);
