@@ -52,7 +52,7 @@ export function AdminQuizzes() {
     loadData();
   }, []);
 
-  const handleCreateQuiz = async (publishNow = false) => {
+  const handleCreateQuiz = async (publishNow = true) => {
     if (!newTitle.trim() || !newSubjectId || selectedQuestionIds.length === 0) {
       alert('Please fill title, subject, and select at least one question.');
       return;
@@ -312,23 +312,23 @@ export function AdminQuizzes() {
               <button
                 type="button"
                 onClick={() => setShowCreateModal(false)}
-                className="px-3 py-1.5 rounded border border-border text-xs text-text"
+                className="px-3.5 py-1.5 rounded-lg border border-border text-xs text-text hover:bg-surface-muted transition-colors cursor-pointer"
               >
                 Cancel
               </button>
               <button
                 type="button"
                 onClick={() => handleCreateQuiz(false)}
-                className="px-3 py-1.5 rounded border border-border bg-page hover:bg-surface-muted text-xs font-semibold text-text"
+                className="px-3.5 py-1.5 rounded-lg border border-border bg-page hover:bg-surface-muted text-xs font-semibold text-text transition-colors cursor-pointer"
               >
-                Save Draft
+                Save as Draft
               </button>
               <button
                 type="button"
                 onClick={() => handleCreateQuiz(true)}
-                className="px-4 py-1.5 rounded bg-accent text-white text-xs font-semibold hover:bg-accent-hover"
+                className="px-4 py-1.5 rounded-lg bg-emerald-600 text-white text-xs font-bold hover:bg-emerald-700 shadow-sm shadow-emerald-600/25 transition-all cursor-pointer"
               >
-                Publish Now
+                Publish & Make Live ✨
               </button>
             </div>
           </div>

@@ -19,7 +19,7 @@ export async function getSeedData() {
     },
     {
       id: 'usr-student-1',
-      name: 'Aarav Sharma',
+      name: 'Aagrita Mishra',
       email: 'student@studysathi.com',
       passwordHash: studentPasswordHash,
       role: 'student',

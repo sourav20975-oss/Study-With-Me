@@ -14,7 +14,7 @@
     },
     {
       "id": "usr-student-1",
-      "name": "Aarav Sharma",
+      "name": "Aagrita Mishra",
       "email": "student@studysathi.com",
       "passwordHash": "$2a$10$ne6Fh0jy7Z7Cwu8Xiu0pf.FwI3tUUZdYB19Q28OycPzi6uUpk9L4.",
       "role": "student",
@@ -22,7 +22,7 @@
       "isActive": true,
       "createdAt": "2025-01-10T10:30:00.000Z",
       "lastLoginAt": "2026-10-15T05:35:40.733Z",
-      "updatedAt": "2026-10-15T05:35:40.733Z"
+      "updatedAt": "2026-10-17T17:05:43.237Z"
     }
   ],
   "subjects": [
@@ -996,6 +996,70 @@
       "createdBy": "usr-admin-1",
       "id": "qui-1792064598563-jdhr0",
       "createdAt": "2026-10-15T11:43:18.563Z"
+    },
+    {
+      "title": "Science Quiz -- Nature of Matter & Pure Substances",
+      "description": "Test your mastery on elements, compounds, homogeneous & heterogeneous mixtures, and separation techniques.",
+      "subjectId": "sub-science",
+      "chapterIds": [],
+      "questionRefs": [
+        {
+          "questionId": "que-1792064437104-m1dty",
+          "marks": 2,
+          "order": 1
+        },
+        {
+          "questionId": "que-1792064437107-jhjuw",
+          "marks": 2,
+          "order": 2
+        },
+        {
+          "questionId": "que-1792064437110-k3jkx",
+          "marks": 2,
+          "order": 3
+        },
+        {
+          "questionId": "que-1792064437113-jvh7o",
+          "marks": 2,
+          "order": 4
+        },
+        {
+          "questionId": "que-1792064437116-urvoc",
+          "marks": 2,
+          "order": 5
+        },
+        {
+          "questionId": "que-1792064437119-9yik2",
+          "marks": 2,
+          "order": 6
+        },
+        {
+          "questionId": "que-1792064437122-h7r1h",
+          "marks": 2,
+          "order": 7
+        },
+        {
+          "questionId": "que-1792064437124-8naxn",
+          "marks": 2,
+          "order": 8
+        },
+        {
+          "questionId": "que-1792064437136-29qje",
+          "marks": 2,
+          "order": 9
+        },
+        {
+          "questionId": "que-1792064437142-o337e",
+          "marks": 2,
+          "order": 10
+        }
+      ],
+      "durationSeconds": 900,
+      "attemptLimit": 3,
+      "status": "published",
+      "createdBy": "usr-admin-1",
+      "id": "qui-1792064598564-sci01",
+      "createdAt": "2026-10-15T12:00:00.000Z"
     }
   ],
   "assignments": [

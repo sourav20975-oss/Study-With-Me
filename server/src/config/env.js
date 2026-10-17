@@ -4,12 +4,15 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.join(__dirname, '../../.env') });
+dotenv.config({ path: path.join(__dirname, '../../../.env') });
 
 export const config = {
   port: process.env.PORT || 5000,
   jwtSecret: process.env.JWT_SECRET || 'studysathi-super-secret-key-calm-editorial-2025',
   jwtExpiresIn: '7d',
-  mongodbUri: process.env.MONGODB_URI || '',
+  mongodbUri:
+    process.env.MONGODB_URI ||
+    'mongodb+srv://sourav20975_db_user:fm8AZV7PZ3wqNB5t@cluster0.uhm0m1o.mongodb.net/studysathi?retryWrites=true&w=majority',
   corsOrigin: process.env.CORS_ORIGIN || 'http://localhost:5173',
   dataDir: path.join(__dirname, '../../data'),
   uploadDir: path.join(__dirname, '../../data/uploads'),

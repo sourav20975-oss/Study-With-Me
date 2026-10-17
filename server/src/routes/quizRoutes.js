@@ -228,7 +228,7 @@ router.post('/admin/quizzes', authenticate, requireRole('admin'), (req, res) => 
     questionRefs,
     durationSeconds: parseInt(durationSeconds) || 600,
     attemptLimit: parseInt(attemptLimit) || 3,
-    status: status || 'draft',
+    status: status || 'published',
     createdBy: req.user.id
   });
 
